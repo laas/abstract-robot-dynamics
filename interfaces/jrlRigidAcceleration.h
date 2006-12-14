@@ -5,7 +5,7 @@
  *   International Laboratory: Joint Japanese-French Robotics
  *   Laboratory (JRL)
  *
- *   Developed by Florent Lamiraux (LAAS-CNRS)
+ *   Author: Florent Lamiraux (LAAS-CNRS)
  *
  */
 

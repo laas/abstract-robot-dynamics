@@ -5,7 +5,7 @@
  *   International Laboratory: Joint Japanese-French Robotics
  *   Laboratory (JRL)
  *
- *   Developed by Florent Lamiraux (LAAS-CNRS)
+ *   Author: Florent Lamiraux (LAAS-CNRS)
  *
  */
 
@@ -80,19 +80,19 @@ public:
      \return the linear velocity \f${\bf v}\f$ of the origin of the joint frame
      and the angular velocity \f${\bf \omega}\f$ of the joint frame.
   */
-  virtual CjrlRigidVelocity getGetJointVelocity()=0;
+  virtual CjrlRigidVelocity jointVelocity()=0;
 
   /**
      \brief Get the acceleration of the joint.
 
      The acceleratoin is determined by the configuration of the robot and its first and second time derivative: \f$({\bf q},{\bf \dot{q}}, {\bf \ddot{q}})\f$.
   */
-  virtual CjrlRigidAcceleration getGetJointAcceleration()=0;
+  virtual CjrlRigidAcceleration jointAcceleration()=0;
 
   /**
      \brief Get the number of degrees of freedom of the joint.
   */
-  virtual unsigned int getNumberDof() const=0;
+  virtual unsigned int numberDof() const=0;
  	
 
   /**
@@ -118,12 +118,12 @@ public:
      \f]
      where \f${\bf v_i}\f$ and \f${\bf \omega_i}\f$ are respectively the linear and angular velocities of the joint 
      implied by the variation of degree of freedom \f$q_i\f$. The velocity of the joint returned by 
-     CjrlJoint::getGetJointVelocity can thus be obtained through the following formula:
+     CjrlJoint::jointVelocity can thus be obtained through the following formula:
      \f[
      \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}}
      \f]
   */
-  virual ublas::matrix getJacobianPositionJointWrtConfig() const = 0;
+  virual ublas::matrix jacobianPositionJointWrtConfig() const = 0;
 
   /**
      @}
