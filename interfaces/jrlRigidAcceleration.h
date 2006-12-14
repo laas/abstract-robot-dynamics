@@ -16,8 +16,8 @@
     \brief This class represents the acceleration of a rigid body.
 
     The acceleration is represented by
-    \li a linear acceleration vector (time derivative of the linear velocity vector) and
-    \li a rotation acceleration vector (the time derivative of the rotation velocity vector).
+    \li a linear acceleration vector \f${\bf \dot{v}}\f$ (time derivative of the linear velocity vector) and
+    \li a rotation acceleration vector \f${\bf \dot{\omega}}\f$ (the time derivative of the rotation velocity vector).
 */
 
 class CjrlRigidAcceleration {

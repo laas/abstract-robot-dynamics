@@ -16,8 +16,8 @@
     \brief This class represents the velocity of a rigid body.
 
     The velocity is represented by
-    \li a linear velocity vector and
-    \li a rotation velocity vector.
+    \li a linear velocity vector \f${\bf v}\f$ and
+    \li a rotation velocity vector \f${\bf \omega}\f$.
 */
 
 class CjrlRigidVelocity {

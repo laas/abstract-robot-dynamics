@@ -23,7 +23,7 @@
 
    The configuration of a robot is defined by a vector \f${\bf q}\f$ called the
    <b>configuration vector</b> and containing the values of each degree of
-   freedom.
+   freedom. The dimension of this vector is denoted by \f$n_{dof}\f$.
 
    The time derivative \f${\bf \dot{q}}\f$ of the configuration vector is called the <b>velocity vector</b>.
 

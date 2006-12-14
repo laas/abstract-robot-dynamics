@@ -73,9 +73,12 @@ public:
   virtual const matrix4d &currentTransformation() const=0;
 
   /**
-     \brief Get the velocity of the joint.
+     \brief Get the velocity \f$({\bf v}, {\bf \omega})\f$ of the joint.
 
      The velocity is determined by the configuration of the robot and its time derivative: \f$({\bf q},{\bf \dot{q}})\f$.
+     
+     \return the linear velocity \f${\bf v}\f$ of the origin of the joint frame
+     and the angular velocity \f${\bf \omega}\f$ of the joint frame.
   */
   virtual CjrlRigidVelocity getGetJointVelocity()=0;
 
@@ -91,6 +94,36 @@ public:
   */
   virtual unsigned int getNumberDof() const=0;
  	
+
+  /**
+     @}
+  */
+
+  /**
+     \name Jacobian functions wrt configuration.
+     @{
+  */
+
+  /**
+     \brief Get the Jacobian matrix of the joint position wrt the robot configuration.
+
+     The corresponding computation can be done by the robot for each of its joints or by the joint.
+     
+     \return a matrix \f$J \in {\bf R}^{6\times n_{dof}}\f$ defined by 
+     \f[
+     J = \left(\begin{array}{llll}
+     {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof}}} \\
+     {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof}}}
+     \end{array}\right)
+     \f]
+     where \f${\bf v_i}\f$ and \f${\bf \omega_i}\f$ are respectively the linear and angular velocities of the joint 
+     implied by the variation of degree of freedom \f$q_i\f$. The velocity of the joint returned by 
+     CjrlJoint::getGetJointVelocity can thus be obtained through the following formula:
+     \f[
+     \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}}
+     \f]
+  */
+  virual ublas::matrix getJacobianPositionJointWrtConfig() const = 0;
 
   /**
      @}
