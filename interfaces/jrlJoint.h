@@ -105,15 +105,16 @@ public:
   */
 
   /**
-     \brief Get the Jacobian matrix of the joint position wrt the robot configuration.
+     \brief Get the Jacobian matrix of the joint position and orientation wrt the robot configuration.
+     Kinematical constraints from interaction with the environment are not taken into account for this computation.
 
      The corresponding computation can be done by the robot for each of its joints or by the joint.
      
      \return a matrix \f$J \in {\bf R}^{6\times n_{dof}}\f$ defined by 
      \f[
      J = \left(\begin{array}{llll}
-     {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof}}} \\
-     {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof}}}
+     {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof-6}}} \\
+     {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof-6}}}
      \end{array}\right)
      \f]
      where \f${\bf v_i}\f$ and \f${\bf \omega_i}\f$ are respectively the linear and angular velocities of the joint 
@@ -123,7 +124,18 @@ public:
      \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}}
      \f]
   */
-  virual ublas::matrix jacobianPositionJointWrtConfig() const = 0;
+  virtual ublas::matrix jacobianJointWrtConfig() const = 0;
+
+ /**
+     \brief Compute the joint's jacobian wrt the robot configuration.
+  */
+  virtual computeJacobianJointWrtConfig() = 0;
+
+ /**
+     \brief Get the jacobian of the point specified in local frame by inPointJointFrame.
+	
+  */
+  virtual ublas::matrix<double> jacobianPointWrtConfig(ublas::vector inPointJointFrame) const = 0;
 
   /**
      @}

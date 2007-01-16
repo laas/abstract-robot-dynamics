@@ -91,6 +91,30 @@ public:
   */
   virtual const Cjrl3dStraightLine& gaze() const = 0;
 
+  /** 
+      \brief Add a joint to the vector of fixed joints.
+       This Declares a joint as fixed in the world.
+  */
+  virtual addFixedJoint(CjrlJoint* inFixedJoint) = 0;
+
+ /** 
+      \brief Count joints that are fixed in the world.
+  */
+  virtual unsigned int countFixedJoints() const = 0;
+
+ /** 
+      \brief Remove a joint from the vector of fixed joints.
+       The input joint will no longer be considered fixed in the world.
+  */
+  virtual removeFixedJoint(CjrlJoint* inFixedJoint) = 0;
+
+ /** 
+      \brief Return the fixed joint at rank inRank 
+  */
+  virtual const CjrlJoint& fixedJoint(unsigned int inJointRank) const = 0;
+
+
+
   /**
      \@}
   */
