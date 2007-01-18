@@ -145,37 +145,37 @@ public:
   /**
      \brief Get the position of the center of mass.
   */
-  virtual const ublas::vector& positionCenterOfMass() = 0;
+  virtual const vector3d& positionCenterOfMass() = 0;
 
   /**
      \brief Get the velocity of the center of mass.
   */
-  virtual const ublas::vector& velocityCenterOfMass() = 0;
+  virtual const vector3d& velocityCenterOfMass() = 0;
 
   /**
      \brief Get the acceleration of the center of mass.
   */
-  virtual const ublas::vector& accelerationCenterOfMass() = 0;
+  virtual const vector3d& accelerationCenterOfMass() = 0;
 
   /**
      \brief Get the linear momentum of the robot.
   */
-  virtual const ublas::vector& linearMomentumRobot() = 0;
+  virtual const vector3d& linearMomentumRobot() = 0;
   
   /**
      \brief Get the time-derivative of the linear momentum.
   */
-  virtual const ublas::vector& derivativeLinearMomentum() = 0;
+  virtual const vector3d& derivativeLinearMomentum() = 0;
 
   /**
      \brief Get the angular momentum of the robot at the center of mass.
   */
-  virtual const ublas::vector& angularMomentumRobot() = 0;
+  virtual const vector3d& angularMomentumRobot() = 0;
   
   /**
      \brief Get the time-derivative of the angular momentum at the center of mass.
   */
-  virtual const ublas::vector& derivativeAngularMomentum() = 0;
+  virtual const vector3d& derivativeAngularMomentum() = 0;
 
   /**
      @}
