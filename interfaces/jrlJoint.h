@@ -62,6 +62,14 @@ public:
   */
   
   /**
+     \brief Get the initial position of the joint. 
+
+     The initial position of the joint is the position of the local frame of
+     the joint.
+  */
+  virtual const matrix4d& initialPosition() = 0;
+
+  /**
      \brief Get the current transformation of the joint.
      
      The current transformation of the joint is the transformation
