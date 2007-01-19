@@ -121,8 +121,8 @@ public:
      \return a matrix \f$J \in {\bf R}^{6\times n_{dof}}\f$ defined by 
      \f[
      J = \left(\begin{array}{llll}
-     {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof-6}}} \\
-     {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof-6}}}
+     {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof}}} \\
+     {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof}}}
      \end{array}\right)
      \f]
      where \f${\bf v_i}\f$ and \f${\bf \omega_i}\f$ are respectively the linear and angular velocities of the joint 
