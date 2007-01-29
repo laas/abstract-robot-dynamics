@@ -84,12 +84,14 @@ public:
 
      \note The gaze is defined as a straight line linked to the gaze joint.
   */
-  virtual void gaze(const Cjrl3dStraightLine& inStraightLine) = 0;
+  virtual void gaze(const vector3d& inStraightLine) = 0;
 
   /** 
       \brief Get the gaze orientation in the local frame of the gaze joint.
+      \return outOrigin a point on the gaze straight line,
+      \return outDirection the direction of the gaze joint.
   */
-  virtual const Cjrl3dStraightLine& gaze() const = 0;
+  virtual void gaze(vector3d& outOrigin, vector3d& outDirection) const = 0;
 
   /** 
       \brief Add a joint to the vector of fixed joints.
