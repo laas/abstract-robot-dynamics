@@ -137,13 +137,13 @@ public:
  /**
      \brief Compute the joint's jacobian wrt the robot configuration.
   */
-  virtual computeJacobianJointWrtConfig() = 0;
+  virtual void computeJacobianJointWrtConfig() = 0;
 
  /**
      \brief Get the jacobian of the point specified in local frame by inPointJointFrame.
 	
   */
-  virtual ublas::matrix<double> jacobianPointWrtConfig(vector3d inPointJointFrame) const = 0;
+  virtual vector3d jacobianPointWrtConfig(vector3d inPointJointFrame) const = 0;
 
   /**
      @}

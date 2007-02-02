@@ -19,6 +19,16 @@
     \li it provides pointers to the feet and hand joints,
     \li it provides pointers to the joint corresponding to the gaze,
     \li it computes the Zero Momentum Point.
+
+    A humanoid robot is often in contact with the environment through
+    one or both of its feet. Depending on the foot which is in contact
+    with the ground, some computations using the dynamic model of the
+    robot may differ. For this reason, the joints that are temporarily
+    in contact with the environment are called fixed joints.
+    
+    A joint can be defined temporarily fixed by calling
+    CjrlHumanoidDynamicRobot::addFixedJoint. The joint is released by calling 
+    CjrlHumanoidDynamicRobot::removeFixedJoint.
 */
 
 class CjrlHumanoidDynamicRobot : public CjrlDynamicRobot {

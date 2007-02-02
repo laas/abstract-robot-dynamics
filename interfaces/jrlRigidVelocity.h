@@ -25,6 +25,10 @@ public:
   /**
      \brief Constructor
   */
+  CjrlRigidVelocity() {};
+  /**
+     \brief Constructor
+  */
   CjrlRigidVelocity(const vector3d& inLinearVelocity, const vector3d& inRotationVelocity):
     attLinearVelocity(inLinearVelocity), attRotationVelocity(inRotationVelocity) {};
 
