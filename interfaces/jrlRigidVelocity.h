@@ -20,47 +20,47 @@
     \li a rotation velocity vector \f${\bf \omega}\f$.
 */
 
-class CjrlRigidVelocity {
+template <class V3> class CjrlRigidVelocity {
 public:
   /**
      \brief Constructor
   */
-  CjrlRigidVelocity() {};
+  CjrlRigidVelocity<V3>() {};
   /**
      \brief Constructor
   */
-  CjrlRigidVelocity(const vector3d& inLinearVelocity, const vector3d& inRotationVelocity):
+  CjrlRigidVelocity<V3>(const V3& inLinearVelocity, const V3& inRotationVelocity):
     attLinearVelocity(inLinearVelocity), attRotationVelocity(inRotationVelocity) {};
 
   /**
      Get the linear velocity vector.
   */
-  vector3d linearVelocity() {return attLinearVelocity;};
+  V3 linearVelocity() const {return attLinearVelocity;};
 
   /**
      Set the linear velocity vector.
   */
-  linearVelocity(vector3d inLinearVelocity) {attLinearVelocity = inLinearVelocity;};
+  linearVelocity(const V3& inLinearVelocity) {attLinearVelocity = inLinearVelocity;};
 
   /**
      Get the rotation velocity vector.
   */
-  vector3d rotationVelocity() {return attRotationVelocity;};
+  V3 rotationVelocity() const {return attRotationVelocity;};
 
   /**
      Set the rotation velocity vector.
   */
-  rotationVelocity(vector3d inRotationVelocity) {attRotationVelocity = inRotationVelocity;};
+  rotationVelocity(const V3& inRotationVelocity) {attRotationVelocity = inRotationVelocity;};
 
 private:
   /**
      \brief Linear velocity vector.
   */
-  vector3d attLinearVelocity;
+  V3 attLinearVelocity;
   /**
      \brief Angular velocity vector.
   */
-  vector3d attRotationVelocity;
+  V3 attRotationVelocity;
 };
 
 #endif

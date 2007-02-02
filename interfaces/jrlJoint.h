@@ -19,7 +19,8 @@
    and acceleration of a joint are defined by the configuration vector
    \f${\bf q}\f$ and its first and second derivatives.
 */
-class CjrlJoint {
+
+template <class Mnxp, class M4x4, class M3x3, class Vn, class V3> class CjrlJoint {
 public:
 
   /**
@@ -30,12 +31,12 @@ public:
   /**
      \brief Get a pointer to the parent joint (if any).
   */
-  virtual CjrlJoint& parentJoint() const=0;
+  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& parentJoint() const=0;
 
   /**
      \brief Add a child joint.
   */
-  virtual bool addChildJoint (const CjrlJoint& inJoint)=0;
+  virtual bool addChildJoint (const CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& inJoint)=0;
 
   /**
      \brief Get the number of children.
@@ -45,12 +46,12 @@ public:
   /**
      \brief  	Returns the child joint at the given rank.
   */
-  virtual const CjrlJoint& childJoint(unsigned int inJointRank) const=0;
+  virtual const CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& childJoint(unsigned int inJointRank) const=0;
 
   /**
      \brief Get a vector containing references of the joints between the rootJoint and this joint.
   */
-  virtual std::vector<CjrlJoint&> jointsFromRootToThis() const = 0;
+  virtual std::vector<CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>&> jointsFromRootToThis() const = 0;
 
   /**
      @}
@@ -67,7 +68,7 @@ public:
      The initial position of the joint is the position of the local frame of
      the joint.
   */
-  virtual const matrix4d& initialPosition() = 0;
+  virtual const M4x4& initialPosition() = 0;
 
   /**
      \brief Get the current transformation of the joint.
@@ -78,7 +79,7 @@ public:
      
      The current transformation is determined by the configuration \f${\bf q}\f$ of the robot.
   */
-  virtual const matrix4d &currentTransformation() const=0;
+  virtual const M4x4 &currentTransformation() const=0;
 
   /**
      \brief Get the velocity \f$({\bf v}, {\bf \omega})\f$ of the joint.
@@ -88,14 +89,14 @@ public:
      \return the linear velocity \f${\bf v}\f$ of the origin of the joint frame
      and the angular velocity \f${\bf \omega}\f$ of the joint frame.
   */
-  virtual CjrlRigidVelocity jointVelocity()=0;
+  virtual CjrlRigidVelocity<V3> jointVelocity()=0;
 
   /**
      \brief Get the acceleration of the joint.
 
      The acceleratoin is determined by the configuration of the robot and its first and second time derivative: \f$({\bf q},{\bf \dot{q}}, {\bf \ddot{q}})\f$.
   */
-  virtual CjrlRigidAcceleration jointAcceleration()=0;
+  virtual CjrlRigidAcceleration<V3> jointAcceleration()=0;
 
   /**
      \brief Get the number of degrees of freedom of the joint.
@@ -127,12 +128,12 @@ public:
      \f]
      where \f${\bf v_i}\f$ and \f${\bf \omega_i}\f$ are respectively the linear and angular velocities of the joint 
      implied by the variation of degree of freedom \f$q_i\f$. The velocity of the joint returned by 
-     CjrlJoint::jointVelocity can thus be obtained through the following formula:
+     CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>::jointVelocity can thus be obtained through the following formula:
      \f[
      \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}}
      \f]
   */
-  virtual ublas::matrix jacobianJointWrtConfig() const = 0;
+  virtual Mnxp jacobianJointWrtConfig() const = 0;
 
  /**
      \brief Compute the joint's jacobian wrt the robot configuration.
@@ -143,7 +144,7 @@ public:
      \brief Get the jacobian of the point specified in local frame by inPointJointFrame.
 	
   */
-  virtual vector3d jacobianPointWrtConfig(vector3d inPointJointFrame) const = 0;
+  virtual V3 jacobianPointWrtConfig(const V3& inPointJointFrame) const = 0;
 
   /**
      @}
