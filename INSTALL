@@ -1,18 +1,23 @@
+
 Installation instructions
+*************************
+
+untar the package
+  tar xvzf abstractrobotdynamics-x.y.tar.gz
+  cd abstractrobotdynamics-x.y
 
 Configuration
 -------------
-untar the package
-cd hppCore
-mkdir build
-cd build
-../configure 
+
+  mkdir build
+  cd build
+  ../configure 
 
 Compilation
 -----------
-make
+  make
 
 Installation
 ------------
-make install
+  make install
 
