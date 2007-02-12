@@ -139,7 +139,7 @@ public:
        \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}}
        \f]
     */
-    virtual Mnxp jacobianJointWrtConfig() const = 0;
+    virtual const Mnxp& jacobianJointWrtConfig() const = 0;
 
     /**
         \brief Compute the joint's jacobian wrt the robot configuration.
@@ -150,7 +150,7 @@ public:
         \brief Get the jacobian of the point specified in local frame by inPointJointFrame.
 
      */
-    virtual V3 jacobianPointWrtConfig(const V3& inPointJointFrame) const = 0;
+    virtual Mnxp jacobianPointWrtConfig(const V3& inPointJointFrame) const = 0;
 
     /**
        @}
