@@ -12,6 +12,7 @@
 #ifndef JRL_HUMANOID_DYNAMIC_ROBOT
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
+#include "jrlDynamicRobot.h"
 /** 
     \brief Abstract class that instantiate a humanoid robot with dynamics.
 
@@ -88,7 +89,7 @@ public:
   /**
      \brief Get gaze joint
   */
-  virtual Cjrljoint* gazeJoint() = 0;
+  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* gazeJoint() = 0;
 
   /**
      \brief Set the gaze in the local frame of the gaze joint.
@@ -108,7 +109,7 @@ public:
       \brief Add a joint to the vector of fixed joints.
        This Declares a joint as fixed in the world.
   */
-  virtual addFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
+  virtual void addFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
 
  /** 
       \brief Count joints that are fixed in the world.
@@ -119,7 +120,7 @@ public:
       \brief Remove a joint from the vector of fixed joints.
        The input joint will no longer be considered fixed in the world.
   */
-  virtual removeFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
+  virtual void removeFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
 
  /** 
       \brief Return the fixed joint at rank inRank 

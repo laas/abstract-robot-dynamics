@@ -27,7 +27,7 @@ public:
      \brief Constructor
   */
   CjrlRigidAcceleration<V3>(const V3& inLinearAcceleration, const V3& inRotationAcceleration):
-    attLinearAcceleration(inLinearAcceleration), attRotationAcceleration(inRotationAcceleration) {};
+    attLinearAcceleration(inLinearAcceleration), attRotationAcceleration(inRotationAcceleration) {}
 
   /**
      Get the linear acceleration vector.
@@ -37,17 +37,17 @@ public:
   /**
      Set the linear acceleration vector.
   */
-  linearAcceleration(const V3& inLinearAcceleration) {attLinearAcceleration = inLinearAcceleration;};
+  void linearAcceleration(const V3& inLinearAcceleration) {attLinearAcceleration = inLinearAcceleration;}
 
   /**
      Get the rotation acceleration vector.
   */
-  V3 rotationAcceleration() const {return attRotationAcceleration;};
+  V3 rotationAcceleration() const {return attRotationAcceleration;}
 
   /**
      Set the rotation acceleration vector.
   */
-  rotationAcceleration(const V3& inRotationAcceleration) {attRotationAcceleration = inRotationAcceleration;};
+  void rotationAcceleration(const V3& inRotationAcceleration) {attRotationAcceleration = inRotationAcceleration;}
 
 private:
   /**

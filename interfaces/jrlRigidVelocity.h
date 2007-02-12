@@ -30,27 +30,27 @@ public:
      \brief Constructor
   */
   CjrlRigidVelocity<V3>(const V3& inLinearVelocity, const V3& inRotationVelocity):
-    attLinearVelocity(inLinearVelocity), attRotationVelocity(inRotationVelocity) {};
+    attLinearVelocity(inLinearVelocity), attRotationVelocity(inRotationVelocity) {}
 
   /**
      Get the linear velocity vector.
   */
-  V3 linearVelocity() const {return attLinearVelocity;};
+  V3 linearVelocity() const {return attLinearVelocity;}
 
   /**
      Set the linear velocity vector.
   */
-  linearVelocity(const V3& inLinearVelocity) {attLinearVelocity = inLinearVelocity;};
+  void linearVelocity(const V3& inLinearVelocity) {attLinearVelocity = inLinearVelocity;}
 
   /**
      Get the rotation velocity vector.
   */
-  V3 rotationVelocity() const {return attRotationVelocity;};
+  V3 rotationVelocity() const {return attRotationVelocity;}
 
   /**
      Set the rotation velocity vector.
   */
-  rotationVelocity(const V3& inRotationVelocity) {attRotationVelocity = inRotationVelocity;};
+  void rotationVelocity(const V3& inRotationVelocity) {attRotationVelocity = inRotationVelocity;}
 
 private:
   /**

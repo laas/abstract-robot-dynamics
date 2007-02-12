@@ -12,6 +12,7 @@
 #ifndef JRL_DYNAMIC_ROBOT
 #define JRL_DYNAMIC_ROBOT
 
+#include "jrlJoint.h"
 /**
    \brief Abstract class that instantiate a robot with dynamic properties.
 
