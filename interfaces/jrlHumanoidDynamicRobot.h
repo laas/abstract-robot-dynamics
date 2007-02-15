@@ -134,6 +134,11 @@ public:
      \return true if there is at least one fixed joint, false otherwise.  
   */
   virtual bool jacobianJointWrtFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inJoint, Mnxp& outJacobian) = 0;
+  
+  /** 
+  \brief Return the distance between the sole of a foot and its joint center
+   */
+  virtual double footHeight(unsigned int inJointRank) const = 0;
 
 
 

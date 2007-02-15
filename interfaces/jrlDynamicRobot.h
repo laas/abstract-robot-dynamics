@@ -15,190 +15,192 @@
 #include "jrlJoint.h"
 /**
    \brief Abstract class that instantiate a robot with dynamic properties.
-
+ 
    A robot is a kinematic chain of joints. To each joint is attached a body
    Each body has a mass and inertia matrix.
-
+ 
    The kinematic chain is recursively constructed by adding children
    to each joint. (See CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>).
-
+ 
    The configuration of a robot is defined by a vector \f${\bf q}\f$ called the
    <b>configuration vector</b> and containing the values of each degree of
    freedom. The dimension of this vector is denoted by \f$n_{dof}\f$.
-
+ 
    The time derivative \f${\bf \dot{q}}\f$ of the configuration vector is called the <b>velocity vector</b>.
-
+ 
    The time derivative \f${\bf \ddot{q}}\f$ of the velocity vector. is called the <b>acceleration vector</b>.
 */
 
-template <class Mnxp, class M4x4, class M3x3, class Vn, class V3> class CjrlDynamicRobot {
+template <class Mnxp, class M4x4, class M3x3, class Vn, class V3>
+class CjrlDynamicRobot
+{
 public:
-  /**
-     \name Kinematic chain
-     @{
-  */
+    /**
+       \name Kinematic chain
+       @{
+    */
 
-  /**
-     \brief Set the root joint of the robot.
-  */
-  virtual void rootJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& inJoint) = 0;
-  
-  /**
-     \brief Get the root joint of the robot.
-  */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* rootJoint() const = 0;
+    /**
+       \brief Set the root joint of the robot.
+    */
+    virtual void rootJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& inJoint) = 0;
 
-  /**
-     \brief Get a vector containing all the joints.
-  */
-  virtual std::vector< CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& > jointVector() = 0;
+    /**
+       \brief Get the root joint of the robot.
+    */
+    virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* rootJoint() const = 0;
 
-  /**
-     \brief Get the number of degrees of freedom of the robot.
-  */
-  virtual unsigned int numberDof() const = 0;
+    /**
+       \brief Get a vector containing all the joints.
+    */
+    virtual std::vector< CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& > jointVector() = 0;
 
-  /**
-     @}
-  */
+    /**
+       \brief Get the number of degrees of freedom of the robot.
+    */
+    virtual unsigned int numberDof() const = 0;
 
-  /** 
-      \name Configuration, velocity and acceleration
-  */
-  
-  /**
-     \brief Set the current configuration of the robot.  
+    /**
+       @}
+    */
 
-     \param inConfig the configuration vector \f${\bf q}\f$.
-     
-     \return true if success, false if failure (the dimension of the
-     input vector does not fit the number of degrees of freedom of the
-     robot).
-  */
-  virtual bool currentConfiguration(const Vn& inConfig) = 0;
+    /**
+        \name Configuration, velocity and acceleration
+    */
 
-  /**
-     \brief Get the current configuration of the robot.
+    /**
+       \brief Set the current configuration of the robot.  
 
-     \return the configuration vector \f${\bf q}\f$.
-  */
-  virtual const Vn& currentConfiguration() const = 0;
+       \param inConfig the configuration vector \f${\bf q}\f$.
+       
+       \return true if success, false if failure (the dimension of the
+       input vector does not fit the number of degrees of freedom of the
+       robot).
+    */
+    virtual bool currentConfiguration(const Vn& inConfig) = 0;
 
-  /**
-     \brief Set the current velocity of the robot.  
+    /**
+       \brief Get the current configuration of the robot.
 
-     \param inVelocity the velocity vector \f${\bf \dot{q}}\f$.
+       \return the configuration vector \f${\bf q}\f$.
+    */
+    virtual const Vn& currentConfiguration() const = 0;
 
-     \return true if success, false if failure (the dimension of the
-     input vector does not fit the number of degrees of freedom of the
-     robot).
-  */
-  virtual bool currentVelocity(const Vn& inVelocity) = 0;
+    /**
+       \brief Set the current velocity of the robot.  
 
-  /**
-     \brief Get the current velocity of the robot.
+       \param inVelocity the velocity vector \f${\bf \dot{q}}\f$.
 
-     \return the velocity vector \f${\bf \dot{q}}\f$.
-  */
-  virtual const Vn& currentVelocity() const = 0;
-  /**
-     \brief Set the current acceleration of the robot.  
+       \return true if success, false if failure (the dimension of the
+       input vector does not fit the number of degrees of freedom of the
+       robot).
+    */
+    virtual bool currentVelocity(const Vn& inVelocity) = 0;
 
-     \param inAcceleration the acceleration vector \f${\bf \ddot{q}}\f$.
+    /**
+       \brief Get the current velocity of the robot.
 
-     \return true if success, false if failure (the dimension of the
-     input vector does not fit the number of degrees of freedom of the
-     robot).
-  */
-  virtual bool currentAcceleration(const Vn& inAcceleration) = 0;
+       \return the velocity vector \f${\bf \dot{q}}\f$.
+    */
+    virtual const Vn& currentVelocity() const = 0;
+    /**
+       \brief Set the current acceleration of the robot.  
 
-  /**
-     \brief Get the current acceleration of the robot.
+       \param inAcceleration the acceleration vector \f${\bf \ddot{q}}\f$.
 
-     \return the acceleration vector \f${\bf \ddot{q}}\f$.
-  */
-  virtual const Vn& currentAcceleration() const = 0;
+       \return true if success, false if failure (the dimension of the
+       input vector does not fit the number of degrees of freedom of the
+       robot).
+    */
+    virtual bool currentAcceleration(const Vn& inAcceleration) = 0;
 
- /**
-     @}
-  */
+    /**
+       \brief Get the current acceleration of the robot.
 
-  /** 
-      \name Forward kinematics and dynamics
-  */
-  
-  /**
-     \brief Compute forward kinematics.
+       \return the acceleration vector \f${\bf \ddot{q}}\f$.
+    */
+    virtual const Vn& currentAcceleration() const = 0;
 
-     Update the position, velocity and accelerations of each
-     joint wrt \f${\bf {q}}\f$, \f${\bf \dot{q}}\f$, \f${\bf \ddot{q}}\f$.
+    /**
+        @}
+     */
 
-  */
-  virtual bool computeForwardKinematics() = 0;
+    /**
+        \name Forward kinematics and dynamics
+    */
 
-  /**
-     \brief Compute the dynamics of the center of mass.
+    /**
+       \brief Compute forward kinematics.
 
-     Compute the linear and  angular momentum and their time derivatives, at the center of mass.
-  */
-  virtual bool computeCenterOfMassDynamics() = 0;
+       Update the position, velocity and accelerations of each
+       joint wrt \f${\bf {q}}\f$, \f${\bf \dot{q}}\f$, \f${\bf \ddot{q}}\f$.
 
-  /**
-     \brief Get the position of the center of mass.
-  */
-  virtual const V3& positionCenterOfMass() = 0;
+    */
+    virtual bool computeForwardKinematics() = 0;
 
-  /**
-     \brief Get the velocity of the center of mass.
-  */
-  virtual const V3& velocityCenterOfMass() = 0;
+    /**
+       \brief Compute the dynamics of the center of mass.
 
-  /**
-     \brief Get the acceleration of the center of mass.
-  */
-  virtual const V3& accelerationCenterOfMass() = 0;
+       Compute the linear and  angular momentum and their time derivatives, at the center of mass.
+    */
+    virtual bool computeCenterOfMassDynamics() = 0;
 
-  /**
-     \brief Get the linear momentum of the robot.
-  */
-  virtual const V3& linearMomentumRobot() = 0;
-  
-  /**
-     \brief Get the time-derivative of the linear momentum.
-  */
-  virtual const V3& derivativeLinearMomentum() = 0;
+    /**
+       \brief Get the position of the center of mass.
+    */
+    virtual const V3& positionCenterOfMass() = 0;
 
-  /**
-     \brief Get the angular momentum of the robot at the center of mass.
-  */
-  virtual const V3& angularMomentumRobot() = 0;
-  
-  /**
-     \brief Get the time-derivative of the angular momentum at the center of mass.
-  */
-  virtual const V3& derivativeAngularMomentum() = 0;
+    /**
+       \brief Get the velocity of the center of mass.
+    */
+    virtual const V3& velocityCenterOfMass() = 0;
 
-  /**
-     @}
-  */
+    /**
+       \brief Get the acceleration of the center of mass.
+    */
+    virtual const V3& accelerationCenterOfMass() = 0;
 
-  /** 
-      \name Jacobian fonctions
-  */
+    /**
+       \brief Get the linear momentum of the robot.
+    */
+    virtual const V3& linearMomentumRobot() = 0;
 
-  /**
-     \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-  */
-  virtual void computeJacobianCenterOfMass() = 0;
+    /**
+       \brief Get the time-derivative of the linear momentum.
+    */
+    virtual const V3& derivativeLinearMomentum() = 0;
 
-  /**
-     \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-  */
-  virtual const Mnxp& jacobianCenterOfMass() const = 0;
+    /**
+       \brief Get the angular momentum of the robot at the center of mass.
+    */
+    virtual const V3& angularMomentumRobot() = 0;
 
-  /**
-     @}
-  */
+    /**
+       \brief Get the time-derivative of the angular momentum at the center of mass.
+    */
+    virtual const V3& derivativeAngularMomentum() = 0;
+
+    /**
+       @}
+    */
+
+    /**
+        \name Jacobian fonctions
+    */
+
+    /**
+       \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+    */
+    virtual void computeJacobianCenterOfMass() = 0;
+
+    /**
+       \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+    */
+    virtual const Mnxp& jacobianCenterOfMass() const = 0;
+
+    /**
+       @}
+    */
 };
 
 
