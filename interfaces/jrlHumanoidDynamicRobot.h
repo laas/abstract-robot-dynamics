@@ -138,7 +138,7 @@ public:
   /** 
   \brief Return the distance between the sole of a foot and its joint center
    */
-  virtual double footHeight(unsigned int inJointRank) const = 0;
+  virtual double footHeight() const = 0;
 
 
 
