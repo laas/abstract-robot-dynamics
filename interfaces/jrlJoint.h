@@ -57,7 +57,7 @@ public:
     /**
        \brief Get a vector containing references of the joints between the rootJoint and this joint.
     */
-    virtual std::vector<CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>&> jointsFromRootToThis() const = 0;
+    virtual std::vector<CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3> *> jointsFromRootToThis() const = 0;
 
     /**
        @}

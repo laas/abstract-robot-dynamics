@@ -17,6 +17,8 @@ template <class Mnxp, class M4x4, class M3x3, class Vn, class V3> class CjrlJoin
 template <class Mnxp, class M4x4, class M3x3, class Vn, class V3>
 class CjrlBody
 {
+ public:
+
     /**
        \brief Get position of center of mass in joint local reference frame.
     */

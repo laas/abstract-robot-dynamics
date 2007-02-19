@@ -53,7 +53,7 @@ public:
     /**
        \brief Get a vector containing all the joints.
     */
-    virtual std::vector< CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& > jointVector() = 0;
+    virtual std::vector< CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3> * > jointVector() = 0;
 
     /**
        \brief Get the number of degrees of freedom of the robot.
