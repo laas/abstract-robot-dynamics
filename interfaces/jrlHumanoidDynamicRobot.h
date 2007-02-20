@@ -40,6 +40,16 @@ public:
   */
 
   /**
+     \brief Set the pointer to the waist.
+  */
+  virtual void waist(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inWaist) = 0;
+
+  /**
+      \brief Get a pointer to the waist.
+  */
+  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* waist() = 0;
+
+  /**
      \brief Set the pointer to the left hand joint.
   */
   virtual void leftHand(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inLeftHand) = 0;
