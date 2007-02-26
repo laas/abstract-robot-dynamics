@@ -12,7 +12,11 @@
 #ifndef JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 #define JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 
-template <CdynamicRobot, ChumanoidDynamicRobot, CjointFreeflyer, CjointRotation, CjointTranslation, Cbody, Mnxp, M4x4, M3x3, Vn, V3> 
+#include "jrlHumanoidDynamicRobot.h"
+
+template <class CdynamicRobot, class ChumanoidDynamicRobot, class CjointFreeflyer, 
+  class CjointRotation, class CjointTranslation, class Cbody, class Mnxp, class M4x4, class M3x3, class Vn, 
+  class V3> 
   class CjrlRobotDynamicsObjectConstructor
 {
 public:
@@ -50,7 +54,7 @@ public:
   /**
      \brief Construct and return a pointer to a body
   */
-  static CjrlBody* createBody() {return new Cbody();}
+  static CjrlBody<Mnxp,M4x4,M3x3,Vn,V3>* createBody() {return new Cbody();}
 };
 
 #endif
