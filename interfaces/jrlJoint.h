@@ -109,6 +109,11 @@ public:
     */
     virtual unsigned int numberDof() const=0;
 
+    /**
+       \brief Returns the rank of the Joint in the state vector.
+       If the Joint has several dimensions, it is the rank of the first dimension.
+    */
+    inline const unsigned int & rankInConfiguration() const=0;
 
     /**
        @}
