@@ -38,6 +38,16 @@ class CjrlBody
        \brief Set inertia matrix.
     */
     virtual void inertiaMatrix(const M3x3& inInertiaMatrix) = 0;
+    
+    /**
+    \brief Get mass.
+     */
+    virtual double mass() const = 0;
+
+    /**
+    \brief Set mass.
+     */
+    virtual void mass(double inMass) = 0;
 
     /**
        \brief Get const pointer to the joint the body is attached to.
