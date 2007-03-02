@@ -114,6 +114,18 @@ public:
       \return outDirection the direction of the gaze joint.
   */
   virtual void gaze(V3& outOrigin, V3& outDirection) const = 0;
+  
+  /**
+      \brief Get a point on the gaze straight line
+   */
+  virtual V3& gazeOrigin()const = 0;
+  
+  /**
+      \brief Get the direction of gaze
+   */
+  virtual V3& gazeDirection()const = 0;
+
+
 
   /** 
       \brief Add a joint to the vector of fixed joints.
