@@ -144,6 +144,11 @@ public:
   */
   virtual void removeFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
 
+  /** 
+      \brief Clear the list of fixed joints
+   */
+  virtual void clearFixedJoints()=0;
+          
  /** 
       \brief Return the fixed joint at rank inRank 
   */
