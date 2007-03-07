@@ -13,10 +13,13 @@
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
 #include "jrlDynamicRobot.h"
+
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
+
 /** 
     \brief Abstract class that instantiate a humanoid robot with dynamics.
 
-    This class derives for CjrlDynamicRobot<Mnxp,M4x4,M3x3,Vn,V3> and instantiate properties specific to humanoid robots. 
+    This class derives for CjrlDynamicRobot and instantiate properties specific to humanoid robots. 
     \li it provides pointers to the feet and hand joints,
     \li it provides pointers to the joint corresponding to the gaze,
     \li it computes the Zero Momentum Point.
@@ -28,12 +31,11 @@
     in contact with the environment are called fixed joints.
     
     A joint can be defined temporarily fixed by calling
-    CjrlHumanoidDynamicRobot<Mnxp,M4x4,M3x3,Vn,V3>::addFixedJoint. The joint is released by calling 
-    CjrlHumanoidDynamicRobot<Mnxp,M4x4,M3x3,Vn,V3>::removeFixedJoint.
+    CjrlHumanoidDynamicRobot::addFixedJoint. The joint is released by calling 
+    CjrlHumanoidDynamicRobot::removeFixedJoint.
 */
 
-template <class Mnxp, class M4x4, class M3x3, class Vn, class V3> 
-class CjrlHumanoidDynamicRobot : public CjrlDynamicRobot<Mnxp,M4x4,M3x3,Vn,V3> {
+class CjrlHumanoidDynamicRobot : public CjrlDynamicRobot {
 public:
   /**
      \name Joints specific to humanoid robots
@@ -42,88 +44,88 @@ public:
   /**
      \brief Set the pointer to the waist.
   */
-  virtual void waist(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inWaist) = 0;
+  virtual void waist(CjrlJoint* inWaist) = 0;
 
   /**
       \brief Get a pointer to the waist.
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* waist() = 0;
+  virtual CjrlJoint* waist() = 0;
 
   /**
      \brief Set the pointer to the left hand joint.
   */
-  virtual void leftHand(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inLeftHand) = 0;
+  virtual void leftHand(CjrlJoint* inLeftHand) = 0;
 
   /** 
       \brief Get a pointer to the left hand.
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* leftHand() = 0;
+  virtual CjrlJoint* leftHand() = 0;
 
   /**
      \brief Set the pointer to the right hand joint.
   */
-  virtual void rightHand(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inRightHand) = 0;
+  virtual void rightHand(CjrlJoint* inRightHand) = 0;
 
   /** 
       \brief Get a pointer to the right hand.
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* rightHand() = 0;
+  virtual CjrlJoint* rightHand() = 0;
 
   /**
      \brief Set the pointer to the left foot joint.
   */
-  virtual void leftFoot(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inLeftFoot) = 0;
+  virtual void leftFoot(CjrlJoint* inLeftFoot) = 0;
 
   /** 
       \brief Get a pointer to the left foot.
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* leftFoot() = 0;
+  virtual CjrlJoint* leftFoot() = 0;
 
   /**
      \brief Set the pointer to the right foot joint.
   */
-  virtual void rightFoot(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inRightFoot) = 0;
+  virtual void rightFoot(CjrlJoint* inRightFoot) = 0;
 
   /** 
       \brief Get a pointer to the right foot.
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* rightFoot() = 0;
+  virtual CjrlJoint* rightFoot() = 0;
 
   /** 
       \brief Set gaze joint
       
       \note  For most humanoid robots, the gaze joint is the head.
   */
-  virtual void gazeJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inGazeJoint) = 0;
+  virtual void gazeJoint(CjrlJoint* inGazeJoint) = 0;
 
   /**
      \brief Get gaze joint
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* gazeJoint() = 0;
+  virtual CjrlJoint* gazeJoint() = 0;
 
   /**
      \brief Set the gaze in the local frame of the gaze joint.
 
      \note The gaze is defined as a straight line linked to the gaze joint.
   */
-  virtual void gaze(const V3& inStraightLine) = 0;
+  virtual void gaze(const vector3d& inStraightLine) = 0;
 
   /** 
       \brief Get the gaze orientation in the local frame of the gaze joint.
       \return outOrigin a point on the gaze straight line,
       \return outDirection the direction of the gaze joint.
   */
-  virtual void gaze(V3& outOrigin, V3& outDirection) const = 0;
+  virtual void gaze(const vector3d& outOrigin, const vector3d& outDirection) const = 0;
   
   /**
       \brief Get a point on the gaze straight line
    */
-  virtual V3& gazeOrigin()const = 0;
+  virtual const vector3d& gazeOrigin()const = 0;
   
   /**
       \brief Get the direction of gaze
    */
-  virtual V3& gazeDirection()const = 0;
+  virtual const vector3d& gazeDirection()const = 0;
 
 
 
@@ -131,7 +133,7 @@ public:
       \brief Add a joint to the vector of fixed joints.
        This Declares a joint as fixed in the world.
   */
-  virtual void addFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
+  virtual void addFixedJoint(CjrlJoint* inFixedJoint) = 0;
 
  /** 
       \brief Count joints that are fixed in the world.
@@ -142,7 +144,7 @@ public:
       \brief Remove a joint from the vector of fixed joints.
        The input joint will no longer be considered fixed in the world.
   */
-  virtual void removeFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inFixedJoint) = 0;
+  virtual void removeFixedJoint(CjrlJoint* inFixedJoint) = 0;
 
   /** 
       \brief Clear the list of fixed joints
@@ -152,7 +154,7 @@ public:
  /** 
       \brief Return the fixed joint at rank inRank 
   */
-  virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& fixedJoint(unsigned int inJointRank) const = 0;
+  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) const = 0;
 
  /**
     \brief Get the jacobian of a joint wrt to internal configuration variables assuming a joint is fixed.
@@ -160,7 +162,7 @@ public:
      Fixed joint is first fixed joint in vector.
      \return true if there is at least one fixed joint, false otherwise.  
   */
-  virtual bool jacobianJointWrtFixedJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* inJoint, Mnxp& outJacobian) = 0;
+  virtual bool jacobianJointWrtFixedJoint(CjrlJoint* inJoint, matrixNxP& outJacobian) = 0;
   
   /** 
   \brief Return the distance between the sole of a foot and its joint center
@@ -183,7 +185,7 @@ public:
   /**
      \brief Get the coordinates of the Zero Momemtum Point.
   */
-  virtual const V3& zeroMomentumPoint() const = 0;
+  virtual const vector3d& zeroMomentumPoint() const = 0;
 
 
   /**

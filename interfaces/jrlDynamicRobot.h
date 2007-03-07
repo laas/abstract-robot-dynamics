@@ -13,6 +13,9 @@
 #define JRL_DYNAMIC_ROBOT
 
 #include "jrlJoint.h"
+
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
+
 /**
    \brief Abstract class that instantiate a robot with dynamic properties.
  
@@ -20,7 +23,7 @@
    Each body has a mass and inertia matrix.
  
    The kinematic chain is recursively constructed by adding children
-   to each joint. (See CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>).
+   to each joint. (See CjrlJoint).
  
    The configuration of a robot is defined by a vector \f${\bf q}\f$ called the
    <b>configuration vector</b> and containing the values of each degree of
@@ -31,7 +34,6 @@
    The time derivative \f${\bf \ddot{q}}\f$ of the velocity vector. is called the <b>acceleration vector</b>.
 */
 
-template <class Mnxp, class M4x4, class M3x3, class Vn, class V3>
 class CjrlDynamicRobot
 {
 public:
@@ -43,17 +45,17 @@ public:
     /**
        \brief Set the root joint of the robot.
     */
-    virtual void rootJoint(CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>& inJoint) = 0;
+    virtual void rootJoint(CjrlJoint& inJoint) = 0;
 
     /**
        \brief Get the root joint of the robot.
     */
-    virtual CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3>* rootJoint() const = 0;
+    virtual CjrlJoint* rootJoint() const = 0;
 
     /**
        \brief Get a vector containing all the joints.
     */
-    virtual std::vector< CjrlJoint<Mnxp,M4x4,M3x3,Vn,V3> * > jointVector() = 0;
+    virtual std::vector< CjrlJoint* > jointVector() = 0;
 
     /**
        \brief Get the number of degrees of freedom of the robot.
@@ -77,14 +79,14 @@ public:
        input vector does not fit the number of degrees of freedom of the
        robot).
     */
-    virtual bool currentConfiguration(const Vn& inConfig) = 0;
+    virtual bool currentConfiguration(const vectorN& inConfig) = 0;
 
     /**
        \brief Get the current configuration of the robot.
 
        \return the configuration vector \f${\bf q}\f$.
     */
-    virtual const Vn& currentConfiguration() const = 0;
+    virtual const vectorN& currentConfiguration() const = 0;
 
     /**
        \brief Set the current velocity of the robot.  
@@ -95,14 +97,14 @@ public:
        input vector does not fit the number of degrees of freedom of the
        robot).
     */
-    virtual bool currentVelocity(const Vn& inVelocity) = 0;
+    virtual bool currentVelocity(const vectorN& inVelocity) = 0;
 
     /**
        \brief Get the current velocity of the robot.
 
        \return the velocity vector \f${\bf \dot{q}}\f$.
     */
-    virtual const Vn& currentVelocity() const = 0;
+    virtual const vectorN& currentVelocity() const = 0;
     /**
        \brief Set the current acceleration of the robot.  
 
@@ -112,14 +114,14 @@ public:
        input vector does not fit the number of degrees of freedom of the
        robot).
     */
-    virtual bool currentAcceleration(const Vn& inAcceleration) = 0;
+    virtual bool currentAcceleration(const vectorN& inAcceleration) = 0;
 
     /**
        \brief Get the current acceleration of the robot.
 
        \return the acceleration vector \f${\bf \ddot{q}}\f$.
     */
-    virtual const Vn& currentAcceleration() const = 0;
+    virtual const vectorN& currentAcceleration() const = 0;
 
     /**
         @}
@@ -148,37 +150,37 @@ public:
     /**
        \brief Get the position of the center of mass.
     */
-    virtual const V3& positionCenterOfMass() = 0;
+    virtual const vector3d& positionCenterOfMass() = 0;
 
     /**
        \brief Get the velocity of the center of mass.
     */
-    virtual const V3& velocityCenterOfMass() = 0;
+    virtual const vector3d& velocityCenterOfMass() = 0;
 
     /**
        \brief Get the acceleration of the center of mass.
     */
-    virtual const V3& accelerationCenterOfMass() = 0;
+    virtual const vector3d& accelerationCenterOfMass() = 0;
 
     /**
        \brief Get the linear momentum of the robot.
     */
-    virtual const V3& linearMomentumRobot() = 0;
+    virtual const vector3d& linearMomentumRobot() = 0;
 
     /**
        \brief Get the time-derivative of the linear momentum.
     */
-    virtual const V3& derivativeLinearMomentum() = 0;
+    virtual const vector3d& derivativeLinearMomentum() = 0;
 
     /**
        \brief Get the angular momentum of the robot at the center of mass.
     */
-    virtual const V3& angularMomentumRobot() = 0;
+    virtual const vector3d& angularMomentumRobot() = 0;
 
     /**
        \brief Get the time-derivative of the angular momentum at the center of mass.
     */
-    virtual const V3& derivativeAngularMomentum() = 0;
+    virtual const vector3d& derivativeAngularMomentum() = 0;
 
     /**
        @}
@@ -196,7 +198,7 @@ public:
     /**
        \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
     */
-    virtual const Mnxp& jacobianCenterOfMass() const = 0;
+    virtual const matrixNxP& jacobianCenterOfMass() const = 0;
 
     /**
        @}

@@ -12,6 +12,9 @@
 #ifndef JRL_RIGID_ACCELERATION_H
 #define JRL_RIGID_ACCELERATION_H
 
+
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
+
 /** 
     \brief This class represents the acceleration of a rigid body.
 
@@ -20,44 +23,47 @@
     \li a rotation acceleration vector \f${\bf \dot{\omega}}\f$ (the time derivative of the rotation velocity vector).
 */
 
-template <class V3>
 class CjrlRigidAcceleration {
 public:
   /**
      \brief Constructor
   */
-  CjrlRigidAcceleration<V3>(const V3& inLinearAcceleration, const V3& inRotationAcceleration):
-    attLinearAcceleration(inLinearAcceleration), attRotationAcceleration(inRotationAcceleration) {}
+  CjrlRigidAcceleration(const vector3d& inLinearAcceleration, const vector3d& inRotationAcceleration) {
+    attLinearAcceleration = inLinearAcceleration;
+    attRotationAcceleration = inRotationAcceleration;
+  };
+
 
   /**
      Get the linear acceleration vector.
   */
-  V3 linearAcceleration() const {return attLinearAcceleration;};
+  const vector3d& linearAcceleration() const {return attLinearAcceleration;};
 
   /**
      Set the linear acceleration vector.
-  */
-  void linearAcceleration(const V3& inLinearAcceleration) {attLinearAcceleration = inLinearAcceleration;}
+  .3
+*/
+  void linearAcceleration(const vector3d& inLinearAcceleration) {attLinearAcceleration = inLinearAcceleration;}
 
   /**
      Get the rotation acceleration vector.
   */
-  V3 rotationAcceleration() const {return attRotationAcceleration;}
+  const vector3d& rotationAcceleration() const {return attRotationAcceleration;}
 
   /**
      Set the rotation acceleration vector.
   */
-  void rotationAcceleration(const V3& inRotationAcceleration) {attRotationAcceleration = inRotationAcceleration;}
+  void rotationAcceleration(const vector3d& inRotationAcceleration) {attRotationAcceleration = inRotationAcceleration;}
 
 private:
   /**
      \brief Linear acceleration vector.
   */
-  V3 attLinearAcceleration;
+  vector3d attLinearAcceleration;
   /**
      \brief Angular acceleration vector.
   */
-  V3 attRotationAcceleration;
+  vector3d attRotationAcceleration;
 };
 
 #endif
