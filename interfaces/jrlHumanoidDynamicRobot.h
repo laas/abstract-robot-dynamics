@@ -115,17 +115,17 @@ public:
       \return outOrigin a point on the gaze straight line,
       \return outDirection the direction of the gaze joint.
   */
-  virtual void gaze(const vector3d& outOrigin, const vector3d& outDirection) const = 0;
+  virtual void gaze(vector3d& outOrigin, vector3d& outDirection) const = 0;
   
   /**
       \brief Get a point on the gaze straight line
    */
-  virtual const vector3d& gazeOrigin()const = 0;
+  virtual const vector3d& gazeOrigin() const = 0;
   
   /**
       \brief Get the direction of gaze
    */
-  virtual const vector3d& gazeDirection()const = 0;
+  virtual const vector3d& gazeDirection() const = 0;
 
 
 
@@ -154,7 +154,7 @@ public:
  /** 
       \brief Return the fixed joint at rank inRank 
   */
-  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) const = 0;
+  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) = 0;
 
  /**
     \brief Get the jacobian of a joint wrt to internal configuration variables assuming a joint is fixed.
