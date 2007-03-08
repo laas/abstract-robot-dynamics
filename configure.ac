@@ -5,14 +5,14 @@ dnl
 dnl   Author: Florent Lamiraux LAAS-CNRS
 dnl
 
-AC_INIT([abstractRobotDynamics],[1.0],[openrobots@laas.fr])
+AC_INIT([abstractRobotDynamics],[1.1],[openrobots@laas.fr])
 AC_PREREQ(2.59)
 
 AM_INIT_AUTOMAKE
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
 
-AC_PROG_CXX
+dnl Matrix Abstraction Layer
+PKG_CHECK_MODULES(MAL, [MatrixAbstractLayer >= 1.1])
 
 AC_OUTPUT(Makefile
 	interfaces/Makefile
