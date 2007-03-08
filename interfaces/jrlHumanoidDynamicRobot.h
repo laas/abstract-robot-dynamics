@@ -118,12 +118,12 @@ public:
   /**
       \brief Get a point on the gaze straight line
    */
-  virtual V3& gazeOrigin()const = 0;
+  virtual const V3& gazeOrigin()const = 0;
   
   /**
       \brief Get the direction of gaze
    */
-  virtual V3& gazeDirection()const = 0;
+  virtual const V3& gazeDirection()const = 0;
 
 
 
