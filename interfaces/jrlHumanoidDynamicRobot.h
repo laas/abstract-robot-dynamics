@@ -154,7 +154,7 @@ public:
  /** 
       \brief Return the fixed joint at rank inRank 
   */
-  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) = 0;
+  virtual const CjrlJoint& fixedJoint(unsigned int inJointRank) const = 0;
 
  /**
     \brief Get the jacobian of a joint wrt to internal configuration variables assuming a joint is fixed.
