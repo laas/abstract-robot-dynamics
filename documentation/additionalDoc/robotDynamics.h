@@ -6,16 +6,6 @@ a robot with dynamics.  The goal is to provide a standard within JRL
 developments in order to make packages dealing with humanoid robots
 compatible with each other.
 
-\section sec_template Template mechanism
-
-Many robotics functionalities use matrices and vectors. In order to avoid choosing one linear algebra package
-and the corresponding data-structure, the abstract interface classes are templated by the following classes:
-\li \code Mnxp \endcode for general size matrices,
-\li \code M4x4 \endcode for 4 by 4 matrices,
-\li \code M3x3 \endcode for 3 by 3 matrices,
-\li \code Vn \endcode for general size vectors
-\li \code V3 \endcode for vectors of dimension 3
-
 \section sec_howto How it works
 
 \image html interface.png "The goal of the abstract interface is to provide several implementations of the same functions through standardized classes and methods. Each implementation provides derived classes of each abstract class of the interface and implements the pure virtual methods. Users using the interfaces can choose any implementations by instantiating the template allocator." 
@@ -104,7 +94,7 @@ To solve this problem, we have defined a template class CjrlRobotDynamicsObjectC
 The user of the abstract interface only needs to write the following lines in his source code:
 \code
 typedef CjrlRobotDynamicsObjectConstructor 
-  <Cimpl1dynamicRobot, Cimpl1humanoidDynamicRobot, Cimpl1jointFreeflyer, Cimpl1jointRotation, Cimpl1jointTranslation, Cimpl1body, Mnxp, M4x4, M3x3, Vn, V3> CrobotDynamicConstructor;   
+  <Cimpl1dynamicRobot, Cimpl1humanoidDynamicRobot, Cimpl1jointFreeflyer, Cimpl1jointRotation, Cimpl1jointTranslation, Cimpl1body> CrobotDynamicConstructor;   
 \endcode
 This line is the only one that is specific to implementation 1 of the interface.
 
