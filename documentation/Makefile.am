@@ -16,9 +16,7 @@ EXTRA_DIST = \
 	pictures/interface.fig \
 	pictures/interface.png
 
-all: html
-
-install:
+install-data-hook: html
 	mkdir -p $(robotDynamicsDocdir)
 	$(INSTALL_DATA) html/* $(robotDynamicsDocdir)
 	mkdir -p $(robotDynamicsDocdir)/pictures
