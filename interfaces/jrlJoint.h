@@ -12,12 +12,13 @@
 #ifndef JRL_JOINT_H
 #define JRL_JOINT_H
 
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
+
 #include <vector>
 #include "jrlRigidAcceleration.h"
 #include "jrlRigidVelocity.h"
 #include "jrlBody.h"
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 
 /**
    \brief This class represents a robot joint.

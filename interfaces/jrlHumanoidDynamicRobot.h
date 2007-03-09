@@ -12,9 +12,9 @@
 #ifndef JRL_HUMANOID_DYNAMIC_ROBOT
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 #include "jrlDynamicRobot.h"
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 
 /** 
     \brief Abstract class that instantiate a humanoid robot with dynamics.

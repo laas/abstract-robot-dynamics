@@ -12,9 +12,9 @@
 #ifndef JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 #define JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 
+#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 #include "jrlHumanoidDynamicRobot.h"
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 
 
 template <class CdynamicRobot, class ChumanoidDynamicRobot, class CjointFreeflyer, 
