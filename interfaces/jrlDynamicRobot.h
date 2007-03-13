@@ -182,6 +182,10 @@ public:
     virtual const vector3d& derivativeAngularMomentum() = 0;
 
     /**
+    \brief Get the total mass of the robot
+    */
+    virtual double mass() const =0;
+    /**
        @}
     */
 
