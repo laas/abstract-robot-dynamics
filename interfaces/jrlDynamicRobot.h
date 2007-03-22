@@ -133,12 +133,35 @@ public:
     /**
     \brief Apply a configuration
 
-    This method computes the joints transformations and the robot center of mass according to the passed configuration vector.
+    Based on the entered configuration, this method computes:
+    for every joint:
+        the new transformation
+        the new position of the center of mass in world frame
+    for the robot
+        position of the center of mass in world frame
+        
     \return true if success, false if failure (the dimension of the
     input vector does not fit the number of degrees of freedom of the
     robot).
      */
     virtual bool applyConfiguration(const vectorN& inConfiguration) = 0;
+    /**
+    \brief Compute kinematics and dynamics following a finite difference scheme.
+
+    Based on previously stored values, this method computes:
+    for every joint:
+        linear velocity and acceleration
+        angular velocity and acceleration
+        linear momentum
+        angular momentum
+    for the robot
+        linear momentum
+        angular momentum
+        ZMP
+    
+    If the parameter 'reset' is set to true, the state of the robot is reset static in the current configuration
+     */
+    virtual void FiniteDifferenceStateUpdate(double inTimeStep, bool reset) = 0;
     
     /**
        \brief Compute forward kinematics.
