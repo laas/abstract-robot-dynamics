@@ -133,7 +133,7 @@ public:
     /**
     \brief Apply a configuration
 
-    This method updates the joints transformations only, according to the passed configuration vector.
+    This method computes the joints transformations and the robot center of mass according to the passed configuration vector.
     \return true if success, false if failure (the dimension of the
     input vector does not fit the number of degrees of freedom of the
     robot).
