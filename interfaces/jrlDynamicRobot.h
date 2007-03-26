@@ -158,10 +158,14 @@ public:
         linear momentum
         angular momentum
         ZMP
-    
-    If the parameter 'reset' is set to true, the state of the robot is reset static in the current configuration
      */
-    virtual void FiniteDifferenceStateUpdate(double inTimeStep, bool reset) = 0;
+    virtual void FiniteDifferenceStateUpdate(double inTimeStep) = 0;
+    
+    /**
+    \brief Set the robot in the static state described by the given configuration vector.
+    */
+    virtual void staticState(const vectorN& inConfiguration) =0;
+    
     
     /**
        \brief Compute forward kinematics.
