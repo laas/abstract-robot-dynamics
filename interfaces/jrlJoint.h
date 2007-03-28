@@ -58,7 +58,7 @@ public:
     virtual const CjrlJoint& childJoint(unsigned int inJointRank) const=0;
 
     /**
-       \brief Get a vector containing references of the joints between the rootJoint and this joint.
+       \brief Get a vector containing references of the joints between the rootJoint and this joint. The root Joint and this Joint are included in the vector.
     */
     virtual std::vector<CjrlJoint*> jointsFromRootToThis() const = 0;
     
@@ -84,6 +84,12 @@ public:
     */
     virtual const matrix4d& initialPosition() = 0;
 
+    /**
+    \brief Update this joint's transformation according to the DoF values extracted from the given robot configuration.
+    \return true if success, false if failure (the index returned by method rankInConfiguration is out of the bounds of input vector).
+     */
+    virtual bool updateTransformation(const vectorN& inDofVector) = 0;
+    
     /**
        \brief Get the current transformation of the joint.
        
