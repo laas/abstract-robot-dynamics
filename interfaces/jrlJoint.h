@@ -162,9 +162,10 @@ public:
 
     /**
         \brief Get the jacobian of the point specified in local frame by inPointJointFrame.
+    The output matrix outjacobian is automatically resized if necessary
 
      */
-    virtual matrixNxP jacobianPointWrtConfig(const vector3d& inPointJointFrame) const = 0;
+    virtual void getJacobianPointWrtConfig(const vector3d& inPointJointFrame, matrixNxP& outjacobian) const = 0;
 
     /**
        @}
