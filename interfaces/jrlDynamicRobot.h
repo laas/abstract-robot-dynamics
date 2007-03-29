@@ -55,6 +55,15 @@ public:
        \brief Get a vector containing all the joints.
     */
     virtual std::vector< CjrlJoint* > jointVector() = 0;
+    
+    /**
+        \brief Get the upper bound for ith dof.
+     */
+    virtual double upperBoundDof(unsigned int inRankInConfiguration) = 0;
+    /**
+        \brief Get the lower bound for ith dof.
+     */
+    virtual double lowerBoundDof(unsigned int inRankInConfiguration) = 0;
 
     /**
        \brief Get the number of degrees of freedom of the robot.
