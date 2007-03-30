@@ -55,7 +55,7 @@ public:
     /**
        \brief  	Returns the child joint at the given rank.
     */
-    virtual const CjrlJoint& childJoint(unsigned int inJointRank) const=0;
+    virtual CjrlJoint& childJoint(unsigned int inJointRank) const=0;
 
     /**
        \brief Get a vector containing references of the joints between the rootJoint and this joint. The root Joint and this Joint are included in the vector.
