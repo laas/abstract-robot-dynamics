@@ -103,13 +103,6 @@ public:
   */
   virtual CjrlJoint* gazeJoint() = 0;
 
-  /**
-     \brief Set the gaze in the local frame of the gaze joint.
-
-     \note The gaze is defined as a straight line linked to the gaze joint.
-  */
-  virtual void gaze(const vector3d& inStraightLine) = 0;
-
   /** 
       \brief Get the gaze orientation in the local frame of the gaze joint.
       \return outOrigin a point on the gaze straight line,
