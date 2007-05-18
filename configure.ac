@@ -13,6 +13,9 @@ AC_PROG_INSTALL
 
 dnl Matrix Abstraction Layer
 PKG_CHECK_MODULES(MAL, [MatrixAbstractLayer >= 1.2])
+AC_SUBST(MAL_CFLAGS)
+AC_SUBST(MAL_LIBS)
+
 
 AC_OUTPUT(Makefile
 	interfaces/Makefile

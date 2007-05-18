@@ -7,4 +7,5 @@ Name: @PACKAGE@
 Description: Abstract interface for robot dynamics
 Requires: MatrixAbstractLayer >= 1.1
 Version: @VERSION@
-Cflags: -I${includedir}
+Libs :-L${libdir} @MAL_LIBS@
+Cflags: -I${includedir} @MAL_CFLAGS@
