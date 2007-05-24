@@ -14,6 +14,7 @@
 
 #include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 #include "jrlDynamicRobot.h"
+#include "jrlHand.h"
 
 
 /** 
@@ -52,25 +53,46 @@ public:
   virtual CjrlJoint* waist() = 0;
 
   /**
-     \brief Set the pointer to the left hand joint.
+    \brief Set the pointer to the left wrist joint.
   */
-  virtual void leftHand(CjrlJoint* inLeftHand) = 0;
+  virtual void leftWrist(CjrlJoint* inLefWrist) = 0;
 
   /** 
-      \brief Get a pointer to the left hand.
+    \brief Get a pointer to the left wrist.
   */
-  virtual CjrlJoint* leftHand() = 0;
+  virtual CjrlJoint* leftWrist() = 0;
 
   /**
-     \brief Set the pointer to the right hand joint.
+    \brief Set the pointer to the right wrist joint.
   */
-  virtual void rightHand(CjrlJoint* inRightHand) = 0;
+  virtual void rightWrist(CjrlJoint* inRightWrist) = 0;
 
   /** 
-      \brief Get a pointer to the right hand.
+    \brief Get a pointer to the right wrist.
   */
-  virtual CjrlJoint* rightHand() = 0;
+  virtual CjrlJoint* rightWrist() = 0;
 
+  /**
+    \brief Get a pointer to the right hand
+  */
+  virtual CjrlHand* rightHand() = 0;
+  
+  /**
+  \brief Get a pointer to the left hand
+   */
+  virtual CjrlHand* leftHand() = 0;
+  
+  /**
+  \brief Get the hand clench value. This is a scalar value ranging between 0 and 1 which describes the hand clench (0 for open and 1 for closed hand)
+   */
+  virtual double getHandClench(CjrlHand* inHand) = 0;
+
+  /**
+    \brief Set the hand clench value. This is a scalar value ranging between 0 and 1 which describes the hand clench (0 for open and 1 for closed hand)
+  \return false if parameter 2 is out of range
+  */
+  virtual bool setHandClench(CjrlHand* inHand, double inClenchingValue) = 0;
+  
   /**
      \brief Set the pointer to the left foot joint.
   */

@@ -57,6 +57,7 @@ public:
      \brief Construct and return a pointer to a body
   */
   static CjrlBody* createBody() {return new Cbody();}
+
 };
 
 #endif

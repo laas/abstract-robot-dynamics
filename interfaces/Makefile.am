@@ -11,6 +11,7 @@ robotDynamics_HEADERS = \
 	jrlDynamicRobot.h \
 	jrlHumanoidDynamicRobot.h \
 	jrlJoint.h \
+	jrlHand.h \
 	jrlRigidAcceleration.h \
 	jrlRigidVelocity.h \
 	jrlRobotDynamicsObjectConstructor.h 
