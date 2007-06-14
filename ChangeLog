@@ -1,3 +1,9 @@
+jrl-dynamics version 1.3 released June 14, 2007
+	8. Added a the new class CjrlHand. It records the center a hand
+	and its important axis in the relevant wrist frame.
+	7. correct configure.ac to transfert flags and libs in pkgconfig
+	6. erase the dependance of *.in et *.m4 with git
+
 jrl-dynamics version 1.2 released May 14, 2007
 
 2007/03/09
