@@ -130,7 +130,7 @@ public:
       \return outOrigin a point on the gaze straight line,
       \return outDirection the direction of the gaze joint.
   */
-  virtual void gaze(vector3d& outOrigin, vector3d& outDirection) const = 0;
+  virtual void gaze(vector3d& outDirection, vector3d& outOrigin) const = 0;
   
   /**
       \brief Get a point on the gaze straight line
