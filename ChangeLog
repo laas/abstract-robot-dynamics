@@ -1,3 +1,9 @@
+jrl-dynamics version 1.4 released July 6, 2007
+	
+	9. (fumio) CjrlDynamicRotot::FiniteDifferenceStateUpdate() is
+	splitted into two functions. FiniteDifferenceStateEstimate() and
+	SaveCurrentStateAsPastState()
+	
 jrl-dynamics version 1.3 released June 14, 2007
 	8. Added a the new class CjrlHand. It records the center a hand
 	and its important axis in the relevant wrist frame.
