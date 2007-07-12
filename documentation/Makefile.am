@@ -21,6 +21,8 @@ install-data-hook: html
 	$(INSTALL_DATA) html/* $(robotDynamicsDocdir)
 	mkdir -p $(robotDynamicsDocdir)/pictures
 	$(INSTALL_DATA) $(srcdir)/pictures/* $(robotDynamicsDocdir)/pictures
+	mkdir -p $(datadir)/doc/doxytag
+	$(INSTALL_DATA) abstractRobotDynamics.doxytag $(datadir)/doc/doxytag
 
 html: robotDynamics.dox
 	doxygen $<
