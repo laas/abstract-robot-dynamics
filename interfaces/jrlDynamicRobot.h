@@ -66,6 +66,17 @@ public:
     virtual double lowerBoundDof(unsigned int inRankInConfiguration) = 0;
 
     /**
+        \brief Compute the upper bound for ith dof using other configuration values if possible.
+     */
+    virtual double upperBoundDof(unsigned int inRankInConfiguration,
+				 const vectorN& inConfig) = 0;
+    /**
+        \brief Compute the lower bound for ith dof using other configuration values if possible.
+     */
+    virtual double lowerBoundDof(unsigned int inRankInConfiguration,
+				 const vectorN& inConfig) = 0;
+
+    /**
        \brief Get the number of degrees of freedom of the robot.
     */
     virtual unsigned int numberDof() const = 0;
