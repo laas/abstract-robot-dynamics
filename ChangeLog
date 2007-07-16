@@ -1,3 +1,13 @@
+jrl-dynamics version 1.5 released July 16, 2007
+	
+	10. (fumio) add double CjrlDynamicRobot::upperBoundDof(int, const
+	vectorN&) and double CjrlDynamicRobot::upperBoundDof(int, const
+	vectorN&). They compute a joint angle limit using other joint
+	angles if possible.
+	9. (fumio) CjrlDynamicRotot::FiniteDifferenceStateUpdate() is
+	splitted into two functions. FiniteDifferenceStateEstimate() and
+	SaveCurrentStateAsPastState()
+
 jrl-dynamics version 1.4 released July 6, 2007
 	
 	9. (fumio) CjrlDynamicRotot::FiniteDifferenceStateUpdate() is
