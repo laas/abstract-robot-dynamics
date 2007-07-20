@@ -63,7 +63,8 @@ public:
     virtual std::vector<CjrlJoint*> jointsFromRootToThis() const = 0;
     
     /**
-    \brief Get the rank of this joint in the robot configuration vector
+    \brief Get the rank of this joint in the robot configuration vector.
+    If the Joint has several dimensions, it is the rank of the first dimension.
      */
     virtual unsigned int rankInConfiguration() const = 0;
 
