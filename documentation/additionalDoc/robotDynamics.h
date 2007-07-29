@@ -26,7 +26,7 @@ Let us assume that two implementations are available:
 //
 // Implementation 1 of dynamic robot
 //
-class Cimpl1DynamicRobot : public CjrlDynamicRobot<> {
+class Cimpl1DynamicRobot : public CjrlDynamicRobot {
 public:
   Cimpl1DynamicRobot(...);
   ...
@@ -35,7 +35,7 @@ public:
 //
 // Implementation 1 of joint
 //
-class Cimpl1JointRotation : public CjrlJoint<> {
+class Cimpl1JointRotation : public CjrlJoint {
 public:
   Cimpl1JointRotation(...);
   ...
@@ -44,7 +44,7 @@ public:
 //
 // Implementation 1 of body
 //
-class Cimpl1Body : public CjrlBody<> {
+class Cimpl1Body : public CjrlBody {
 public:
   Cimpl1Body(...);
   ...
@@ -54,7 +54,7 @@ public:
 //
 // Implementation 2 of dynamic robot
 //
-class Cimpl2DynamicRobot : public CjrlDynamicRobot<> {
+class Cimpl2DynamicRobot : public CjrlDynamicRobot {
 public:
   Cimpl2DynamicRobot(...);
   ...
@@ -63,7 +63,7 @@ public:
 //
 // Implementation 2 of joint
 //
-class Cimpl2JointRotation : public CjrlJoint<> {
+class Cimpl2JointRotation : public CjrlJoint {
 public:
   Cimpl2JointRotation(...);
   ...
@@ -72,7 +72,7 @@ public:
 //
 // Implementation 2 of body
 //
-class Cimpl2Body : public CjrlBody<> {
+class Cimpl2Body : public CjrlBody {
 public:
   Cimpl2Body(...);
   ...
@@ -80,11 +80,11 @@ public:
 \endcode
 To choose implementation 1, the user will create an object of class Cimpl1DynamicRobot:
 \code
-CjrlDynamicRobot<>* robot = new Cimpl1DynamicRobot();
+CjrlDynamicRobot* robot = new Cimpl1DynamicRobot();
 \endcode
 This seems very simple and reasonable. However, to build the kinematic chain of the robot, the user will then create joints, bodies and for each such operation, he will construct an object of implementation 1:
 \code
-CjrlJoint<>* joint = new Cimpl1JointRotation(inInitialPosition);
+CjrlJoint* joint = new Cimpl1JointRotation(inInitialPosition);
 CjlrBody* body = new Cimpl1Body();
 \endcode
 We now see that several instructions are specific to implementation 1. This makes it then more difficult to choose another implementation.
@@ -101,11 +101,11 @@ This line is the only one that is specific to implementation 1 of the interface.
 To create any object of implementation 1 of the abstract interface, the user indeed writes:
 
 \code
-CjrlDynamicRobot<>* robot = CrobotDynamicConstructor::createDynamicRobot();
+CjrlDynamicRobot* robot = CrobotDynamicConstructor::createDynamicRobot();
 
-CjrlJoint<>* joint = CrobotDynamicConstructor::createJointFreeflyer(inInitialPosition);
+CjrlJoint* joint = CrobotDynamicConstructor::createJointFreeflyer(inInitialPosition);
 
-CjrlJoint<>* joint = CrobotDynamicConstructor::createJointRotation(inInitialPosition);
+CjrlJoint* joint = CrobotDynamicConstructor::createJointRotation(inInitialPosition);
 \endcode
 where no reference of implementation 1 appears.
 
@@ -124,7 +124,26 @@ share his work with the user of the above section.
 \subsubsection derived Deriving abstract classes
 
 The developer of an implementation needs to derive the abstract classes of the interface and to implement the pure virtual methods.
-Some classes need to be derived into several concrete classes. For instance CjrlJoint<> should be derived into FREEFLYER, ROTATION and TRANSLATION joints.
+Some classes need to be derived into several concrete classes. For instance CjrlJoint should be derived into FREEFLYER, ROTATION and TRANSLATION joints.
+
+\subsubsection abstractRobotDynamics_exporting Exporting the name of the classes
+
+Let us assume that the package named <tt>impl1RobotDynamics</tt> provides an implementation of the abstract interface with:
+  \li Cimpl1DynamicRobot implements CjrlDynamicRobot,
+  \li Cimpl1HumanoidDynamicRobot implements CjrlHumanoidDynamicRobot,
+  \li Cimpl1FreeFlyerJoint implements a free-flyer joint deriving from CjrlJoint,
+  \li Cimpl1Rotation implements a rotation joint deriving from CjrlJoint,
+  \li Cimpl1Translation implements a translation joint deriving from CjrlJoint,
+
+In file <tt>impl1RobotDynamics.pc.in</tt>, the name of the above classes need to be exported by adding the following line:
+\code
+CimplDynamicRobot=Cimpl1DynamicRobot
+CimplHumanoidDynamicRobot=Cimpl1HumanoidDynamicRobot
+CimplJointFreeFlyer=Cimpl1FreeFlyerJoint
+CimplJointRotation=Cimpl1Rotation
+CimplJointTranslation=Cimpl1Translation
+\endcode
+This additonal information will enable <tt>pkg-config</tt> to know the name of the classes implementing the abstract interface.
 
 \subsubsection constructor Constructors
 
