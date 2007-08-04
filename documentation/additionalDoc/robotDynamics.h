@@ -6,7 +6,7 @@ a robot with dynamics.  The goal is to provide a standard within JRL
 developments in order to make packages dealing with humanoid robots
 compatible with each other.
 
-\section sec_howto How it works
+\section sec_howto Principle
 
 \image html interface.png "The goal of the abstract interface is to provide several implementations of the same functions through standardized classes and methods. Each implementation provides derived classes of each abstract class of the interface and implements the pure virtual methods. Users using the interfaces can choose any implementations by instantiating the template allocator." 
 
@@ -135,15 +135,29 @@ Let us assume that the package named <tt>impl1RobotDynamics</tt> provides an imp
   \li Cimpl1Rotation implements a rotation joint deriving from CjrlJoint,
   \li Cimpl1Translation implements a translation joint deriving from CjrlJoint,
 
-In file <tt>impl1RobotDynamics.pc.in</tt>, the name of the above classes need to be exported by adding the following line:
+To make these classes accessible to a user, the names of the classes should be exported in file <tt>impl1RobotDynamics/robotDynamicsImpl.h</tt>. This file should include the following line:
 \code
-CimplDynamicRobot=Cimpl1DynamicRobot
-CimplHumanoidDynamicRobot=Cimpl1HumanoidDynamicRobot
-CimplJointFreeFlyer=Cimpl1FreeFlyerJoint
-CimplJointRotation=Cimpl1Rotation
-CimplJointTranslation=Cimpl1Translation
+#ifndef ROBOT_DYNAMICS_IMPL_H
+#define ROBOT_DYNAMICS_IMPL_H
+
+/*
+  Include files defining implementation classes of the abstract interfaces
+ */
+#include "impl1RobotDynamics/impl1DynamicRobot.h"
+#include "impl1RobotDynamics/impl1HumanoidDynamicRobot.h"
+#include "impl1RobotDynamics/impl1FreeFlyerJoint.h"
+#include "impl1RobotDynamics/impl1Rotation.h"
+#include "impl1RobotDynamics/impl1Translation.h"
+
+typedef Cimpl1DynamicRobot CimplDynamicRobot;
+typedef Cimpl1HumanoidDynamicRobot CimplHumanoidDynamicRobot;
+typedef Cimpl1FreeFlyerJoint CimplJointFreeFlyer;
+typedef Cimpl1Rotation CimplJointRotation;
+typedef Cimpl1Translation CimplJointTranslation;
+
+#endif
 \endcode
-This additonal information will enable <tt>pkg-config</tt> to know the name of the classes implementing the abstract interface.
+Thus, by including this file, the user of the implementation has access to the definitions of the implementation classes and can use them without knowing the name of these classes.
 
 \subsubsection constructor Constructors
 
