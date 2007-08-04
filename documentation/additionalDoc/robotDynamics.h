@@ -131,9 +131,10 @@ Some classes need to be derived into several concrete classes. For instance Cjrl
 Let us assume that the package named <tt>impl1RobotDynamics</tt> provides an implementation of the abstract interface with:
   \li Cimpl1DynamicRobot implements CjrlDynamicRobot,
   \li Cimpl1HumanoidDynamicRobot implements CjrlHumanoidDynamicRobot,
-  \li Cimpl1FreeFlyerJoint implements a free-flyer joint deriving from CjrlJoint,
-  \li Cimpl1Rotation implements a rotation joint deriving from CjrlJoint,
-  \li Cimpl1Translation implements a translation joint deriving from CjrlJoint,
+  \li Cimpl1JointFreeFlyerJoint implements a free-flyer joint deriving from CjrlJoint,
+  \li Cimpl1JointRotation implements a rotation joint deriving from CjrlJoint,
+  \li Cimpl1JointTranslation implements a translation joint deriving from CjrlJoint,
+  \li Cimpl1Body implements CjrlBody,
 
 To make these classes accessible to a user, the names of the classes should be exported in file <tt>impl1RobotDynamics/robotDynamicsImpl.h</tt>. This file should include the following line:
 \code
@@ -151,9 +152,10 @@ To make these classes accessible to a user, the names of the classes should be e
 
 typedef Cimpl1DynamicRobot CimplDynamicRobot;
 typedef Cimpl1HumanoidDynamicRobot CimplHumanoidDynamicRobot;
-typedef Cimpl1FreeFlyerJoint CimplJointFreeFlyer;
-typedef Cimpl1Rotation CimplJointRotation;
-typedef Cimpl1Translation CimplJointTranslation;
+typedef Cimpl1JointFreeFlyerJoint CimplJointFreeFlyer;
+typedef Cimpl1JointRotation CimplJointRotation;
+typedef Cimpl1JointTranslation CimplJointTranslation;
+typedef Cimpl1Body CimplBody;
 
 #endif
 \endcode
