@@ -45,7 +45,7 @@ public:
     /**
        \brief Add a child joint.
     */
-    virtual bool addChildJoint (const CjrlJoint& inJoint)=0;
+    virtual bool addChildJoint (CjrlJoint& inJoint)=0;
 
     /**
        \brief Get the number of children.

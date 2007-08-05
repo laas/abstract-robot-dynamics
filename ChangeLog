@@ -1,3 +1,4 @@
+	13. Remove const in addChildJoint (const CjrlJoint& inJoint) in order to be able to modify joints in kinematic chain.
 	12. CjrlJoint::parentJoint() and CjrlJoint::childJoint(unsigned int inJointRank) return pointer to CjrlJoint instead of reference.
 	11. Added information for developers of implementation of abstract interface.
 	
