@@ -1,3 +1,4 @@
+	12. CjrlJoint::parentJoint() and CjrlJoint::childJoint(unsigned int inJointRank) return pointer to CjrlJoint instead of reference.
 	11. Added information for developers of implementation of abstract interface.
 	
 jrl-dynamics version 1.5 released July 16, 2007

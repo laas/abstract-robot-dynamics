@@ -149,6 +149,7 @@ To make these classes accessible to a user, the names of the classes should be e
 #include "impl1RobotDynamics/impl1FreeFlyerJoint.h"
 #include "impl1RobotDynamics/impl1Rotation.h"
 #include "impl1RobotDynamics/impl1Translation.h"
+#include "impl1RobotDynamics/impl1Body.h"
 
 typedef Cimpl1DynamicRobot CimplDynamicRobot;
 typedef Cimpl1HumanoidDynamicRobot CimplHumanoidDynamicRobot;

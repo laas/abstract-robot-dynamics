@@ -40,7 +40,7 @@ public:
     /**
        \brief Get a pointer to the parent joint (if any).
     */
-    virtual CjrlJoint& parentJoint() const=0;
+    virtual CjrlJoint* parentJoint() const=0;
 
     /**
        \brief Add a child joint.
@@ -55,7 +55,7 @@ public:
     /**
        \brief  	Returns the child joint at the given rank.
     */
-    virtual CjrlJoint& childJoint(unsigned int inJointRank) const=0;
+    virtual CjrlJoint* childJoint(unsigned int inJointRank) const=0;
 
     /**
        \brief Get a vector containing references of the joints between the rootJoint and this joint. The root Joint and this Joint are included in the vector.
