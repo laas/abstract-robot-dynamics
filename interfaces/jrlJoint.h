@@ -64,7 +64,7 @@ public:
     
     /**
     \brief Get the rank of this joint in the robot configuration vector.
-    If the Joint has several dimensions, it is the rank of the first dimension.
+    If the Joint has several degrees of freedom, it is the rank of the first degree of freedom.
      */
     virtual unsigned int rankInConfiguration() const = 0;
 
