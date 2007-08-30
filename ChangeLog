@@ -1,5 +1,12 @@
-	13. Remove const in addChildJoint (const CjrlJoint& inJoint) in order to be able to modify joints in kinematic chain.
-	12. CjrlJoint::parentJoint() and CjrlJoint::childJoint(unsigned int inJointRank) return pointer to CjrlJoint instead of reference.
+$Id: ChangeLog 2007/08/30 13:40:19 mallet $
+	
+jrl-dynamics version 1.6 released August 30, 2007
+
+	13. Remove const in addChildJoint (const CjrlJoint& inJoint) in
+	order to be able to modify joints in kinematic chain.
+	12. CjrlJoint::parentJoint() and CjrlJoint::childJoint(unsigned
+	int inJointRank) return pointer to CjrlJoint instead of
+	reference.
 	11. Added information for developers of implementation of abstract interface.
 	
 jrl-dynamics version 1.5 released July 16, 2007
