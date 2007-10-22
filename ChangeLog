@@ -1,4 +1,6 @@
-$Id: ChangeLog 2007/08/30 13:40:19 mallet $
+2007/10/22
+	14. Added method  bool initialize() in CjrlDynamicRobot in order to initialize 
+	    data-structure relative to dynamic computation once the kinematic tree is built.
 	
 jrl-dynamics version 1.6 released August 30, 2007
 

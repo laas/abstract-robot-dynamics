@@ -46,278 +46,292 @@
 class CjrlDynamicRobot
 {
 public:
-    /**
-       \name Kinematic chain
-       @{
-    */
+  /**
+     \name Initialization
+     @{
+  */
+  
+  /**
+     \brief Initialize data-structure necessary to dynamic computations
+     This function should be called after building the tree of joints.
+  */
+  virtual bool initialize() = 0;
 
-    /**
-       \brief Set the root joint of the robot.
-    */
-    virtual void rootJoint(CjrlJoint& inJoint) = 0;
+  /**
+     @}
+  */
+  /**
+     \name Kinematic chain
+     @{
+  */
 
-    /**
-       \brief Get the root joint of the robot.
-    */
-    virtual CjrlJoint* rootJoint() const = 0;
+  /**
+     \brief Set the root joint of the robot.
+  */
+  virtual void rootJoint(CjrlJoint& inJoint) = 0;
 
-    /**
-       \brief Get a vector containing all the joints.
-    */
-    virtual std::vector< CjrlJoint* > jointVector() = 0;
+  /**
+     \brief Get the root joint of the robot.
+  */
+  virtual CjrlJoint* rootJoint() const = 0;
+
+  /**
+     \brief Get a vector containing all the joints.
+  */
+  virtual std::vector< CjrlJoint* > jointVector() = 0;
     
-    /**
-        \brief Get the upper bound for ith dof.
-     */
-    virtual double upperBoundDof(unsigned int inRankInConfiguration) = 0;
-    /**
-        \brief Get the lower bound for ith dof.
-     */
-    virtual double lowerBoundDof(unsigned int inRankInConfiguration) = 0;
+  /**
+     \brief Get the upper bound for ith dof.
+  */
+  virtual double upperBoundDof(unsigned int inRankInConfiguration) = 0;
+  /**
+     \brief Get the lower bound for ith dof.
+  */
+  virtual double lowerBoundDof(unsigned int inRankInConfiguration) = 0;
 
-    /**
-        \brief Compute the upper bound for ith dof using other configuration values if possible.
-     */
-    virtual double upperBoundDof(unsigned int inRankInConfiguration,
-				 const vectorN& inConfig) = 0;
-    /**
-        \brief Compute the lower bound for ith dof using other configuration values if possible.
-     */
-    virtual double lowerBoundDof(unsigned int inRankInConfiguration,
-				 const vectorN& inConfig) = 0;
+  /**
+     \brief Compute the upper bound for ith dof using other configuration values if possible.
+  */
+  virtual double upperBoundDof(unsigned int inRankInConfiguration,
+			       const vectorN& inConfig) = 0;
+  /**
+     \brief Compute the lower bound for ith dof using other configuration values if possible.
+  */
+  virtual double lowerBoundDof(unsigned int inRankInConfiguration,
+			       const vectorN& inConfig) = 0;
 
-    /**
-       \brief Get the number of degrees of freedom of the robot.
-    */
-    virtual unsigned int numberDof() const = 0;
+  /**
+     \brief Get the number of degrees of freedom of the robot.
+  */
+  virtual unsigned int numberDof() const = 0;
 
-    /** 
-	\brief Add a joint to the vector of fixed joints.
-	This Declares a joint as fixed in the world.
-    */
-    virtual void addFixedJoint(CjrlJoint* inFixedJoint) = 0;
+  /** 
+      \brief Add a joint to the vector of fixed joints.
+      This Declares a joint as fixed in the world.
+  */
+  virtual void addFixedJoint(CjrlJoint* inFixedJoint) = 0;
 
-    /** 
-	\brief Count joints that are fixed in the world.
-    */
-    virtual unsigned int countFixedJoints() const = 0;
+  /** 
+      \brief Count joints that are fixed in the world.
+  */
+  virtual unsigned int countFixedJoints() const = 0;
     
-    /** 
-	\brief Remove a joint from the vector of fixed joints.
-	The input joint will no longer be considered fixed in the world.
-    */
-    virtual void removeFixedJoint(CjrlJoint* inFixedJoint) = 0;
+  /** 
+      \brief Remove a joint from the vector of fixed joints.
+      The input joint will no longer be considered fixed in the world.
+  */
+  virtual void removeFixedJoint(CjrlJoint* inFixedJoint) = 0;
     
-    /** 
-	\brief Clear the list of fixed joints
-    */
-    virtual void clearFixedJoints()=0;
+  /** 
+      \brief Clear the list of fixed joints
+  */
+  virtual void clearFixedJoints()=0;
     
-    /** 
-	\brief Return the fixed joint at rank inRank 
-    */
-    virtual CjrlJoint& fixedJoint(unsigned int inJointRank) = 0;
+  /** 
+      \brief Return the fixed joint at rank inRank 
+  */
+  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) = 0;
 
-    /**
-       @}
-    */
+  /**
+     @}
+  */
 
-    /**
-        \name Configuration, velocity and acceleration
-    */
+  /**
+     \name Configuration, velocity and acceleration
+  */
 
-    /**
-       \brief Set the current configuration of the robot.  
+  /**
+     \brief Set the current configuration of the robot.  
 
-       \param inConfig the configuration vector \f${\bf q}\f$.
+     \param inConfig the configuration vector \f${\bf q}\f$.
        
-       \return true if success, false if failure (the dimension of the
-       input vector does not fit the number of degrees of freedom of the
-       robot).
-    */
-    virtual bool currentConfiguration(const vectorN& inConfig) = 0;
+     \return true if success, false if failure (the dimension of the
+     input vector does not fit the number of degrees of freedom of the
+     robot).
+  */
+  virtual bool currentConfiguration(const vectorN& inConfig) = 0;
 
-    /**
-       \brief Get the current configuration of the robot.
+  /**
+     \brief Get the current configuration of the robot.
 
-       \return the configuration vector \f${\bf q}\f$.
-    */
-    virtual const vectorN& currentConfiguration() const = 0;
+     \return the configuration vector \f${\bf q}\f$.
+  */
+  virtual const vectorN& currentConfiguration() const = 0;
 
-    /**
-       \brief Set the current velocity of the robot.  
+  /**
+     \brief Set the current velocity of the robot.  
 
-       \param inVelocity the velocity vector \f${\bf \dot{q}}\f$.
+     \param inVelocity the velocity vector \f${\bf \dot{q}}\f$.
 
-       \return true if success, false if failure (the dimension of the
-       input vector does not fit the number of degrees of freedom of the
-       robot).
-    */
-    virtual bool currentVelocity(const vectorN& inVelocity) = 0;
+     \return true if success, false if failure (the dimension of the
+     input vector does not fit the number of degrees of freedom of the
+     robot).
+  */
+  virtual bool currentVelocity(const vectorN& inVelocity) = 0;
 
-    /**
-       \brief Get the current velocity of the robot.
+  /**
+     \brief Get the current velocity of the robot.
 
-       \return the velocity vector \f${\bf \dot{q}}\f$.
-    */
-    virtual const vectorN& currentVelocity() const = 0;
-    /**
-       \brief Set the current acceleration of the robot.  
+     \return the velocity vector \f${\bf \dot{q}}\f$.
+  */
+  virtual const vectorN& currentVelocity() const = 0;
+  /**
+     \brief Set the current acceleration of the robot.  
 
-       \param inAcceleration the acceleration vector \f${\bf \ddot{q}}\f$.
+     \param inAcceleration the acceleration vector \f${\bf \ddot{q}}\f$.
 
-       \return true if success, false if failure (the dimension of the
-       input vector does not fit the number of degrees of freedom of the
-       robot).
-    */
-    virtual bool currentAcceleration(const vectorN& inAcceleration) = 0;
+     \return true if success, false if failure (the dimension of the
+     input vector does not fit the number of degrees of freedom of the
+     robot).
+  */
+  virtual bool currentAcceleration(const vectorN& inAcceleration) = 0;
 
-    /**
-       \brief Get the current acceleration of the robot.
+  /**
+     \brief Get the current acceleration of the robot.
 
-       \return the acceleration vector \f${\bf \ddot{q}}\f$.
-    */
-    virtual const vectorN& currentAcceleration() const = 0;
+     \return the acceleration vector \f${\bf \ddot{q}}\f$.
+  */
+  virtual const vectorN& currentAcceleration() const = 0;
 
-    /**
-        @}
-     */
+  /**
+     @}
+  */
 
-    /**
-        \name Forward kinematics and dynamics
-    */
+  /**
+     \name Forward kinematics and dynamics
+  */
 
-    /**
-    \brief Apply a configuration
+  /**
+     \brief Apply a configuration
 
-    Based on the entered configuration, this method computes:
-    for every joint:
-        the new transformation
-        the new position of the center of mass in world frame
-    for the robot
-        position of the center of mass in world frame
+     Based on the entered configuration, this method computes:
+     for every joint:
+     the new transformation
+     the new position of the center of mass in world frame
+     for the robot
+     position of the center of mass in world frame
         
-    \return true if success, false if failure (the dimension of the
-    input vector does not fit the number of degrees of freedom of the
-    robot).
-     */
-    virtual bool applyConfiguration(const vectorN& inConfiguration) = 0;
-    /**
-    \brief Compute kinematics and dynamics following a finite difference scheme and update past values
-     */
-    virtual void FiniteDifferenceStateUpdate(double inTimeStep) = 0;
-    /**
-    \brief Compute kinematics and dynamics following a finite difference scheme.
+     \return true if success, false if failure (the dimension of the
+     input vector does not fit the number of degrees of freedom of the
+     robot).
+  */
+  virtual bool applyConfiguration(const vectorN& inConfiguration) = 0;
+  /**
+     \brief Compute kinematics and dynamics following a finite difference scheme and update past values
+  */
+  virtual void FiniteDifferenceStateUpdate(double inTimeStep) = 0;
+  /**
+     \brief Compute kinematics and dynamics following a finite difference scheme.
 
-    Based on previously stored values, this method computes:
-    for every joint:
-        linear velocity and acceleration
-        angular velocity and acceleration
-        linear momentum
-        angular momentum
-    for the robot
-        linear momentum
-        angular momentum
-        ZMP
-     */
-    virtual void FiniteDifferenceStateEstimate(double inTimeStep) = 0;
-    /**
-    \brief Store current values as past values
+     Based on previously stored values, this method computes:
+     for every joint:
+     linear velocity and acceleration
+     angular velocity and acceleration
+     linear momentum
+     angular momentum
+     for the robot
+     linear momentum
+     angular momentum
+     ZMP
+  */
+  virtual void FiniteDifferenceStateEstimate(double inTimeStep) = 0;
+  /**
+     \brief Store current values as past values
 
-    Following values are stored:
-    for every joint:
-    	joint value and velocity
-	linear and angular velocities
-	position and orientation
-    for the robot:
-    	configuration vector
-	velocity vector
-	linear and angular momentums
-     */
-    virtual void SaveCurrentStateAsPastState() = 0;
+     Following values are stored:
+     for every joint:
+     joint value and velocity
+     linear and angular velocities
+     position and orientation
+     for the robot:
+     configuration vector
+     velocity vector
+     linear and angular momentums
+  */
+  virtual void SaveCurrentStateAsPastState() = 0;
     
-    /**
-    \brief Set the robot in the static state described by the given configuration vector.
-    */
-    virtual void staticState(const vectorN& inConfiguration) =0;
+  /**
+     \brief Set the robot in the static state described by the given configuration vector.
+  */
+  virtual void staticState(const vectorN& inConfiguration) =0;
     
     
-    /**
-       \brief Compute forward kinematics.
+  /**
+     \brief Compute forward kinematics.
 
-       Update the position, velocity and accelerations of each
-       joint wrt \f${\bf {q}}\f$, \f${\bf \dot{q}}\f$, \f${\bf \ddot{q}}\f$.
+     Update the position, velocity and accelerations of each
+     joint wrt \f${\bf {q}}\f$, \f${\bf \dot{q}}\f$, \f${\bf \ddot{q}}\f$.
 
-    */
-    virtual bool computeForwardKinematics() = 0;
+  */
+  virtual bool computeForwardKinematics() = 0;
 
-    /**
-       \brief Compute the dynamics of the center of mass.
+  /**
+     \brief Compute the dynamics of the center of mass.
 
-       Compute the linear and  angular momentum and their time derivatives, at the center of mass.
-    */
-    virtual bool computeCenterOfMassDynamics() = 0;
+     Compute the linear and  angular momentum and their time derivatives, at the center of mass.
+  */
+  virtual bool computeCenterOfMassDynamics() = 0;
 
-    /**
-       \brief Get the position of the center of mass.
-    */
-    virtual const vector3d& positionCenterOfMass() = 0;
+  /**
+     \brief Get the position of the center of mass.
+  */
+  virtual const vector3d& positionCenterOfMass() = 0;
 
-    /**
-       \brief Get the velocity of the center of mass.
-    */
-    virtual const vector3d& velocityCenterOfMass() = 0;
+  /**
+     \brief Get the velocity of the center of mass.
+  */
+  virtual const vector3d& velocityCenterOfMass() = 0;
 
-    /**
-       \brief Get the acceleration of the center of mass.
-    */
-    virtual const vector3d& accelerationCenterOfMass() = 0;
+  /**
+     \brief Get the acceleration of the center of mass.
+  */
+  virtual const vector3d& accelerationCenterOfMass() = 0;
 
-    /**
-       \brief Get the linear momentum of the robot.
-    */
-    virtual const vector3d& linearMomentumRobot() = 0;
+  /**
+     \brief Get the linear momentum of the robot.
+  */
+  virtual const vector3d& linearMomentumRobot() = 0;
 
-    /**
-       \brief Get the time-derivative of the linear momentum.
-    */
-    virtual const vector3d& derivativeLinearMomentum() = 0;
+  /**
+     \brief Get the time-derivative of the linear momentum.
+  */
+  virtual const vector3d& derivativeLinearMomentum() = 0;
 
-    /**
-       \brief Get the angular momentum of the robot at the center of mass.
-    */
-    virtual const vector3d& angularMomentumRobot() = 0;
+  /**
+     \brief Get the angular momentum of the robot at the center of mass.
+  */
+  virtual const vector3d& angularMomentumRobot() = 0;
 
-    /**
-       \brief Get the time-derivative of the angular momentum at the center of mass.
-    */
-    virtual const vector3d& derivativeAngularMomentum() = 0;
+  /**
+     \brief Get the time-derivative of the angular momentum at the center of mass.
+  */
+  virtual const vector3d& derivativeAngularMomentum() = 0;
 
-    /**
-    \brief Get the total mass of the robot
-    */
-    virtual double mass() const =0;
-    /**
-       @}
-    */
+  /**
+     \brief Get the total mass of the robot
+  */
+  virtual double mass() const =0;
+  /**
+     @}
+  */
 
-    /**
-        \name Jacobian fonctions
-    */
+  /**
+     \name Jacobian fonctions
+  */
 
-    /**
-       \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-    */
-    virtual void computeJacobianCenterOfMass() = 0;
+  /**
+     \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+  */
+  virtual void computeJacobianCenterOfMass() = 0;
 
-    /**
-       \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-    */
-    virtual const matrixNxP& jacobianCenterOfMass() const = 0;
+  /**
+     \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+  */
+  virtual const matrixNxP& jacobianCenterOfMass() const = 0;
 
-    /**
-       @}
-    */
+  /**
+     @}
+  */
 };
 
 
