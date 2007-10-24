@@ -126,6 +126,10 @@ share his work with the user of the above section.
 The developer of an implementation needs to derive the abstract classes of the interface and to implement the pure virtual methods.
 Some classes need to be derived into several concrete classes. For instance CjrlJoint should be derived into FREEFLYER, ROTATION and TRANSLATION joints.
 
+\paragraph humanoid_inheritance Inheritance of CjrlHumanoidDynamicRobot implementation
+
+The implementation of CjrlHumanoidDynamicRobot should \b virtually \b inherit from the implementation of CjrlDynamicRobot
+
 \subsubsection abstractRobotDynamics_exporting Exporting the name of the classes
 
 Let us assume that the package named <tt>impl1RobotDynamics</tt> provides an implementation of the abstract interface with:

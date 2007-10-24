@@ -26,7 +26,7 @@
     \li it computes the Zero Momentum Point.
 */
 
-class CjrlHumanoidDynamicRobot : public CjrlDynamicRobot {
+class CjrlHumanoidDynamicRobot : public virtual CjrlDynamicRobot {
 public:
   /**
      \name Joints specific to humanoid robots

@@ -1,3 +1,7 @@
+2007/10/24
+	15. CjrlHumanoidDynamicRobot now virtually inherits from CjrlDynamicRobot in order to 
+	    enable implementations of these classes to inherit from one another.
+	
 2007/10/22
 	14. Added method  bool initialize() in CjrlDynamicRobot in order to initialize 
 	    data-structure relative to dynamic computation once the kinematic tree is built.
