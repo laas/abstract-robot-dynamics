@@ -1,3 +1,12 @@
+2007/10/25
+	17. Replace get function
+	      virtual void gaze(const vector3d& outDirection, const vector3d& outOrigin) const = 0;
+	    by a set function
+	      virtual void gaze(const vector3d& inDirection, const vector3d& inOrigin) = 0;
+	    that was missing.
+	
+	16. Added some methods in CjrlJoint to set and get the bounds on the degrees of freedom of a joint
+	
 2007/10/24
 	15. CjrlHumanoidDynamicRobot now virtually inherits from CjrlDynamicRobot in order to 
 	    enable implementations of these classes to inherit from one another.

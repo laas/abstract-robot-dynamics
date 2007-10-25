@@ -116,11 +116,11 @@ public:
   virtual CjrlJoint* gazeJoint() = 0;
 
   /** 
-      \brief Get the gaze orientation in the local frame of the gaze joint.
-      \return outOrigin a point on the gaze straight line,
-      \return outDirection the direction of the gaze joint.
+      \brief Set the gaze orientation and position in the local frame of the gaze joint.
+      \return inOrigin a point on the gaze straight line,
+      \return inDirection the direction of the gaze joint.
   */
-  virtual void gaze(vector3d& outDirection, vector3d& outOrigin) const = 0;
+  virtual void gaze(const vector3d& inDirection, const vector3d& inOrigin) = 0;
   
   /**
       \brief Get a point on the gaze straight line

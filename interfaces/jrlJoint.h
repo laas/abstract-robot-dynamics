@@ -124,6 +124,43 @@ public:
     */
     virtual unsigned int numberDof() const=0;
 
+    /**
+       @}
+    */
+
+    /**
+       \name Bounds of the degrees of freedom
+       @{
+    */
+    /**
+       \brief Get the lower bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double lowerBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Get the upper bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double upperBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Set the lower bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inLowerBound lower bound
+    */
+    virtual void lowerBound(unsigned int inDofRank, double inLowerBound) = 0;
+
+    /**
+       \brief Set the upper bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inUpperBound Upper bound.
+    */
+    virtual void upperBound(unsigned int inDofRank, double inUpperBound) = 0;
 
     /**
        @}
