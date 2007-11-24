@@ -12,8 +12,6 @@
 #ifndef JRL_BODY_H
 #define JRL_BODY_H
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
-
 class CjrlJoint;
 
 class CjrlBody

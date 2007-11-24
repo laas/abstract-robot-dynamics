@@ -1,8 +1,6 @@
 #ifndef JRL_HAND_H
 #define JRL_HAND_H
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
-
 #include <vector>
 #include "jrlJoint.h"
 

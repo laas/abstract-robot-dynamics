@@ -13,8 +13,6 @@
 #define JRL_RIGID_ACCELERATION_H
 
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
-
 /** 
     \brief This class represents the acceleration of a rigid body.
 

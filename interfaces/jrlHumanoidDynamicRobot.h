@@ -12,7 +12,6 @@
 #ifndef JRL_HUMANOID_DYNAMIC_ROBOT
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 #include "jrlDynamicRobot.h"
 #include "jrlHand.h"
 

@@ -12,7 +12,6 @@
 #ifndef JRL_DYNAMIC_ROBOT
 #define JRL_DYNAMIC_ROBOT
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
 #include "jrlJoint.h"
 
 /**
