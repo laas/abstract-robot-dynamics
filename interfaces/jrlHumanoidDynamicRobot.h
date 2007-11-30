@@ -157,7 +157,7 @@ public:
   */
 
   /**
-     \brief Compute the coordinates of the Zero Momentum Point.
+     \brief return the coordinates of the Zero Momentum Point.
   */
   virtual const vector3d& zeroMomentumPoint() const = 0;
 

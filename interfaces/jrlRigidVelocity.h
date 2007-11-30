@@ -12,8 +12,6 @@
 #ifndef JRL_RIGID_VELOCITY_H
 #define JRL_RIGID_VELOCITY_H
 
-#include "MatrixAbstractLayer/MatrixAbstractLayer.h"
-
 /** 
     \brief This class represents the velocity of a rigid body.
 
