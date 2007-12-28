@@ -12,7 +12,7 @@ Some classes need to be derived into several concrete classes. For instance Cjrl
 
 The implementation of CjrlHumanoidDynamicRobot should \b virtually \b inherit from the implementation of CjrlDynamicRobot
 
-\section abstractRobotDynamics_types
+\section abstractRobotDynamics_types Types
 
 Some types or classes need to be provided by the implementation. These types are:
 \li <b>vector3d</b> to represent a 3D point or vector,
