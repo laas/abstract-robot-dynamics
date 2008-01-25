@@ -24,6 +24,18 @@
    A joint may have several degrees of freedom. The position, velocity
    and acceleration of a joint are defined by the configuration vector
    \f${\bf q}\f$ and its first and second derivatives.
+
+   Several rigid-body transformations represented by matrix4d type are considered in the following functions.
+   \li CjrlJoint::initialPosition returns the position of the joint when the robot in zero-configuration.
+   \li CjrlJoint::currentTransformation returns the current position of the joint. 
+
+   Three types of joints are considered and defined as follows.
+   \li Freeflyer joint has 6 degrees of freedom. In identity initial position, the degrees of freedom respectively correspond to translation along x,y,z and roll, pitch, yaw angles.
+   \li Rotation joint has 1 degree of freedom. In identity initial position, the joint rotates about x-axis.
+   \li Translation joint has 1 degree of freedom. In identity initial position, the joint tranlates about x-axis.
+
+   \image html joint.png "Definition of initial and current transformation of a joint."
+   \image latex joint.pdf "Definition of initial and current transformation of a joint."
 */
 
 class CjrlJoint

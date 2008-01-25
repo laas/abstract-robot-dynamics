@@ -1,5 +1,8 @@
+2008/01/25
+	19. Added documentation about specification of CjrlJoint.
+
 2007/11/24
-	Moved dependence to MatrixAbstractionLayer to implementation.
+	18. Moved dependence to MatrixAbstractionLayer to implementation.
 	
 jrl-dynamics version 1.7 released November 8, 2007
 

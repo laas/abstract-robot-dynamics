@@ -14,7 +14,10 @@ EXTRA_DIST = \
 	additionalDoc/robotDynamics.h \
 	pictures/HRP2.jpg \
 	pictures/interface.fig \
-	pictures/interface.png
+	pictures/interface.png \
+	pictures/joint.fig \
+	pictures/joint.pdf \
+	pictures/joint.png
 
 install-data-hook: html
 	mkdir -p $(robotDynamicsDocdir)
