@@ -36,6 +36,16 @@
 
    \image html joint.png "Definition of initial and current transformation of a joint."
    \image latex joint.pdf "Definition of initial and current transformation of a joint."
+
+   As an example, let us denote by 
+   \li \f$M_{init} \in SE(3)\f$, the initial position of a joint, that is the position when all the degrees of freedom of the robot are set to 0.
+   \li \f$M_{cur}({\bf q}) \in SE(3)\f$, the current position of the joint, when robot is in configuration \f${\bf q}\f$.
+   \li \f${\bf p} \in {\bf R}^3\f$ a point attached to the joint when the robot is in initial configuration (all degrees of freedom are set to 0).
+
+   The position of the point in configuration \f${\bf q}\f$ is given by
+   \f[
+   M_{cur}({\bf q}).M_{init}^{-1}.{\bf p}
+   \f]
 */
 
 class CjrlJoint
