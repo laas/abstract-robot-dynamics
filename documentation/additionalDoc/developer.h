@@ -31,6 +31,7 @@ Let us assume that the package named <tt>impl1RobotDynamics</tt> provides an imp
   \li Cimpl1JointRotation implements a rotation joint deriving from CjrlJoint,
   \li Cimpl1JointTranslation implements a translation joint deriving from CjrlJoint,
   \li Cimpl1Body implements CjrlBody,
+  \li Cimpl1Hand implements CjrlHand,
 
 To make these classes accessible to a user, the names of the classes should be exported in file <tt>impl1RobotDynamics/robotDynamicsImpl.h</tt>. This file should include the following line:
 \code
@@ -46,6 +47,7 @@ To make these classes accessible to a user, the names of the classes should be e
 #include "impl1RobotDynamics/impl1Rotation.h"
 #include "impl1RobotDynamics/impl1Translation.h"
 #include "impl1RobotDynamics/impl1Body.h"
+#include "impl1RobotDynamics/impl1Hand.h"
 
 typedef Cimpl1DynamicRobot CimplDynamicRobot;
 typedef Cimpl1HumanoidDynamicRobot CimplHumanoidDynamicRobot;
@@ -53,6 +55,7 @@ typedef Cimpl1JointFreeFlyerJoint CimplJointFreeFlyer;
 typedef Cimpl1JointRotation CimplJointRotation;
 typedef Cimpl1JointTranslation CimplJointTranslation;
 typedef Cimpl1Body CimplBody;
+typedef Cimpl1Hand CimplHand;
 
 #endif
 \endcode
