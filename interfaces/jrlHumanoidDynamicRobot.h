@@ -62,9 +62,19 @@ public:
   virtual CjrlJoint* rightWrist() = 0;
 
   /**
+    \brief Set the pointer to the right hand
+  */
+  virtual void rightHand(CjrlHand* inRightHand) = 0;
+  
+  /**
     \brief Get a pointer to the right hand
   */
   virtual CjrlHand* rightHand() = 0;
+  
+  /**
+    \brief Set the pointer to the left hand
+  */
+  virtual void leftHand(CjrlHand* inLeftHand) = 0;
   
   /**
   \brief Get a pointer to the left hand
