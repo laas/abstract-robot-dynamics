@@ -136,9 +136,10 @@ public:
      
      \param inJointVector Vector of the robot joints
 
-     Specifies the order of the joints in the configuration vector. The vector should contain all the joints of the current robot.
+     Specifies the order of the joints in the configuration vector. 
+     The vector should contain all the joints of the current robot.
   */
-  virtual setJointOrderInConfig(std::vector<CjrlJoint*> inJointVector) = 0;
+  virtual void setJointOrderInConfig(std::vector<CjrlJoint*> inJointVector) = 0;
 
   /**
      @}
