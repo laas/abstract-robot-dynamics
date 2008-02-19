@@ -3,3 +3,7 @@ aclocal.m4
 configure
 autom4te.cache
 install-sh
+config.guess
+config.sub
+ltmain.sh
+
