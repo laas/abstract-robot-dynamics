@@ -58,7 +58,6 @@ a:visited {
 
 DIV.memitem
 { 
-  float:left;
   spacing: 10px;
   width:100%;
   background:#FFFFFF;
@@ -72,7 +71,6 @@ DIV.memitem
 
 DIV.memproto
 { 
-  float:left;
   width:100%;
   background:#F0F0F0;
   font-size:100%;
@@ -85,7 +83,6 @@ DIV.memproto
 
 DIV.memdoc
 { 
-  float:left;
   padding: 10px;
   width:100%;
   font-size:100%;
