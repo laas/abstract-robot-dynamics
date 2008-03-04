@@ -5,6 +5,7 @@ body {
 
 dl {
     border: 1.5px #82b6d7 solid;
+  width: 97%;
     padding: 5px;
     color: #330077;
 }
