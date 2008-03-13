@@ -217,56 +217,9 @@ public:
   */
 
   /**
-     \brief Apply a configuration
-
-     Based on the entered configuration, this method computes:
-     for every joint:
-     the new transformation
-     the new position of the center of mass in world frame
-     for the robot
-     position of the center of mass in world frame
-        
-     \return true if success, false if failure (the dimension of the
-     input vector does not fit the number of degrees of freedom of the
-     robot).
-  */
-  virtual bool applyConfiguration(const vectorN& inConfiguration) = 0;
-  /**
-     \brief Compute kinematics and dynamics following a finite difference scheme and update past values
-  */
-  virtual void FiniteDifferenceStateUpdate(double inTimeStep) = 0;
-  /**
-     \brief Compute kinematics and dynamics following a finite difference scheme.
-
-     Based on previously stored values, this method computes:
-     for every joint:
-     linear velocity and acceleration
-     angular velocity and acceleration
-     linear momentum
-     angular momentum
-     for the robot
-     linear momentum
-     angular momentum
-     ZMP
-  */
-  virtual void FiniteDifferenceStateEstimate(double inTimeStep) = 0;
-  /**
-     \brief Store current values as past values
-
-     Following values are stored:
-     for every joint:
-     joint value and velocity
-     linear and angular velocities
-     position and orientation
-     for the robot:
-     configuration vector
-     velocity vector
-     linear and angular momentums
-  */
-  virtual void SaveCurrentStateAsPastState() = 0;
-    
-  /**
      \brief Set the robot in the static state described by the given configuration vector.
+
+     Velocities and accelerations are set to 0.
   */
   virtual void staticState(const vectorN& inConfiguration) =0;
     
