@@ -1,4 +1,15 @@
+2008/03/11
+	23. Added recommended commands in dedicated page. 
+2008/03/04
+	
+	22. Added methods to control implementation behavior in CjrlDynamicRobot:
+	  - virtual bool isSupported(const std::string &inProperty) = 0;
+	  - virtual bool getProperty(const std::string &inProperty, std::string& outValue) = 0;
+	  - virtual bool setProperty(std::string &inProperty, const std::string& inValue) = 0; 
+	Augmented documentation accordingly: a new page lists the recommended 
+	commands to be implemented.
 
+	
 2008/02/19
 
 	21. Added method setJointOrderInConfig in CjrlDynamicRobot.

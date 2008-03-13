@@ -12,6 +12,7 @@ EXTRA_DIST = \
 	footer.html \
 	hpp.css \
 	additionalDoc/robotDynamics.h \
+	additionalDoc/commands.h \
 	pictures/HRP2.jpg \
 	pictures/interface.fig \
 	pictures/interface.png \

@@ -15,31 +15,38 @@
 #include "jrlJoint.h"
 
 /**
-   \brief Abstract class that instantiate a robot with dynamic properties.
+   \brief Abstract class that instantiates a robot with dynamic properties.
  
-   A robot is a kinematic chain of joints. To each joint is attached a body
+   \par Definition
+   A robot is a kinematic chain of joints. To each joint is attached a body.
    Each body has a mass and inertia matrix.
- 
    The kinematic chain is recursively constructed by adding children
    to each joint. (See CjrlJoint).
- 
    The configuration of a robot is defined by a vector \f${\bf q}\f$ called the
    <b>configuration vector</b> and containing the values of each degree of
    freedom. The dimension of this vector is denoted by \f$n_{dof}\f$.
- 
    The time derivative \f${\bf \dot{q}}\f$ of the configuration vector is called the <b>velocity vector</b>.
- 
    The time derivative \f${\bf \ddot{q}}\f$ of the velocity vector. is called the <b>acceleration vector</b>.
 
+   \par Fixed Joints
    A legged robot is often in contact with the environment through
    its feet. Depending on the foot which is in contact
    with the ground, some computations using the dynamic model of the
    robot may differ. For this reason, the joints that are temporarily
    in contact with the environment are called fixed joints.
-    
    A joint can be defined temporarily fixed by calling
    CjrlDynamicRobot::addFixedJoint. The joint is released by calling 
    CjrlDynamicRobot::removeFixedJoint.
+
+   \par Control of the implementation
+   In some cases, it is desirable to control the implementation of this 
+   class in order to selectively compute only some kinematic and dynamic 
+   values. For instance, for speed of computation purposes, one may want 
+   to compute only velocities and not accelerations. In order to keep the 
+   interface light, a control mechanism based on properties is proposed 
+   through the following methods: isSupported(), getProperty(), setProperty().
+   Each implementation is responsible for its own methods. However, in order to
+   keep some compatibility, some recommended methods are listed in \ref abstractRobotDynamics_commands "this page".
 */
 
 class CjrlDynamicRobot
@@ -337,6 +344,39 @@ public:
      \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
   */
   virtual const matrixNxP& jacobianCenterOfMass() const = 0;
+
+  /**
+     @}
+  */
+
+  /**
+     \name Control of the implementation
+  */
+
+  /**
+     \brief Whether the specified property in implemented.
+  */
+  virtual bool isSupported(const std::string &inProperty) = 0;
+
+  /**
+     \brief Get property corresponding to command name.
+
+     \param inProperty name of the property.
+     \retval outValue value of the property if implemented.
+
+     \note The returned string needs to be cast into the right type (double, int,...).
+  */
+  virtual bool getProperty(const std::string &inProperty, std::string& outValue) = 0;
+
+  /**
+     \brief Set property corresponding to command name.
+
+     \param inProperty name of the property.
+     \param inValue value of the property.
+
+     \note The value string is obtained by writing the corresponding value in a string (operator<<).
+  */
+  virtual bool setProperty(std::string &inProperty, const std::string& inValue) = 0; 
 
   /**
      @}
