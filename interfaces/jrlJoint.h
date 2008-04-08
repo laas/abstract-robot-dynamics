@@ -24,24 +24,24 @@
    A joint may have several degrees of freedom. The position, velocity
    and acceleration of a joint are defined by the configuration vector
    \f${\bf q}\f$ and its first and second derivatives.
-
+ 
    Several rigid-body transformations represented by matrix4d type are considered in the following functions.
    \li CjrlJoint::initialPosition returns the position of the joint when the robot in zero-configuration.
    \li CjrlJoint::currentTransformation returns the current position of the joint. 
-
+ 
    Three types of joints are considered and defined as follows.
    \li Freeflyer joint has 6 degrees of freedom. In identity initial position, the degrees of freedom respectively correspond to translation along x,y,z and roll, pitch, yaw angles.
    \li Rotation joint has 1 degree of freedom. In identity initial position, the joint rotates about x-axis.
    \li Translation joint has 1 degree of freedom. In identity initial position, the joint tranlates about x-axis.
-
+ 
    \image html joint.png "Definition of initial and current transformation of a joint."
    \image latex joint.pdf "Definition of initial and current transformation of a joint."
-
+ 
    As an example, let us denote by 
    \li \f$M_{init} \in SE(3)\f$, the initial position of a joint, that is the position when all the degrees of freedom of the robot are set to 0.
    \li \f$M_{cur}({\bf q}) \in SE(3)\f$, the current position of the joint, when robot is in configuration \f${\bf q}\f$.
    \li \f${\bf p} \in {\bf R}^3\f$ a point attached to the joint when the robot is in initial configuration (all degrees of freedom are set to 0).
-
+ 
    The position of the point in configuration \f${\bf q}\f$ is given by
    \f[
    M_{cur}({\bf q}).M_{init}^{-1}.{\bf p}
@@ -51,6 +51,13 @@
 class CjrlJoint
 {
 public:
+
+    /**
+    \brief Destructor
+     */
+    virtual ~CjrlJoint()
+    {}
+
 
     /**
        \name Joint hierarchy
@@ -81,7 +88,7 @@ public:
        \brief Get a vector containing references of the joints between the rootJoint and this joint. The root Joint and this Joint are included in the vector.
     */
     virtual std::vector<CjrlJoint*> jointsFromRootToThis() const = 0;
-    
+
     /**
     \brief Get the rank of this joint in the robot configuration vector.
     If the Joint has several degrees of freedom, it is the rank of the first degree of freedom.
@@ -110,7 +117,7 @@ public:
     \return true if success, false if failure (the index returned by method rankInConfiguration is out of the bounds of input vector).
      */
     virtual bool updateTransformation(const vectorN& inDofVector) = 0;
-    
+
     /**
        \brief Get the current transformation of the joint.
        

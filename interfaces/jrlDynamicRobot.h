@@ -64,6 +64,11 @@ public:
   virtual bool initialize() = 0;
 
   /**
+  \brief Destructor
+   */
+  virtual ~CjrlDynamicRobot() {};
+  
+  /**
      @}
   */
   /**
@@ -216,14 +221,7 @@ public:
      \name Forward kinematics and dynamics
   */
 
-  /**
-     \brief Set the robot in the static state described by the given configuration vector.
 
-     Velocities and accelerations are set to 0.
-  */
-  virtual void staticState(const vectorN& inConfiguration) =0;
-    
-    
   /**
      \brief Compute forward kinematics.
 
@@ -308,7 +306,7 @@ public:
   /**
      \brief Whether the specified property in implemented.
   */
-  virtual bool isSupported(const std::string &inProperty) = 0;
+  virtual bool isSupported(const std::string &inProperty) {return false;}
 
   /**
      \brief Get property corresponding to command name.
@@ -318,7 +316,7 @@ public:
 
      \note The returned string needs to be cast into the right type (double, int,...).
   */
-  virtual bool getProperty(const std::string &inProperty, std::string& outValue) = 0;
+  virtual bool getProperty(const std::string &inProperty, std::string& outValue) {return false;}
 
   /**
      \brief Set property corresponding to command name.
@@ -328,7 +326,7 @@ public:
 
      \note The value string is obtained by writing the corresponding value in a string (operator<<).
   */
-  virtual bool setProperty(std::string &inProperty, const std::string& inValue) = 0; 
+  virtual bool setProperty(std::string &inProperty, const std::string& inValue) {return false;} 
 
   /**
      @}

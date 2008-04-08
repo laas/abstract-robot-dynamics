@@ -52,6 +52,11 @@ class CjrlBody
        \brief Get const pointer to the joint the body is attached to.
     */
     virtual const CjrlJoint* joint() const = 0 ;
+    
+    /**
+    \brief Destructor
+    */
+    virtual ~CjrlBody() {};
 };
 
 
