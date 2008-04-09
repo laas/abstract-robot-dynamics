@@ -33,7 +33,7 @@ public:
     \brief Destructor
      */
     virtual ~CjrlHumanoidDynamicRobot()
-    {}
+    {};
 
     /**
        \name Joints specific to humanoid robots

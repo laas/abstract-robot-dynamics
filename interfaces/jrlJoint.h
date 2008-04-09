@@ -56,7 +56,7 @@ public:
     \brief Destructor
      */
     virtual ~CjrlJoint()
-    {}
+    {};
 
 
     /**
