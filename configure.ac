@@ -6,7 +6,7 @@ dnl
 dnl   Author: Florent Lamiraux LAAS-CNRS
 dnl
 
-AC_INIT([abstractRobotDynamics],[1.9.99],[openrobots@laas.fr])
+AC_INIT([abstractRobotDynamics],[1.10],[openrobots@laas.fr])
 AC_PREREQ(2.59)
 
 AM_INIT_AUTOMAKE([foreign no-define])
