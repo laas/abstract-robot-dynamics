@@ -64,6 +64,11 @@ public:
   virtual bool initialize() = 0;
 
   /**
+  \brief Destructor
+   */
+  virtual ~CjrlDynamicRobot() {};
+  
+  /**
      @}
   */
   /**
@@ -217,61 +222,7 @@ public:
      \name Forward kinematics and dynamics
   */
 
-  /**
-     \brief Apply a configuration
 
-     Based on the entered configuration, this method computes:
-     for every joint:
-     the new transformation
-     the new position of the center of mass in world frame
-     for the robot
-     position of the center of mass in world frame
-        
-     \return true if success, false if failure (the dimension of the
-     input vector does not fit the number of degrees of freedom of the
-     robot).
-  */
-  virtual bool applyConfiguration(const vectorN& inConfiguration) = 0;
-  /**
-     \brief Compute kinematics and dynamics following a finite difference scheme and update past values
-  */
-  virtual void FiniteDifferenceStateUpdate(double inTimeStep) = 0;
-  /**
-     \brief Compute kinematics and dynamics following a finite difference scheme.
-
-     Based on previously stored values, this method computes:
-     for every joint:
-     linear velocity and acceleration
-     angular velocity and acceleration
-     linear momentum
-     angular momentum
-     for the robot
-     linear momentum
-     angular momentum
-     ZMP
-  */
-  virtual void FiniteDifferenceStateEstimate(double inTimeStep) = 0;
-  /**
-     \brief Store current values as past values
-
-     Following values are stored:
-     for every joint:
-     joint value and velocity
-     linear and angular velocities
-     position and orientation
-     for the robot:
-     configuration vector
-     velocity vector
-     linear and angular momentums
-  */
-  virtual void SaveCurrentStateAsPastState() = 0;
-    
-  /**
-     \brief Set the robot in the static state described by the given configuration vector.
-  */
-  virtual void staticState(const vectorN& inConfiguration) =0;
-    
-    
   /**
      \brief Compute forward kinematics.
 
@@ -356,7 +307,7 @@ public:
   /**
      \brief Whether the specified property in implemented.
   */
-  virtual bool isSupported(const std::string &inProperty) = 0;
+  virtual bool isSupported(const std::string &inProperty) {return false;}
 
   /**
      \brief Get property corresponding to command name.
@@ -366,7 +317,7 @@ public:
 
      \note The returned string needs to be cast into the right type (double, int,...).
   */
-  virtual bool getProperty(const std::string &inProperty, std::string& outValue) = 0;
+  virtual bool getProperty(const std::string &inProperty, std::string& outValue) {return false;}
 
   /**
      \brief Set property corresponding to command name.
@@ -376,7 +327,7 @@ public:
 
      \note The value string is obtained by writing the corresponding value in a string (operator<<).
   */
-  virtual bool setProperty(std::string &inProperty, const std::string& inValue) = 0; 
+  virtual bool setProperty(std::string &inProperty, const std::string& inValue) {return false;} 
 
   /**
      @}

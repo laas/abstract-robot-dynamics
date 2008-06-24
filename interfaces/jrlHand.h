@@ -15,6 +15,12 @@ class CjrlHand
 public:
 
     /**
+    \brief Destructor
+     */
+    virtual ~CjrlHand()
+    {};
+
+    /**
     \brief Get the wrist joint to which the hand is attached
     */
     virtual CjrlJoint* associatedWrist() = 0;

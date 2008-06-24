@@ -1,25 +1,28 @@
-2008/03/11
-	23. Added recommended commands in dedicated page. 
-2008/03/04
-	
-	22. Added methods to control implementation behavior in CjrlDynamicRobot:
-	  - virtual bool isSupported(const std::string &inProperty) = 0;
-	  - virtual bool getProperty(const std::string &inProperty, std::string& outValue) = 0;
-	  - virtual bool setProperty(std::string &inProperty, const std::string& inValue) = 0; 
-	Augmented documentation accordingly: a new page lists the recommended 
-	commands to be implemented.
+jrl-dynamics version 1.10 released April 14, 2008
 
-	
-2008/02/19
+	25. Removed staticState() from DynamicRobot
+	24. Added missing virtual destructors.
 
-	21. Added method setJointOrderInConfig in CjrlDynamicRobot.
-	
+jrl-dynamics version 1.9 released March 24, 2008
+
+        23. Added recommended commands in dedicated page.
+        22. Added methods to control implementation behavior in
+            CjrlDynamicRobot:
+          - virtual bool isSupported(const std::string &inProperty) = 0;
+          - virtual bool getProperty(const std::string &inProperty,
+                                     std::string& outValue) = 0;
+          - virtual bool setProperty(std::string &inProperty,
+                                     const std::string& inValue) = 0;
+            Augmented documentation accordingly: a new page lists the
+            recommended commands to be implemented.
+        21. Added method setJointOrderInConfig in CjrlDynamicRobot.
+
 jrl-dynamics version 1.8 released February 16, 2008
 
 	20. Added rightHand() and lefHand() methods to CjrlHumanoidDynamicRobot
 	19. Added documentation about specification of CjrlJoint.
 	18. Moved dependence to MatrixAbstractionLayer to implementation.
-	
+
 jrl-dynamics version 1.7 released November 8, 2007
 
 	17. Replace get function
@@ -37,7 +40,7 @@ jrl-dynamics version 1.7 released November 8, 2007
 	14. Added method  bool initialize() in CjrlDynamicRobot in order
 	to initialize data-structure relative to dynamic computation once
 	the kinematic tree is built.
-	
+
 jrl-dynamics version 1.6 released August 30, 2007
 
 	13. Remove const in addChildJoint (const CjrlJoint& inJoint) in
@@ -46,9 +49,9 @@ jrl-dynamics version 1.6 released August 30, 2007
 	int inJointRank) return pointer to CjrlJoint instead of
 	reference.
 	11. Added information for developers of implementation of abstract interface.
-	
+
 jrl-dynamics version 1.5 released July 16, 2007
-	
+
 	10. (fumio) add double CjrlDynamicRobot::upperBoundDof(int, const
 	vectorN&) and double CjrlDynamicRobot::upperBoundDof(int, const
 	vectorN&). They compute a joint angle limit using other joint
@@ -58,11 +61,11 @@ jrl-dynamics version 1.5 released July 16, 2007
 	SaveCurrentStateAsPastState()
 
 jrl-dynamics version 1.4 released July 6, 2007
-	
+
 	9. (fumio) CjrlDynamicRotot::FiniteDifferenceStateUpdate() is
 	splitted into two functions. FiniteDifferenceStateEstimate() and
 	SaveCurrentStateAsPastState()
-	
+
 jrl-dynamics version 1.3 released June 14, 2007
 	8. Added a the new class CjrlHand. It records the center a hand
 	and its important axis in the relevant wrist frame.
@@ -72,17 +75,17 @@ jrl-dynamics version 1.3 released June 14, 2007
 jrl-dynamics version 1.2 released May 14, 2007
 
 2007/03/09
-	5. Moved inclusion of "MatrixAbstractLayer.h" before other inclusions 
+	5. Moved inclusion of "MatrixAbstractLayer.h" before other inclusions
 	to make sure matrices and vectors are defined.
 2007/03/07
 	4. The macros in the declaration of the vectors in the files in the
 	interface have been replaced by the typedef: vector3d, matrix3d,
 	vector4d, matrix4d, vectorN and matrixNxP.
-	3. The files in the interface have an include of 
+	3. The files in the interface have an include of
 	"MatrixAbstractLayer/MatrixAbstractLayer.h"
 	2. In CjrlHumanoidDynamicRobot, access functions to gaze
 	direction and origin take const vector3d& as argument instead of
 	vector3d& in order to enforce the const propery of those access
-	functions. 
-	
+	functions.
+
 	1. Removed template in classes declarations.
