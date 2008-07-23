@@ -191,6 +191,36 @@ public:
     virtual void upperBound(unsigned int inDofRank, double inUpperBound) = 0;
 
     /**
+       \brief Get the lower velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double lowerVelocityBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Get the upper veocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double upperVelocityBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Set the lower velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inLowerBound lower bound
+    */
+    virtual void lowerVelocityBound(unsigned int inDofRank, double inLowerBound) = 0;
+
+    /**
+       \brief Set the upper velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inUpperBound Upper bound.
+    */
+    virtual void upperVelocityBound(unsigned int inDofRank, double inUpperBound) = 0;
+
+    /**
        @}
     */
 
