@@ -113,8 +113,9 @@ public:
     virtual const matrix4d& initialPosition() = 0;
 
     /**
-    \brief Update this joint's transformation according to the DoF values extracted from the given robot configuration.
-    \return true if success, false if failure (the index returned by method rankInConfiguration is out of the bounds of input vector).
+    \brief Update this joint's transformation according to degree of freedom value from the argument configuration. This does NOT update the children-joints' transformations accordingly.
+    \param inDofVector is a robot configuration vector.
+    \return false if argument vector's size is not equal to the robot's number of degrees of freedom
      */
     virtual bool updateTransformation(const vectorN& inDofVector) = 0;
 
@@ -188,6 +189,36 @@ public:
        \param inUpperBound Upper bound.
     */
     virtual void upperBound(unsigned int inDofRank, double inUpperBound) = 0;
+
+    /**
+       \brief Get the lower velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double lowerVelocityBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Get the upper veocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+    */
+    virtual double upperVelocityBound(unsigned int inDofRank) const = 0;
+
+    /**
+       \brief Set the lower velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inLowerBound lower bound
+    */
+    virtual void lowerVelocityBound(unsigned int inDofRank, double inLowerBound) = 0;
+
+    /**
+       \brief Set the upper velocity bound of a given degree of freedom of the joint.
+
+       \param inDofRank Id of the dof in the joint
+       \param inUpperBound Upper bound.
+    */
+    virtual void upperVelocityBound(unsigned int inDofRank, double inUpperBound) = 0;
 
     /**
        @}
