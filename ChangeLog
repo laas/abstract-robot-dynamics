@@ -1,3 +1,7 @@
+jrl-dynamics version 1.11 released October 8, 2008
+
+	26. Added CjrlJoint::{upper|lower}VelocityBound()
+
 jrl-dynamics version 1.10 released April 14, 2008
 
 	25. Removed staticState() from DynamicRobot
