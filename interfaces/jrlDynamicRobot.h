@@ -215,6 +215,21 @@ public:
   virtual const vectorN& currentAcceleration() const = 0;
 
   /**
+     \brief Get the current forces of the robot.
+
+     \return the force vector \f${\bf f}\f$.
+  */
+  virtual const matrixNxP& currentForces() const = 0;
+
+  /**
+     \brief Get the current torques of the robot.
+
+     \return the torque vector \f${\bf \tau }\f$.
+  */
+  virtual const matrixNxP& currentTorques() const = 0;
+
+
+  /**
      @}
   */
 
