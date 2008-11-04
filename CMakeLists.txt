@@ -29,7 +29,7 @@ SET(CMAKE_INSTALL_PREFIX $ENV{ROBOTPKG_PATH})
 INCLUDE(FindPkgConfig)
 pkg_check_modules(MALJRL REQUIRED MatrixAbstractLayer>=1.5.99 )
 
-SET(PROJECT_REQUIREMENTS MatrixAbstractLayer>=1.5.99)
+SET(PROJECT_REQUIREMENTS "MatrixAbstractLayer >= 1.5.99")
 			  
 # To deal with the headers.
 #--------------------------
@@ -53,9 +53,14 @@ SET(install_pkg_include_dir "\${includedir}")
 
 # Install the file in the appropriate place.
 SET(install_libdir_pkgconfig ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
-CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
-	       ${install_libdir_pkgconfig}/${PROJECT_NAME}.pc )
 
+CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
+		 ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
+
+INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
+	DESTINATION ${install_libdir_pkgconfig}	
+        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
+)
 
 
 
