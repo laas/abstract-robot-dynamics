@@ -207,13 +207,13 @@ SHOW_DIRECTORIES       = NO
 #---------------------------------------------------------------------------
 FILE_PATTERNS          = *.h *.idl
 EXCLUDE_PATTERNS       = 
-INPUT                  = ${${PROJECT_NAME}_SOURCE_DIR}/include \
+INPUT                  = ${${PROJECT_NAME}_SOURCE_DIR}/interfaces \
                          ${${PROJECT_NAME}_SOURCE_DIR}/documentation/additionalDoc
 
 #---------------------------------------------------------------------------
 # configuration options related to inserting images
 #---------------------------------------------------------------------------
-IMAGE_PATH = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/figures
+IMAGE_PATH = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/pictures
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------
