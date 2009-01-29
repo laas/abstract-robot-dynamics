@@ -356,7 +356,7 @@ public:
   
   
   /**
-  \brief Get the Jacobian matrix of a control frame (position and orientation) wrt to jacobian joints. The joints influencing the jacobian are between inStartJoint and inEndJoint.
+  \brief Get the Jacobian matrix of a control frame (position and orientation) wrt to joints. The joints influencing the jacobian are between inStartJoint and inEndJoint.
   The body of inStartJoint is considered attached to a fictive freeflyer joint whose local frame coincides with inStartJoint's. The first 6 columns of the jacobian constitute the jacobian of the control frame with respect to the 6 degrees of freedom of this fictive freeflyer joint.
 
   The position of the control frame is defined with respect to the local frame of inEndJoint.
