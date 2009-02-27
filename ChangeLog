@@ -1,3 +1,10 @@
+jrl-dynamics version 1.12 released February 27, 2009
+
+	29. Add new methods in jrlDynamicsRobot: jointsBetween(),
+	    getJacobian(), getPositionJacobian(), getOrientationJacobian().
+	28. Switch from autoconf to cmake.
+	27. Add forces and torques matrices.
+
 jrl-dynamics version 1.11 released October 8, 2008
 
 	26. Added CjrlJoint::{upper|lower}VelocityBound()

@@ -13,7 +13,7 @@ enable_language(CXX)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Set version
-SET(PROJECT_VERSION 1.11.100)
+SET(PROJECT_VERSION 1.12)
 
 
 # name of the project
@@ -30,7 +30,7 @@ INCLUDE(FindPkgConfig)
 pkg_check_modules(MALJRL REQUIRED MatrixAbstractLayer>=1.5.99 )
 
 SET(PROJECT_REQUIREMENTS "MatrixAbstractLayer >= 1.5.99")
-			  
+
 # To deal with the headers.
 #--------------------------
 add_subdirectory(interfaces)
@@ -58,7 +58,7 @@ CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
 		 ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
 
 INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
-	DESTINATION ${install_libdir_pkgconfig}	
+	DESTINATION ${install_libdir_pkgconfig}
         PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
 )
 
