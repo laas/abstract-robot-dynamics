@@ -1,3 +1,9 @@
+jrl-dynamics version 1.13 released March 12, 2009
+
+	32. Fixed abstractRobotDynamics.pc file
+	31. Removed autotools related files
+	30. Install abstractRobotDynamics.doxytag
+	
 jrl-dynamics version 1.12 released February 27, 2009
 
 	29. Add new methods in jrlDynamicsRobot: jointsBetween(),
