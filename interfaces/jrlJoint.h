@@ -113,7 +113,7 @@ public:
     virtual const matrix4d& initialPosition() = 0;
 
     /**
-    \brief Update this joint's transformation according to degree of freedom value from the argument configuration. This does NOT update the children-joints' transformations accordingly.
+    \brief Update this joint's transformation according to degree of freedom value from argument robot configuration. This does not update the transformations of child joints.
     \param inDofVector is a robot configuration vector.
     \return false if argument vector's size is not equal to the robot's number of degrees of freedom
      */

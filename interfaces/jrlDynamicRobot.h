@@ -90,7 +90,12 @@ public:
      \brief Get a vector containing all the joints.
   */
   virtual std::vector< CjrlJoint* > jointVector() = 0;
-    
+  
+  /**
+  \brief Get the chain of joints influencing the relative kinematics between \param inStartJoint and \param inEndJoint.
+  */
+  virtual std::vector<CjrlJoint*> jointsBetween(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint) const = 0;
+  
   /**
      \brief Get the upper bound for ith dof.
   */
@@ -257,7 +262,7 @@ public:
   /**
      \brief Get the position of the center of mass.
   */
-  virtual const vector3d& positionCenterOfMass() = 0;
+  virtual const vector3d& positionCenterOfMass() const = 0;
 
   /**
      \brief Get the velocity of the center of mass.
@@ -317,6 +322,7 @@ public:
 
   /**
      \name Control of the implementation
+  {@
   */
 
   /**
@@ -347,6 +353,31 @@ public:
   /**
      @}
   */
+  
+  
+  /**
+  \brief Get the Jacobian matrix of a control frame (position and orientation) wrt to joints. The joints influencing the jacobian are between inStartJoint and inEndJoint.
+  The body of inStartJoint is considered attached to a fictive freeflyer joint whose local frame coincides with inStartJoint's. The first 6 columns of the jacobian constitute the jacobian of the control frame with respect to the 6 degrees of freedom of this fictive freeflyer joint.
+
+  The position of the control frame is defined with respect to the local frame of inEndJoint.
+
+  \param inStartJoint the start of the chain of joints influencing the jacobian.
+  \param inEndJoint the joint where the control frame is located.
+  \param inLocalPoint the position of the control frame in inEndJoint's local frame.
+  \param outjacobian computed jacobian matrix.
+       */
+  virtual void getJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, const vector3d& inFrameLocalPosition, matrixNxP& outjacobian) = 0;
+  
+  virtual void getPositionJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, const vector3d& inFrameLocalPosition, matrixNxP& outjacobian) = 0;
+  
+  virtual void getOrientationJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, matrixNxP& outjacobian) = 0;
+
+    /**
+  \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+  The body of inStartJoint is considered attached to a fictive freeflyer joint whose local frame coincides with inStartJoint's. The first 6 columns of the jacobian constitute the jacobian of the center of mass with respect to the 6 degrees of freedom of this fictive freeflyer joint.
+  \param outjacobian computed jacobian matrix.
+     */
+  virtual void getJacobianCenterOfMass(const CjrlJoint& inStartJoint, matrixNxP& outjacobian) = 0;
 };
 
 
