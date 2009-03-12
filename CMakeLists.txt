@@ -49,6 +49,7 @@ ENDIF(DOXYGEN_FOUND)
 SET(install_pkg_prefix "\${prefix}")
 SET(install_pkg_exec_prefix "\${exec_prefix}")
 SET(install_pkg_libdir "\${libdir}")
+SET(install_pkg_datarootdir "\${datarootdir}")
 SET(install_pkg_include_dir "\${includedir}")
 
 # Install the file in the appropriate place.

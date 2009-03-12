@@ -26,6 +26,10 @@ ADD_CUSTOM_COMMAND(OUTPUT ${${PROJECT_NAME}_SOURCE_DIR}/documentation/html/index
 ADD_CUSTOM_TARGET(documentation ALL
                   DEPENDS ${${PROJECT_NAME}_SOURCE_DIR}/documentation/html/index.html)
 
+# doxytag
+INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.doxytag
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/${PROJECT_NAME}/html)
+
 INSTALL(DIRECTORY ${${PROJECT_NAME}_BINARY_DIR}/documentation/html
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/${PROJECT_NAME}/)
 INSTALL(DIRECTORY ${${PROJECT_NAME}_SOURCE_DIR}/documentation/pictures

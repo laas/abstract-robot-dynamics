@@ -1,23 +1,20 @@
+#
+#  Copyright 2009 JRL AIST-CNRS
+#
+#  Author: Florent Lamiraux
+#
 
-Installation instructions
-*************************
+Installation instructions for this package
+------------------------------------------------
 
-untar the package
-  tar xvzf abstractrobotdynamics-x.y.tar.gz
-  cd abstractrobotdynamics-x.y
+It is recommended to create a specific directory to install this package.
+mkdir build
+cd build
+cmake [Options] ..
+make 
+make install
 
-Configuration
--------------
+Options:
 
-  mkdir build
-  cd build
-  ../configure 
-
-Compilation
------------
-  make
-
-Installation
-------------
-  make install
-
+-DCMAKE_INSTALL_PREFIX=...
+  specifies the directory where to install the package.
