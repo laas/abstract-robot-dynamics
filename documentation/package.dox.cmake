@@ -230,7 +230,7 @@ VERBATIM_HEADERS       = NO
 # configuration options related to the HTML output
 #---------------------------------------------------------------------------
 HTML_OUTPUT            = html
-HTML_STYLESHEET        = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/package.css
+HTML_STYLESHEET        = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/hpp.css
 HTML_HEADER            = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/header.html
 HTML_FOOTER            = ${${PROJECT_NAME}_SOURCE_DIR}/documentation/footer.html
 

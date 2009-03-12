@@ -6,7 +6,7 @@
 SET(${${PROJECT_NAME}_SOURCE_DIR}/documentation/docfiles
     ${${PROJECT_NAME}_SOURCE_DIR}/documentation/header.html
     ${${PROJECT_NAME}_SOURCE_DIR}/documentation/footer.html
-    ${${PROJECT_NAME}_SOURCE_DIR}/documentation/package.css
+    ${${PROJECT_NAME}_SOURCE_DIR}/documentation/hpp.css
     ${${PROJECT_NAME}_SOURCE_DIR}/documentation/pictures/footer.jpg
     ${${PROJECT_NAME}_SOURCE_DIR}/documentation/additionalDoc/package.h
     ${${PROJECT_NAME}_SOURCE_DIR}/documentation/package.dox
