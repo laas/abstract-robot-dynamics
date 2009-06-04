@@ -366,13 +366,42 @@ public:
   
   \return false if matrix has inadequate size. Number of columns in matrix must be at least numberDof() if inIncludeStartFreeFlyer = true. It must be at least numberDof()-6 otherwise.
   */
-  virtual bool getJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, const vector3d& inFrameLocalPosition, matrixNxP& outjacobian, unsigned int offset = 0, bool inIncludeStartFreeFlyer = true) = 0;
+  virtual bool getJacobian(const CjrlJoint& inStartJoint, 
+			   const CjrlJoint& inEndJoint, 
+			   const vector3d& inFrameLocalPosition, 
+			   matrixNxP& outjacobian, 
+			   unsigned int offset = 0, 
+			   bool inIncludeStartFreeFlyer = true) = 0;
   
-  virtual bool getPositionJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, const vector3d& inFrameLocalPosition, matrixNxP& outjacobian, unsigned int offset = 0, bool inIncludeStartFreeFlyer = true) = 0;
+  virtual bool getPositionJacobian(const CjrlJoint& inStartJoint, 
+				   const CjrlJoint& inEndJoint, 
+				   const vector3d& inFrameLocalPosition, 
+				   matrixNxP& outjacobian, 
+				   unsigned int offset = 0, 
+				   bool inIncludeStartFreeFlyer = true) = 0;
   
-  virtual bool getOrientationJacobian(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint, matrixNxP& outjacobian, unsigned int offset = 0, bool inIncludeStartFreeFlyer = true) = 0;
+  virtual bool getOrientationJacobian(const CjrlJoint& inStartJoint, 
+				      const CjrlJoint& inEndJoint, 
+				      matrixNxP& outjacobian, 
+				      unsigned int offset = 0, 
+				      bool inIncludeStartFreeFlyer = true) = 0;
 
-  virtual bool getJacobianCenterOfMass(const CjrlJoint& inStartJoint, matrixNxP& outjacobian, unsigned int offset = 0, bool inIncludeStartFreeFlyer = true) = 0;
+  virtual bool getJacobianCenterOfMass(const CjrlJoint& inStartJoint, 
+				       matrixNxP& outjacobian, 
+				       unsigned int offset = 0, 
+				       bool inIncludeStartFreeFlyer = true) = 0;
+
+  /*! \name Inertia matrix related methods 
+   @{ */
+  /*! \brief Compute the inertia matrix of the robot according wrt \f${\bf q}\f$.
+   */
+  virtual void computeInertiaMatrix() = 0;
+
+  /*! \brief Get the inertia matrix of the robot according wrt \f${\bf q}\f$.
+   */
+  virtual const matrixNxP& inertiaMatrix() const =0;
+  /*! @} */
+  
 };
 
 

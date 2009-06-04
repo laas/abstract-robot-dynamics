@@ -1,3 +1,9 @@
+2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Adding Inertia Matrix to Abstract interface.
+	* interfaces/jrlDynamicRobot.h: Added computeInertiaMatrix
+	and inertiaMatrix.
+
 jrl-dynamics version 1.13 released March 12, 2009
 
 	32. Fixed abstractRobotDynamics.pc file
