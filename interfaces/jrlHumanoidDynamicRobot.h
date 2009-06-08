@@ -184,6 +184,99 @@ public:
        @}
     */
 
+    // Returns the width of the foot given in parameter:
+    // @param WhichFoot : -1 Right foot 1 Left foot.
+    // @paran Depth: depth of the foot (X)
+    // @param Width: width of the foot (Y), 
+    // @param Height: height of the foot (Z),
+    // @param 
+    // @return -1 if an error occured,
+    //  0 otherwise.
+    int GetFootSize(int WhichFoot, double &Depth, double &Width,double &Height);
+    
+    // Returns the length of the tibia
+    // @param WhichSide: -1 Right 1 Left.
+    double GetTibiaLength(int WhichSide);
+
+    // Returns the length of the femur
+    // @param WhichSide: -1 Right 1 Left.
+    double GetFemurLength(int WhichSide);
+
+    // Returns the length of the Upper arm
+    // @param WhichSide: -1 Right 1 Left.
+    double GetUpperArmLength(int WhichSide);
+
+    // Returns the length of the Fore arm
+    // @param WhichSide: -1 Right 1 Left.    
+    double GetForeArmLength(int WhichSide);
+
+    // Returns the ankle position in the foot coordinate frame
+    // @param WhichSide: -1 Right 1 Left.    
+    // @return AnklePosition: (X,Y,Z)
+    void GetAnklePosition(int WhichSide, double AnklePosition[3]);
+
+    // Returns the position of the Hip regarding the waist's origin.
+    // @param WhichSide: -1 Right 1 Left.
+    // @ return WaistToHip translation.
+    void GetWaistToHip(int WhichSide, double WaistToHip[3]);
+    
+    // Returns the Hip's length, for instance in HRP-2 the Y-axis
+    // for the hip is translated regarding the X and Z axis.
+    // @param WhichSide: -1 Right 1 Left.
+    // @ return Hip lenght.
+    void GetHipLength(int WhichSide,double HipLength[3]);
+
+    /*! \name Joints related methods 
+      @{
+     */
+    
+    // Returns the number of joints for the arms */
+    int GetArmJointNb(int WhichSide);
+
+    // Returns the joints for one arm */
+    const std::vector<int> & GetArmJoints(int WhichSide);
+
+    // Returns the number of joints one leg */
+    int GetLegJointNb(int WhichSide);
+
+    // Returns the joints for one leg */
+    const std::vector<int> & GetLegJoints(int WhichSide);
+
+    // Returns the number of joints for one foot */
+    int GetFootJointNb(int WhichSide);
+
+    // Returns the joints for one foot */
+    const std::vector<int> & GetFootJoints(int WhichSide);
+    
+    
+    // Returns the number of joints for the head */
+    int GetHeadJointNb();
+
+    // Returns the joints for the head*/
+    const std::vector<int> & GetHeadJoints();
+    
+   // Returns the number of joints for the Chest */
+    int GetChestJointNb();
+
+    // Returns the joints for the Chest*/
+    const std::vector<int> & GetChestJoints();
+ 
+    // Returns the number of joints for the Upper Body.
+    int GetUpperBodyJointNb();
+
+    // Returns the vector of joints index for the
+    // Upper body.
+    const std::vector<int> & GetUpperBodyJoints();
+
+    // Returns the number of joints for the Waist.
+    int GetWaistJointNb();
+
+    /*! \brief Returns the vector of joints index for the
+      waist. */
+    const std::vector<int> & GetWaistJoints();
+
+    /*! @} */
+    
 };
 
 #endif

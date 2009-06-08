@@ -1,3 +1,10 @@
+2009-06-09  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Adding methods to humanoid specificities.
+	* interfaces/jrlHumanoidDynamicRobot.h: 
+	Adding geometric information (tibia, forearm lengths) +
+	joint description of limbs.
+
 2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	Adding Inertia Matrix to Abstract interface.
