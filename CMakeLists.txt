@@ -13,7 +13,7 @@ enable_language(CXX)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Set version
-SET(PROJECT_VERSION 1.13.99)
+SET(PROJECT_VERSION 1.14.0)
 
 
 # name of the project
@@ -27,9 +27,9 @@ SET(CMAKE_INSTALL_PREFIX $ENV{ROBOTPKG_PATH})
 # Check for required packages
 # -------------------------
 INCLUDE(FindPkgConfig)
-pkg_check_modules(MALJRL REQUIRED MatrixAbstractLayer>=1.7.2 )
+pkg_check_modules(MALJRL REQUIRED MatrixAbstractLayer>=1.7.4 )
 
-SET(PROJECT_REQUIREMENTS "MatrixAbstractLayer >= 1.7.2")
+SET(PROJECT_REQUIREMENTS "MatrixAbstractLayer >= 1.7.4")
 
 # To deal with the headers.
 #--------------------------
