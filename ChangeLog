@@ -1,5 +1,11 @@
 2009-06-09  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	Fixing stupid bugs on the interface + InverseKinematics for the legs.
+	* interfaces/jrlHumanoidDynamicRobot.h: 
+	Now the methods are virtual...
+
+2009-06-09  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Adding methods to humanoid specificities.
 	* interfaces/jrlHumanoidDynamicRobot.h: 
 	Adding geometric information (tibia, forearm lengths) +

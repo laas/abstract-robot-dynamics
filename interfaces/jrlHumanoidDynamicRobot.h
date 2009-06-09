@@ -192,89 +192,118 @@ public:
     // @param 
     // @return -1 if an error occured,
     //  0 otherwise.
-    int GetFootSize(int WhichFoot, double &Depth, double &Width,double &Height);
+    virtual int GetFootSize(int WhichFoot, double &Depth, double &Width,double &Height)=0;
     
     // Returns the length of the tibia
     // @param WhichSide: -1 Right 1 Left.
-    double GetTibiaLength(int WhichSide);
+    virtual double GetTibiaLength(int WhichSide)=0;
 
     // Returns the length of the femur
     // @param WhichSide: -1 Right 1 Left.
-    double GetFemurLength(int WhichSide);
+    virtual double GetFemurLength(int WhichSide)=0;
 
     // Returns the length of the Upper arm
     // @param WhichSide: -1 Right 1 Left.
-    double GetUpperArmLength(int WhichSide);
+    virtual double GetUpperArmLength(int WhichSide)=0;
 
     // Returns the length of the Fore arm
     // @param WhichSide: -1 Right 1 Left.    
-    double GetForeArmLength(int WhichSide);
+    virtual double GetForeArmLength(int WhichSide)=0;
 
     // Returns the ankle position in the foot coordinate frame
     // @param WhichSide: -1 Right 1 Left.    
     // @return AnklePosition: (X,Y,Z)
-    void GetAnklePosition(int WhichSide, double AnklePosition[3]);
+    virtual void GetAnklePosition(int WhichSide, double AnklePosition[3])=0;
 
     // Returns the position of the Hip regarding the waist's origin.
     // @param WhichSide: -1 Right 1 Left.
     // @ return WaistToHip translation.
-    void GetWaistToHip(int WhichSide, double WaistToHip[3]);
+    virtual void GetWaistToHip(int WhichSide, double WaistToHip[3])=0;
     
     // Returns the Hip's length, for instance in HRP-2 the Y-axis
     // for the hip is translated regarding the X and Z axis.
     // @param WhichSide: -1 Right 1 Left.
     // @ return Hip lenght.
-    void GetHipLength(int WhichSide,double HipLength[3]);
+    virtual void GetHipLength(int WhichSide,double HipLength[3])=0;
 
     /*! \name Joints related methods 
       @{
      */
     
     // Returns the number of joints for the arms */
-    int GetArmJointNb(int WhichSide);
+    virtual int GetArmJointNb(int WhichSide)=0;
 
     // Returns the joints for one arm */
-    const std::vector<int> & GetArmJoints(int WhichSide);
+    virtual const std::vector<int> & GetArmJoints(int WhichSide)=0;
 
     // Returns the number of joints one leg */
-    int GetLegJointNb(int WhichSide);
+    virtual int GetLegJointNb(int WhichSide)=0;
 
     // Returns the joints for one leg */
-    const std::vector<int> & GetLegJoints(int WhichSide);
+    virtual const std::vector<int> & GetLegJoints(int WhichSide)=0;
 
     // Returns the number of joints for one foot */
-    int GetFootJointNb(int WhichSide);
+    virtual int GetFootJointNb(int WhichSide)=0;
 
     // Returns the joints for one foot */
-    const std::vector<int> & GetFootJoints(int WhichSide);
+    virtual const std::vector<int> & GetFootJoints(int WhichSide)=0;
     
     
     // Returns the number of joints for the head */
-    int GetHeadJointNb();
+    virtual int GetHeadJointNb()=0;
 
     // Returns the joints for the head*/
-    const std::vector<int> & GetHeadJoints();
+    virtual const std::vector<int> & GetHeadJoints()=0;
     
    // Returns the number of joints for the Chest */
-    int GetChestJointNb();
+    virtual int GetChestJointNb()=0;
 
     // Returns the joints for the Chest*/
-    const std::vector<int> & GetChestJoints();
+    virtual const std::vector<int> & GetChestJoints()=0;
  
     // Returns the number of joints for the Upper Body.
-    int GetUpperBodyJointNb();
+    virtual int GetUpperBodyJointNb()=0;
 
     // Returns the vector of joints index for the
     // Upper body.
-    const std::vector<int> & GetUpperBodyJoints();
+    virtual const std::vector<int> & GetUpperBodyJoints()=0;
 
     // Returns the number of joints for the Waist.
-    int GetWaistJointNb();
+    virtual int GetWaistJointNb()=0;
 
     /*! \brief Returns the vector of joints index for the
       waist. */
-    const std::vector<int> & GetWaistJoints();
-
+    virtual const std::vector<int> & GetWaistJoints()=0;
+      
+    /*! \brief Compute InverseKinematics for legs. 
+      \param[in] Body_R: Matrix 3x3 for the rotation of the upper part of the leg.
+      \param[in] Body_R: Vector 3d for the position of the upper part of the leg.
+      \param[in] Dt: Distance between the waist and the leg.
+      \param[in] Foot_R: Matrix 3x3 for the rotation of the lower part of the leg.
+      \param[in] Foot_P: Vector 3d for the position of the lower part of the leg.
+      \param[out] q: Result i.e. the articular values.
+     */
+    virtual int ComputeInverseKinematicsForLegs(matrix3d & Body_R,
+						vector3d &Body_P,
+						vector3d &Dt,
+						matrix3d &Foot_R,
+						vector3d &Foot_P,
+						vectorN &q)=0;
+    
+    /*! \brief Compute InverseKinematics for arms moving alog the saggital plane. 
+      \param[in] X: position of the end effector in the front.
+      \param[in] Z: vertical position of the end effector.
+      \param[out] Alpha: value of the first articular value.
+      \param[out] Beta: value of the second articular value.
+     */
+    virtual int ComputeInverseKinematicsForArms(double X,
+						double Z,
+						double &Alpha,
+						double &Beta)=0;
+    
+    /*! \brief Compute Arm swing maximum amplitude. */
+    virtual double ComputeXmax(double & lZ)=0;
+    
     /*! @} */
     
 };
