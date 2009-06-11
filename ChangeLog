@@ -1,3 +1,11 @@
+2009-06-11  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	[DynamicHumanoidRobot] Adding actuacted joints + optional interface.
+	* interfaces/jrlDynamicRobot.h: 
+	Setter and getter for the actuacted joints.
+	* interfaces/jrlHumanoidDynamicRobot.h: 
+	Put optional interface through exception.
+
 2009-06-09  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	Fixing stupid bugs on the interface + InverseKinematics for the legs.

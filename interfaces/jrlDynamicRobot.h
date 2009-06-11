@@ -46,7 +46,19 @@
    interface light, a control mechanism based on properties is proposed 
    through the following methods: isSupported(), getProperty(), setProperty().
    Each implementation is responsible for its own methods. However, in order to
-   keep some compatibility, some recommended methods are listed in \ref abstractRobotDynamics_commands "this page".
+   keep some compatibility, some recommended methods are listed in 
+   \ref abstractRobotDynamics_commands "this page".
+
+   \par Actuated Joints.
+   In order to differenciate actuated joints and none actuacted joints,
+   an array giving the position of the actuated joints in the state vector
+   is provided through the method:  getActuatedJoints().
+   For instance, if the configuration vector of the robot is 
+   \f$ {\bf x}=( {\bf r}, {\bf q} )\f$ with \f${\bf r}\f$ the free flyer 
+   and \f${\bf q}\f$ the actuated joints, getActuatedJoints() will
+   provide the index of \f$ q_0, q_1,...,q_n \f$ in \f${\bf x}\f$.
+   For the model builder, this vector is specified by setActuatedJoints().
+   
 */
 
 class CjrlDynamicRobot
@@ -92,9 +104,11 @@ public:
   virtual std::vector< CjrlJoint* > jointVector() = 0;
   
   /**
-  \brief Get the chain of joints influencing the relative kinematics between \param inStartJoint and \param inEndJoint.
+  \brief Get the chain of joints influencing the relative kinematics between 
+  \param inStartJoint and \param inEndJoint.
   */
-  virtual std::vector<CjrlJoint*> jointsBetween(const CjrlJoint& inStartJoint, const CjrlJoint& inEndJoint) const = 0;
+  virtual std::vector<CjrlJoint*> jointsBetween(const CjrlJoint& inStartJoint, 
+						const CjrlJoint& inEndJoint) const = 0;
   
   /**
      \brief Get the upper bound for ith dof.
@@ -328,7 +342,8 @@ public:
   /**
      \brief Whether the specified property in implemented.
   */
-  virtual bool isSupported(const std::string &inProperty) {return false;}
+  virtual bool isSupported(const std::string &inProperty) 
+  {return false;}
 
   /**
      \brief Get property corresponding to command name.
@@ -338,7 +353,9 @@ public:
 
      \note The returned string needs to be cast into the right type (double, int,...).
   */
-  virtual bool getProperty(const std::string &inProperty, std::string& outValue) {return false;}
+  virtual bool getProperty(const std::string &inProperty, 
+			   std::string& outValue) 
+  {return false;}
 
   /**
      \brief Set property corresponding to command name.
@@ -346,9 +363,12 @@ public:
      \param inProperty name of the property.
      \param inValue value of the property.
 
-     \note The value string is obtained by writing the corresponding value in a string (operator<<).
+     \note The value string is obtained by writing the 
+     corresponding value in a string (operator<<).
   */
-  virtual bool setProperty(std::string &inProperty, const std::string& inValue) {return false;} 
+  virtual bool setProperty(std::string &inProperty, 
+			   const std::string& inValue) 
+  {return false;} 
 
   /**
      @}
@@ -361,10 +381,14 @@ public:
   \param inEndJoint the joint where the control frame is located.
   \param inLocalPoint the position of the control frame in inEndJoint's local frame.
   \param outjacobian computed jacobian matrix.
-  \param offset is the rank of the column of \param outjacobian where writing of jacobian begins.
-  \param inIncludeStartFreeFlyer is an option to include the contribution of a fictive freeflyer superposed with \param inStartJoint
+  \param offset is the rank of the column of 
+  \param outjacobian where writing of jacobian begins.
+  \param inIncludeStartFreeFlyer is an option to include the 
+  contribution of a fictive freeflyer superposed with \param inStartJoint
   
-  \return false if matrix has inadequate size. Number of columns in matrix must be at least numberDof() if inIncludeStartFreeFlyer = true. It must be at least numberDof()-6 otherwise.
+  \return false if matrix has inadequate size. Number of columns 
+  in matrix must be at least numberDof() if inIncludeStartFreeFlyer = true. 
+  It must be at least numberDof()-6 otherwise.
   */
   virtual bool getJacobian(const CjrlJoint& inStartJoint, 
 			   const CjrlJoint& inEndJoint, 
@@ -401,6 +425,17 @@ public:
    */
   virtual const matrixNxP& inertiaMatrix() const =0;
   /*! @} */
+
+  /*! \name Actuated joints related methods.  
+    @{
+   */
+  /*! Returns an index of actuated joints. */
+  virtual const std::vector<int>& getActuatedJoints() const = 0;
+
+  /*! Set the index of actuated joints. */
+  virtual void setActuatedJoints(std::vector<int> & lActuatedJoints)=0;
+  /*! @} */
+    
   
 };
 

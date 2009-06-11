@@ -196,35 +196,70 @@ public:
     
     // Returns the length of the tibia
     // @param WhichSide: -1 Right 1 Left.
-    virtual double GetTibiaLength(int WhichSide)=0;
+    virtual double GetTibiaLength(int WhichSide)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     // Returns the length of the femur
     // @param WhichSide: -1 Right 1 Left.
-    virtual double GetFemurLength(int WhichSide)=0;
+    virtual double GetFemurLength(int WhichSide)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     // Returns the length of the Upper arm
     // @param WhichSide: -1 Right 1 Left.
-    virtual double GetUpperArmLength(int WhichSide)=0;
+    virtual double GetUpperArmLength(int WhichSide)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     // Returns the length of the Fore arm
     // @param WhichSide: -1 Right 1 Left.    
-    virtual double GetForeArmLength(int WhichSide)=0;
+    virtual double GetForeArmLength(int WhichSide)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     // Returns the ankle position in the foot coordinate frame
     // @param WhichSide: -1 Right 1 Left.    
     // @return AnklePosition: (X,Y,Z)
-    virtual void GetAnklePosition(int WhichSide, double AnklePosition[3])=0;
+    virtual void GetAnklePosition(int WhichSide, double AnklePosition[3])
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     // Returns the position of the Hip regarding the waist's origin.
     // @param WhichSide: -1 Right 1 Left.
     // @ return WaistToHip translation.
-    virtual void GetWaistToHip(int WhichSide, double WaistToHip[3])=0;
+    virtual void GetWaistToHip(int WhichSide, double WaistToHip[3])
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
     
     // Returns the Hip's length, for instance in HRP-2 the Y-axis
     // for the hip is translated regarding the X and Z axis.
     // @param WhichSide: -1 Right 1 Left.
     // @ return Hip lenght.
-    virtual void GetHipLength(int WhichSide,double HipLength[3])=0;
+    virtual void GetHipLength(int WhichSide,double HipLength[3])
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
 
     /*! \name Joints related methods 
       @{
@@ -288,7 +323,12 @@ public:
 						vector3d &Dt,
 						matrix3d &Foot_R,
 						vector3d &Foot_P,
-						vectorN &q)=0;
+						vectorN &q)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
     
     /*! \brief Compute InverseKinematics for arms moving alog the saggital plane. 
       \param[in] X: position of the end effector in the front.
@@ -299,10 +339,20 @@ public:
     virtual int ComputeInverseKinematicsForArms(double X,
 						double Z,
 						double &Alpha,
-						double &Beta)=0;
+						double &Beta)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
     
     /*! \brief Compute Arm swing maximum amplitude. */
-    virtual double ComputeXmax(double & lZ)=0;
+    virtual double ComputeXmax(double & lZ)
+    { 
+      std::ostringstream ostrm;
+      ostrm << __FUNCTION__  << " Not implemented - optional .";
+      throw runtime_error(ostrm.str());
+    }
     
     /*! @} */
     
