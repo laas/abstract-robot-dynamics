@@ -1,5 +1,11 @@
 2009-06-13  Florent Lamiraux  <florent@laas.fr>
 
+	CjrlHumanoidRobot::footHeight() is deprecated.
+	* interfaces/jrlHumanoidDynamicRobot.h: declare method deprecated
+	Information returned by this method is now in class CjrlFoot.
+
+2009-06-13  Florent Lamiraux  <florent@laas.fr>
+
 	Add abstract interface for foot.
 	* documentation/pictures/foot.fig: define geometric data in picture,
 	* documentation/pictures/foot.png: picture

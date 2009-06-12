@@ -163,11 +163,6 @@ public:
      */
     virtual bool jacobianJointWrtFixedJoint(CjrlJoint* inJoint, matrixNxP& outJacobian) = 0;
 
-    /**
-    \brief Return the distance between the sole of a foot and its joint center
-     */
-    virtual double footHeight() const = 0;
-
 
 
     /**
@@ -188,12 +183,19 @@ public:
        @}
     */
 
-    /*! \name Joints related methods 
+    /** \name Deprecated methods
       @{
-     */
+    */
 
+    /**
+       \brief Return the distance between the sole of a foot and its joint center
 
-    /*! \brief Returns the joints for one part of the body.
+       \deprecated This piece of information has been moved in class CjrlFoot
+    */
+    virtual double footHeight() const = 0__attribute__ ((deprecated));
+
+    /** 
+	\brief Returns the joints for one part of the body.
 
       \param[in] BodyPartIdentifier: name of the body part.
       \param[in] BodyPartIdentifier: The body part identifier. 
