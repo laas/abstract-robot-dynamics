@@ -107,22 +107,22 @@ public:
     /**
        \brief Set the pointer to the left foot joint.
     */
-    virtual void leftFoot(CjrlJoint* inLeftFoot) = 0;
+    virtual void leftFoot(CjrlFoot* inLeftFoot) = 0;
 
     /**
         \brief Get a pointer to the left foot.
     */
-    virtual CjrlJoint* leftFoot() = 0;
+    virtual CjrlFoot* leftFoot() = 0;
 
     /**
        \brief Set the pointer to the right foot joint.
     */
-    virtual void rightFoot(CjrlJoint* inRightFoot) = 0;
+    virtual void rightFoot(CjrlFoot* inRightFoot) = 0;
 
     /**
         \brief Get a pointer to the right foot.
     */
-    virtual CjrlJoint* rightFoot() = 0;
+    virtual CjrlFoot* rightFoot() = 0;
 
     /**
         \brief Set gaze joint
@@ -187,26 +187,6 @@ public:
     /**
        @}
     */
-
-    // Returns the width of the foot given in parameter:
-    // @param WhichFoot : -1 Right foot 1 Left foot.
-    // @paran Depth: depth of the foot (X)
-    // @param Width: width of the foot (Y), 
-    // @param Height: height of the foot (Z),
-    // @param 
-    // @return -1 if an error occured,
-    //  0 otherwise.
-    virtual int GetFootSize(int WhichFoot, double &Depth, double &Width,double &Height)=0;
-    
-    // Returns the ankle position in the foot coordinate frame
-    // @param WhichSide: -1 Right 1 Left.    
-    // @return AnklePosition: (X,Y,Z)
-    virtual void GetAnklePosition(int WhichSide, double AnklePosition[3])
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
 
     /*! \name Joints related methods 
       @{

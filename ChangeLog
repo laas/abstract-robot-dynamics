@@ -1,3 +1,12 @@
+2009-06-13  Florent Lamiraux  <florent@laas.fr>
+
+	Add abstract interface for foot.
+	* documentation/pictures/foot.fig: define geometric data in picture,
+	* documentation/pictures/foot.png: picture
+	* interfaces/CMakeLists.txt: add jrlFoot.h in headers to be installed
+	* interfaces/jrlFoot.h: define CjrlFoot as deriving from CjrlJoint
+	* interfaces/jrlHumanoidDynamicRobot.h: Methods relative to feet manipulate CjrlFoot instead of CjrlJoint.
+
 2009-06-12  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	Beautification of the abstract Interface.

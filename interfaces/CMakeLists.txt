@@ -9,6 +9,7 @@ SET(${PROJECT_NAME}_HEADERS
 	jrlDynamicRobot.h 
 	jrlHumanoidDynamicRobot.h 
 	jrlJoint.h 
+	jrlFoot.h
 	jrlHand.h 
 	jrlRigidAcceleration.h 
 	jrlRigidVelocity.h 
