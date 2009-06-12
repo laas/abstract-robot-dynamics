@@ -379,7 +379,7 @@ public:
   Compute and get position and orientation jacobian
   \param inStartJoint the start of the chain of joints influencing the jacobian.
   \param inEndJoint the joint where the control frame is located.
-  \param inLocalPoint the position of the control frame in inEndJoint's local frame.
+  \param inFrameLocalPoint the position of the control frame in inEndJoint's local frame.
   \param outjacobian computed jacobian matrix.
   \param offset is the rank of the column of 
   \param outjacobian where writing of jacobian begins.
@@ -387,7 +387,7 @@ public:
   contribution of a fictive freeflyer superposed with \param inStartJoint
   
   \return false if matrix has inadequate size. Number of columns 
-  in matrix must be at least numberDof() if inIncludeStartFreeFlyer = true. 
+  in matrix \param outJacobian must be at least numberDof() if inIncludeStartFreeFlyer = true. 
   It must be at least numberDof()-6 otherwise.
   */
   virtual bool getJacobian(const CjrlJoint& inStartJoint, 
@@ -435,7 +435,42 @@ public:
   /*! Set the index of actuated joints. */
   virtual void setActuatedJoints(std::vector<int> & lActuatedJoints)=0;
   /*! @} */
+
+
+  /*! \brief Compute Speciliazed InverseKinematics between two joints. 
     
+    Specialized means that this method can be re implemented to be
+    extremly efficient and used the particularity of your robot.
+    For instance in some case, it is possible to use an exact inverse
+    kinematics to compute a set of articular value.
+    
+    This method does not intend to replace an architecture computing
+    inverse kinematics through the Jacobian.
+
+    jointRootPosition and jointEndPosition have to be expressed in the same
+    frame. 
+
+    \param[in] jointRoot: The root of the joint chain for which the specialized
+    inverse kinematics should be computed.
+
+    \param[in] jointEnd: The end of the joint chain for which the specialized 
+    inverse kinematics should be computed.
+
+    \param[in] jointRootPosition: The desired position of the root. 
+    
+    \param[in] jointEndPosition: The end position of the root.
+    
+    \param[out] q: Result i.e. the articular values.
+  */
+  virtual bool ComputeSpecializedInverseKinematics(const CjrlJoint & jointRoot,
+						   const CjrlJoint & jointEnd,
+						   const matrix4d & jointRootPosition,
+						   const matrix4d & jointEndPosition,
+						   vectorN &q)
+  { 
+    return false;
+  }
+  
   
 };
 

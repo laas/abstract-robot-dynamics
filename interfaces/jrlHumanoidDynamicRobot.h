@@ -90,13 +90,17 @@ public:
     virtual CjrlHand* leftHand() = 0;
 
     /**
-    \brief Get the hand clench value. This is a scalar value ranging between 0 and 1 which describes the hand clench (0 for open and 1 for closed hand)
+    \brief Get the hand clench value. 
+    This is a scalar value ranging between 0 and 1 which 
+    describes the hand clench (0 for open and 1 for closed hand)
      */
     virtual double getHandClench(CjrlHand* inHand) = 0;
 
     /**
-      \brief Set the hand clench value. This is a scalar value ranging between 0 and 1 which describes the hand clench (0 for open and 1 for closed hand)
-    \return false if parameter 2 is out of range
+      \brief Set the hand clench value. This is a scalar value 
+      ranging between 0 and 1 which describes the hand clench 
+      (0 for open and 1 for closed hand)
+      \return false if parameter 2 is out of range
     */
     virtual bool setHandClench(CjrlHand* inHand, double inClenchingValue) = 0;
 
@@ -194,42 +198,6 @@ public:
     //  0 otherwise.
     virtual int GetFootSize(int WhichFoot, double &Depth, double &Width,double &Height)=0;
     
-    // Returns the length of the tibia
-    // @param WhichSide: -1 Right 1 Left.
-    virtual double GetTibiaLength(int WhichSide)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-
-    // Returns the length of the femur
-    // @param WhichSide: -1 Right 1 Left.
-    virtual double GetFemurLength(int WhichSide)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-
-    // Returns the length of the Upper arm
-    // @param WhichSide: -1 Right 1 Left.
-    virtual double GetUpperArmLength(int WhichSide)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-
-    // Returns the length of the Fore arm
-    // @param WhichSide: -1 Right 1 Left.    
-    virtual double GetForeArmLength(int WhichSide)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-
     // Returns the ankle position in the foot coordinate frame
     // @param WhichSide: -1 Right 1 Left.    
     // @return AnklePosition: (X,Y,Z)
@@ -240,119 +208,24 @@ public:
       throw runtime_error(ostrm.str());
     }
 
-    // Returns the position of the Hip regarding the waist's origin.
-    // @param WhichSide: -1 Right 1 Left.
-    // @ return WaistToHip translation.
-    virtual void GetWaistToHip(int WhichSide, double WaistToHip[3])
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-    
-    // Returns the Hip's length, for instance in HRP-2 the Y-axis
-    // for the hip is translated regarding the X and Z axis.
-    // @param WhichSide: -1 Right 1 Left.
-    // @ return Hip lenght.
-    virtual void GetHipLength(int WhichSide,double HipLength[3])
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-
     /*! \name Joints related methods 
       @{
      */
-    
-    // Returns the number of joints for the arms */
-    virtual int GetArmJointNb(int WhichSide)=0;
 
-    // Returns the joints for one arm */
-    virtual const std::vector<int> & GetArmJoints(int WhichSide)=0;
 
-    // Returns the number of joints one leg */
-    virtual int GetLegJointNb(int WhichSide)=0;
+    /*! \brief Returns the joints for one part of the body.
 
-    // Returns the joints for one leg */
-    virtual const std::vector<int> & GetLegJoints(int WhichSide)=0;
-
-    // Returns the number of joints for one foot */
-    virtual int GetFootJointNb(int WhichSide)=0;
-
-    // Returns the joints for one foot */
-    virtual const std::vector<int> & GetFootJoints(int WhichSide)=0;
-    
-    
-    // Returns the number of joints for the head */
-    virtual int GetHeadJointNb()=0;
-
-    // Returns the joints for the head*/
-    virtual const std::vector<int> & GetHeadJoints()=0;
-    
-   // Returns the number of joints for the Chest */
-    virtual int GetChestJointNb()=0;
-
-    // Returns the joints for the Chest*/
-    virtual const std::vector<int> & GetChestJoints()=0;
- 
-    // Returns the number of joints for the Upper Body.
-    virtual int GetUpperBodyJointNb()=0;
-
-    // Returns the vector of joints index for the
-    // Upper body.
-    virtual const std::vector<int> & GetUpperBodyJoints()=0;
-
-    // Returns the number of joints for the Waist.
-    virtual int GetWaistJointNb()=0;
-
-    /*! \brief Returns the vector of joints index for the
-      waist. */
-    virtual const std::vector<int> & GetWaistJoints()=0;
+      \param[in] BodyPartIdentifier: name of the body part.
+      \param[in] BodyPartIdentifier: The body part identifier. 
+      The minimal set of names to be supported are:
+      LEFTARM, RIGHTARM, LEFTLEG, RIGHTLEG, HEAD, CHEST,
+      WAIST, UPPERBODY.
       
-    /*! \brief Compute InverseKinematics for legs. 
-      \param[in] Body_R: Matrix 3x3 for the rotation of the upper part of the leg.
-      \param[in] Body_R: Vector 3d for the position of the upper part of the leg.
-      \param[in] Dt: Distance between the waist and the leg.
-      \param[in] Foot_R: Matrix 3x3 for the rotation of the lower part of the leg.
-      \param[in] Foot_P: Vector 3d for the position of the lower part of the leg.
-      \param[out] q: Result i.e. the articular values.
-     */
-    virtual int ComputeInverseKinematicsForLegs(matrix3d & Body_R,
-						vector3d &Body_P,
-						vector3d &Dt,
-						matrix3d &Foot_R,
-						vector3d &Foot_P,
-						vectorN &q)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-    
-    /*! \brief Compute InverseKinematics for arms moving alog the saggital plane. 
-      \param[in] X: position of the end effector in the front.
-      \param[in] Z: vertical position of the end effector.
-      \param[out] Alpha: value of the first articular value.
-      \param[out] Beta: value of the second articular value.
-     */
-    virtual int ComputeInverseKinematicsForArms(double X,
-						double Z,
-						double &Alpha,
-						double &Beta)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
-    
-    /*! \brief Compute Arm swing maximum amplitude. */
-    virtual double ComputeXmax(double & lZ)
-    { 
-      std::ostringstream ostrm;
-      ostrm << __FUNCTION__  << " Not implemented - optional .";
-      throw runtime_error(ostrm.str());
-    }
+      \param[out] returns false if the name of the body part
+      is not supported.
+    */
+    virtual bool GetBodyPartJoints(string BodyPartIdentifier,
+				   std::vector<int> & ListOfJoints)=0;
     
     /*! @} */
     

@@ -1,3 +1,16 @@
+2009-06-12  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Beautification of the abstract Interface.
+	* interfaces/jrlDynamicRobot.h: Added Specialized Inverse Kinematics.
+	The goal is not provide a generic inverse kinematics, but the possibility
+	to have specialized one by robot. The instance of specialized
+	kinematic are found by the pair RootJoint-EndJoint.
+        The method can returns false if such specialized inverse kinematics
+	does not exist.
+	* interfaces/jrlHumanoidDynamicRobot.h: Removed dirty interface.
+	Added GetBodyParts method with a string argument to have a vector
+	of body index describing body parts.
+
 2009-06-11  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	[DynamicHumanoidRobot] Adding actuacted joints + optional interface.
