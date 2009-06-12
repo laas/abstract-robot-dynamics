@@ -1,5 +1,12 @@
 2009-06-13  Florent Lamiraux  <florent@laas.fr>
 
+	Temporarily Remove GetBodyPartJoints() method.
+	* interfaces/jrlHumanoidDynamicRobot.h: remove method that
+	returns list of joints correponding to some parts of the robot
+	(waist, chest, arms, legs,...)
+
+2009-06-13  Florent Lamiraux  <florent@laas.fr>
+
 	CjrlHumanoidRobot::footHeight() is deprecated.
 	* interfaces/jrlHumanoidDynamicRobot.h: declare method deprecated
 	Information returned by this method is now in class CjrlFoot.

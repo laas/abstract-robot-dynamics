@@ -194,20 +194,6 @@ public:
     */
     virtual double footHeight() const = 0__attribute__ ((deprecated));
 
-    /** 
-	\brief Returns the joints for one part of the body.
-
-      \param[in] BodyPartIdentifier: name of the body part.
-      \param[in] BodyPartIdentifier: The body part identifier. 
-      The minimal set of names to be supported are:
-      LEFTARM, RIGHTARM, LEFTLEG, RIGHTLEG, HEAD, CHEST,
-      WAIST, UPPERBODY.
-      
-      \param[out] returns false if the name of the body part
-      is not supported.
-    */
-    virtual bool GetBodyPartJoints(string BodyPartIdentifier,
-				   std::vector<int> & ListOfJoints)=0;
     
     /*! @} */
     
