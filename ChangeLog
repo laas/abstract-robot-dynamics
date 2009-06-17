@@ -1,3 +1,8 @@
+2009-06-17  Florent Lamiraux  <florent@laas.fr>
+
+	(get|set)ActuatedJoints() now handles joints instead of int.
+	* interfaces/jrlDynamicRobot.h: here.
+
 2009-06-13  Florent Lamiraux  <florent@laas.fr>
 
 	Temporarily Remove GetBodyPartJoints() method.

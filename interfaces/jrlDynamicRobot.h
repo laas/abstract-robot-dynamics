@@ -429,12 +429,20 @@ public:
   /*! \name Actuated joints related methods.  
     @{
    */
-  /*! Returns an index of actuated joints. */
-  virtual const std::vector<int>& getActuatedJoints() const = 0;
 
-  /*! Set the index of actuated joints. */
-  virtual void setActuatedJoints(std::vector<int> & lActuatedJoints)=0;
-  /*! @} */
+  /** 
+      \brief Returns the list of actuated joints. 
+   */
+  virtual const std::vector<CjrlJoint*>& getActuatedJoints() const = 0;
+
+  /**
+     \brief Specifies the list of actuated joints. 
+  */
+  virtual void setActuatedJoints(std::vector<CjrlJoint*>& lActuatedJoints)=0;
+
+  /*! 
+    @} 
+  */
 
 
   /*! \brief Compute Speciliazed InverseKinematics between two joints. 
