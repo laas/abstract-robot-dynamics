@@ -1,3 +1,9 @@
+2009-06-18  Florent Lamiraux  <florent@laas.fr>
+
+	Add a class providing functional decomposition of a hum. robot.
+	* interfaces/jrlHumDynRobotType2.h: Provide list of joints 
+	correponding to each arm, each leg and the head.
+
 2009-06-17  Florent Lamiraux  <florent@laas.fr>
 
 	(get|set)ActuatedJoints() now handles joints instead of int.
