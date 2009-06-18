@@ -50,14 +50,8 @@
    \ref abstractRobotDynamics_commands "this page".
 
    \par Actuated Joints.
-   In order to differenciate actuated joints and none actuacted joints,
-   an array giving the position of the actuated joints in the state vector
-   is provided through the method:  getActuatedJoints().
-   For instance, if the configuration vector of the robot is 
-   \f$ {\bf x}=( {\bf r}, {\bf q} )\f$ with \f${\bf r}\f$ the free flyer 
-   and \f${\bf q}\f$ the actuated joints, getActuatedJoints() will
-   provide the index of \f$ q_0, q_1,...,q_n \f$ in \f${\bf x}\f$.
-   For the model builder, this vector is specified by setActuatedJoints().
+   In order to make a distinction between actuated joints and none actuacted joints,
+   a vector of actuated joints is provided through method:  getActuatedJoints().
    
 */
 

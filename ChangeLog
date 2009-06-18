@@ -1,5 +1,10 @@
 2009-06-18  Florent Lamiraux  <florent@laas.fr>
 
+	Fix definition of method relative to actuated joints.
+	* interfaces/jrlDynamicRobot.h: here.
+
+2009-06-18  Florent Lamiraux  <florent@laas.fr>
+
 	Add chest in humanoid robot.
 	* interfaces/jrlHumanoidDynamicRobot.h: Note that waist and
 	chest may be the same joint.
