@@ -1,5 +1,9 @@
 2009-06-19  Florent Lamiraux  <florent@laas.fr>
 
+	Remove empty lines in comments.
+
+2009-06-19  Florent Lamiraux  <florent@laas.fr>
+
 	Provide a definition of robot described by CjrlHumanoidDynamicRobot.
 	* interfaces/jrlHumanoidDynamicRobot.h: here.
 

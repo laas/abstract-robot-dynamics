@@ -27,10 +27,8 @@
    \par Definition
    This class describes a humanoid robot as a kinematic chain with two arms,
    two feet and a vision sensor. The axis of the sensor is called gaze.
-
    Hands are linked to the robot by arms connected at the chest joint.
    Feet are linked to the robot by legs connected at the waist joint.
-
    No access to the joints composing the limbs are provided by this class.
    See class CjrlHumDynRobotType2 for this type of information.
    
