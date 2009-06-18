@@ -1,3 +1,8 @@
+2009-06-19  Florent Lamiraux  <florent@laas.fr>
+
+	Provide a definition of robot described by CjrlHumanoidDynamicRobot.
+	* interfaces/jrlHumanoidDynamicRobot.h: here.
+
 2009-06-18  Florent Lamiraux  <florent@laas.fr>
 
 	Fix definition of method relative to actuated joints.

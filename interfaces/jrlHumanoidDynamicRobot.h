@@ -17,12 +17,23 @@
 
 
 /**
-    \brief Abstract class that instantiate a humanoid robot with dynamics.
+    \brief Abstract class describing a humanoid robot with dynamics.
  
     This class derives for CjrlDynamicRobot and instantiate properties specific to humanoid robots. 
     \li it provides pointers to the feet and hand joints,
     \li it provides pointers to the joint corresponding to the gaze,
     \li it computes the Zero Momentum Point.
+
+   \par Definition
+   This class describes a humanoid robot as a kinematic chain with two arms,
+   two feet and a vision sensor. The axis of the sensor is called gaze.
+
+   Hands are linked to the robot by arms connected at the chest joint.
+   Feet are linked to the robot by legs connected at the waist joint.
+
+   No access to the joints composing the limbs are provided by this class.
+   See class CjrlHumDynRobotType2 for this type of information.
+   
 */
 
 class CjrlHumanoidDynamicRobot : public virtual CjrlDynamicRobot
