@@ -1,5 +1,11 @@
 2009-06-18  Florent Lamiraux  <florent@laas.fr>
 
+	Add chest in humanoid robot.
+	* interfaces/jrlHumanoidDynamicRobot.h: Note that waist and
+	chest may be the same joint.
+
+2009-06-18  Florent Lamiraux  <florent@laas.fr>
+
 	Add a class providing functional decomposition of a hum. robot.
 	* interfaces/jrlHumDynRobotType2.h: Provide list of joints 
 	correponding to each arm, each leg and the head.

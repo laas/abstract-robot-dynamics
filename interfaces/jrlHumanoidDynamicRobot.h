@@ -50,6 +50,20 @@ public:
     virtual CjrlJoint* waist() = 0;
 
     /**
+       \brief Set the pointer to the chest.
+
+       \note for some humanoid robots, the waist and the chest are the same joints.
+    */
+    virtual void chest(CjrlJoint* inChest) = 0;
+
+    /**
+        \brief Get a pointer to the chest.
+
+       \note for some humanoid robots, the waist and the chest are the same joints.
+    */
+    virtual CjrlJoint* chest() = 0;
+
+    /**
       \brief Set the pointer to the left wrist joint.
     */
     virtual void leftWrist(CjrlJoint* inLefWrist) = 0;
