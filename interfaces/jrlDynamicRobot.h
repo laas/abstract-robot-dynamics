@@ -293,7 +293,7 @@ public:
 
   /**
      \name Control of the implementation
-  {@
+     @{
   */
 
   /**

@@ -1,5 +1,10 @@
 2009-06-24  Florent Lamiraux  <florent@laas.fr>
 
+	Fix doxygen typo.
+	* interfaces/jrlDynamicRobot.h: {@ -> @{
+
+2009-06-24  Florent Lamiraux  <florent@laas.fr>
+
 	Remove methods related to fixed joints.
 	* interfaces/jrlDynamicRobot.h: here
 	* interfaces/jrlHumanoidDynamicRobot.h: here
