@@ -1,3 +1,9 @@
+2009-06-23  Florent Lamiraux  <florent@laas.fr>
+
+	Remove class CjrlHumDynRobotType2.
+	* interfaces/jrlHumDynRobotType2.h: Remove. This class is 
+	not necessary at this point. 
+
 2009-06-19  Florent Lamiraux  <florent@laas.fr>
 
 	Remove empty lines in comments.
