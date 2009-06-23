@@ -1,5 +1,11 @@
 2009-06-24  Florent Lamiraux  <florent@laas.fr>
 
+	Remove methods related to fixed joints.
+	* interfaces/jrlDynamicRobot.h: here
+	* interfaces/jrlHumanoidDynamicRobot.h: here
+
+2009-06-24  Florent Lamiraux  <florent@laas.fr>
+
 	Remove ChangeLog file.
 	* ChangeLog: Remove. We do not use this file anymore.
 	See git history for a complete history of changes.

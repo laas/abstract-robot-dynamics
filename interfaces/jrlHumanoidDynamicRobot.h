@@ -176,18 +176,6 @@ public:
      */
     virtual const vector3d& gazeDirection() const = 0;
 
-
-
-    /**
-       \brief Get the jacobian of a joint wrt to internal configuration variables assuming a joint is fixed.
-       
-        Fixed joint is first fixed joint in vector.
-        \return true if there is at least one fixed joint, false otherwise.  
-     */
-    virtual bool jacobianJointWrtFixedJoint(CjrlJoint* inJoint, matrixNxP& outJacobian) = 0;
-
-
-
     /**
        \@}
     */

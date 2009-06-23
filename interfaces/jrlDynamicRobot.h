@@ -28,16 +28,6 @@
    The time derivative \f${\bf \dot{q}}\f$ of the configuration vector is called the <b>velocity vector</b>.
    The time derivative \f${\bf \ddot{q}}\f$ of the velocity vector. is called the <b>acceleration vector</b>.
 
-   \par Fixed Joints
-   A legged robot is often in contact with the environment through
-   its feet. Depending on the foot which is in contact
-   with the ground, some computations using the dynamic model of the
-   robot may differ. For this reason, the joints that are temporarily
-   in contact with the environment are called fixed joints.
-   A joint can be defined temporarily fixed by calling
-   CjrlDynamicRobot::addFixedJoint. The joint is released by calling 
-   CjrlDynamicRobot::removeFixedJoint.
-
    \par Control of the implementation
    In some cases, it is desirable to control the implementation of this 
    class in order to selectively compute only some kinematic and dynamic 
@@ -128,33 +118,6 @@ public:
      \brief Get the number of degrees of freedom of the robot.
   */
   virtual unsigned int numberDof() const = 0;
-
-  /** 
-      \brief Add a joint to the vector of fixed joints.
-      This Declares a joint as fixed in the world.
-  */
-  virtual void addFixedJoint(CjrlJoint* inFixedJoint) = 0;
-
-  /** 
-      \brief Count joints that are fixed in the world.
-  */
-  virtual unsigned int countFixedJoints() const = 0;
-    
-  /** 
-      \brief Remove a joint from the vector of fixed joints.
-      The input joint will no longer be considered fixed in the world.
-  */
-  virtual void removeFixedJoint(CjrlJoint* inFixedJoint) = 0;
-    
-  /** 
-      \brief Clear the list of fixed joints
-  */
-  virtual void clearFixedJoints()=0;
-    
-  /** 
-      \brief Return the fixed joint at rank inRank 
-  */
-  virtual CjrlJoint& fixedJoint(unsigned int inJointRank) = 0;
 
   /**
      \brief Set the joint ordering in the configuration vector
