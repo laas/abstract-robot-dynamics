@@ -203,7 +203,7 @@ public:
 
        \deprecated This piece of information has been moved in class CjrlFoot
     */
-    virtual double footHeight() const = 0__attribute__ ((deprecated));
+    virtual double footHeight() const = 0 __attribute__ ((deprecated));
 
     
     /*! @} */

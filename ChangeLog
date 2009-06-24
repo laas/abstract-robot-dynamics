@@ -1,3 +1,9 @@
+2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Fixed a bug forbidding compilation for implementation.
+	* interfaces/jrlHumanoidDynamicRobot.h: 
+	A space is needed between 0 and __attribute__ .
+
 2009-06-24  Florent Lamiraux  <florent@laas.fr>
 
 	Merge branch humanoidspecificities.
