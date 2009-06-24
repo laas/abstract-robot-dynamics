@@ -1,5 +1,12 @@
 2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	Fix the deprecated attribute for footHeight().
+	* interfaces/jrlHumanoidDynamicRobot.h: 
+	Another fix for __attribute__ ((deprecated))
+	It seems to be working on g++-4.3.3 .
+
+2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Fixed a bug forbidding compilation for implementation.
 	* interfaces/jrlHumanoidDynamicRobot.h: 
 	A space is needed between 0 and __attribute__ .

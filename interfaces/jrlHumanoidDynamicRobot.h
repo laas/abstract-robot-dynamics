@@ -14,7 +14,7 @@
 
 #include "jrlDynamicRobot.h"
 #include "jrlHand.h"
-
+#include "jrlFoot.h"
 
 /**
     \brief Abstract class describing a humanoid robot with dynamics.
@@ -203,7 +203,7 @@ public:
 
        \deprecated This piece of information has been moved in class CjrlFoot
     */
-    virtual double footHeight() const = 0 __attribute__ ((deprecated));
+    virtual double footHeight() const  __attribute__ ((deprecated)) = 0;
 
     
     /*! @} */
