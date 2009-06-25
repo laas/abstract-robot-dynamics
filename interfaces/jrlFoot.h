@@ -45,7 +45,7 @@ public:
 	\retval outWidth width of the sole (see Figure)
 
     */
-    virtual int soleSize(double &outLength, double &outWidth)=0;
+    virtual void soleSize(double &outLength, double &outWidth)=0;
     
     /**
        \brief  Get position of the ankle in the foot local coordinate frame

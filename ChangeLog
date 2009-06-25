@@ -1,5 +1,11 @@
 2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	Changes in Foot::SoleSize() returns.
+	* interfaces/jrlFoot.h: 
+	Modified soleSize to not return anything.
+
+2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Fix the deprecated attribute for footHeight().
 	* interfaces/jrlHumanoidDynamicRobot.h: 
 	Another fix for __attribute__ ((deprecated))
