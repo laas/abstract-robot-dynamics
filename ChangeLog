@@ -1,3 +1,11 @@
+2009-06-28  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Change to have homogeneous handling of hands and feet.
+	* interfaces/jrlFoot.h: Foot is not derived anymore
+	from Joint but encapsulates a Joint as does Hand.
+	Please uses associatedAnkle() to get the related
+	joint. 
+
 2009-06-25  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	Changes in Foot::SoleSize() returns.

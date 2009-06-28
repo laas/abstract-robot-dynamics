@@ -18,8 +18,6 @@
 /**
    \brief This class represents a robot foot
  
-   A foot is a specialized joint.
-
    It is assumed that
    \li a foot is attached to the kinematic chain of the robot by a joint called \em ankle,
    \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole.
@@ -27,7 +25,7 @@
    \image html foot.png "A foot: the local frame is denoted by \f(O, x, y, z)\f. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H.
 */
 
-class CjrlFoot: public virtual CjrlJoint
+class CjrlFoot
 {
 public:
 
@@ -37,6 +35,10 @@ public:
     virtual ~CjrlFoot()
     {};
 
+    /**
+    \brief Get the wrist joint to which the hand is attached
+    */
+    virtual CjrlJoint* associatedAnkle() = 0;
 
     /** 
 	\brief Get size of the rectagular sole
