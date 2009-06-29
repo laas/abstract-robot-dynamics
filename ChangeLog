@@ -1,3 +1,14 @@
+2009-06-29  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Adding templates to create Non Abstract Classes from ObjectFactory.
+	* The idea behind those templates is to help developper	
+	of specific implementation to derive class from object factories.
+	The design do not require to know the data structures implementing
+	the abstract interface. This help to handle confidential or dirty code. 
+	* interfaces/CMakeLists.txt: Adding installation of the templates.
+	* interfaces/jrlDynamicRobotNA.hpp: New.
+	* interfaces/jrlHumanoidDynamicRobotNA.hpp: New.
+
 2009-06-28  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	Change to have homogeneous handling of hands and feet.
