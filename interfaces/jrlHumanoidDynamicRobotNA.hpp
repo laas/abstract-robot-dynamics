@@ -349,6 +349,19 @@ public:
 
 
   /**
+     \brief Return the distance between the sole of a foot and its joint center
+     
+     \deprecated This piece of information has been moved in class CjrlFoot
+    */
+  virtual double footHeight() const  __attribute__ ((deprecated))
+  {
+    return 0;
+  }
+
+    
+    /*! @} */
+
+  /**
      @}
   */
     
