@@ -1,5 +1,12 @@
 2009-06-30  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	Removed Non abstract template implementation from Abstract Interface.
+	* interfaces/CMakeLists.txt: Remove installation of template Non Abstract
+	* interfaces/jrlDynamicRobotNA.hpp: Remove.
+	* interfaces/jrlHumanoidDynamicRobotNA.hpp: Remove.
+
+2009-06-30  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Adding footHeight() in the template for Non Abstract implementation.
 	* interfaces/jrlHumanoidDynamicRobotNA.hpp: 
 	Although deprecated footHeight is still necessary

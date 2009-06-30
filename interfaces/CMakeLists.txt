@@ -14,8 +14,6 @@ SET(${PROJECT_NAME}_HEADERS
 	jrlRigidAcceleration.h 
 	jrlRigidVelocity.h 
 	jrlRobotDynamicsObjectConstructor.h 
-	jrlDynamicRobotNA.hpp
-	jrlHumanoidDynamicRobotNA.hpp
 )
 
 
