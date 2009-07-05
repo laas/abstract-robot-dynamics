@@ -29,7 +29,7 @@ public:
   /**
      \brief Construct and return a pointer to a humanoid dynamic robot.
   */
-  virtual CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot()=0;
+  virtual CjrlHumanoidDynamicRobot* createHumanoidDynamicRobot()=0;
 
   /**
      \brief Construct and return a pointer to a freeflyer joint.
