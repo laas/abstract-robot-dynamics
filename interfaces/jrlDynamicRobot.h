@@ -427,11 +427,11 @@ public:
     
     \param[out] q: Result i.e. the articular values.
   */
-  virtual bool ComputeSpecializedInverseKinematics(const CjrlJoint & jointRoot,
-						   const CjrlJoint & jointEnd,
-						   const matrix4d & jointRootPosition,
-						   const matrix4d & jointEndPosition,
-						   vectorN &q)
+  virtual bool getSpecializedInverseKinematics(const CjrlJoint & jointRoot,
+					       const CjrlJoint & jointEnd,
+					       const matrix4d & jointRootPosition,
+					       const matrix4d & jointEndPosition,
+					       vectorN &q)
   { 
     return false;
   }
