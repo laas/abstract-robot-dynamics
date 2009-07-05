@@ -18,41 +18,44 @@
 class CjrlRobotDynamicsObjectFactory
 {
 public:
+
+  virtual ~CjrlRobotDynamicsObjectFactory()
+    {};
   /**
      \brief Construct and return a pointer to a dynamic robot.
   */
-  CjrlDynamicRobot* createDynamicRobot()=0;
+  virtual CjrlDynamicRobot* createDynamicRobot()=0;
 
   /**
      \brief Construct and return a pointer to a humanoid dynamic robot.
   */
-  CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot()=0;
+  virtual CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot()=0;
 
   /**
      \brief Construct and return a pointer to a freeflyer joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  CjrlJoint* createJointFreeflyer(const matrix4d& inInitialPosition)=0;
+  virtual CjrlJoint* createJointFreeflyer(const matrix4d& inInitialPosition)=0;
 
   /**
      \brief Construct and return a pointer to a rotation joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  CjrlJoint* createJointRotation(const matrix4d& inInitialPosition)=0;
+  virtual CjrlJoint* createJointRotation(const matrix4d& inInitialPosition)=0;
 
   /**
      \brief Construct and return a pointer to a translation joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  CjrlJoint* createJointTranslation(const matrix4d& inInitialPosition)=0;
+  virtual CjrlJoint* createJointTranslation(const matrix4d& inInitialPosition)=0;
 
   /**
      \brief Construct and return a pointer to a body
   */
-  CjrlBody* createBody()=0;
+  virtual CjrlBody* createBody()=0;
 
 };
 

@@ -1,5 +1,10 @@
 2009-07-05  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	Adding virtual destructor and virtual methods for object factory.
+	* interfaces/jrlRobotDynamicsObjectConstructor.h: .
+
+2009-07-05  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Proposal for abstract object factory.
 	* interfaces/jrlRobotDynamicsObjectConstructor.h: 
 	Adding CjrlRobotDunamicsObjectFactory.h .
