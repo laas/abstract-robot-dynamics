@@ -88,8 +88,9 @@ public:
   virtual std::vector< CjrlJoint* > jointVector() = 0;
   
   /**
-  \brief Get the chain of joints influencing the relative kinematics between 
-  \param inStartJoint and \param inEndJoint.
+     \brief Get the chain of joints between two joints 
+     \param inStartJoint First joint.
+     \param inEndJoint Second joint.
   */
   virtual std::vector<CjrlJoint*> jointsBetween(const CjrlJoint& inStartJoint, 
 						const CjrlJoint& inEndJoint) const = 0;
@@ -333,19 +334,22 @@ public:
   
   
   /**
-  Compute and get position and orientation jacobian
-  \param inStartJoint the start of the chain of joints influencing the jacobian.
-  \param inEndJoint the joint where the control frame is located.
-  \param inFrameLocalPoint the position of the control frame in inEndJoint's local frame.
-  \param outjacobian computed jacobian matrix.
-  \param offset is the rank of the column of 
-  \param outjacobian where writing of jacobian begins.
-  \param inIncludeStartFreeFlyer is an option to include the 
-  contribution of a fictive freeflyer superposed with \param inStartJoint
+     \brief Compute and get position and orientation jacobian
+
+     \param inStartJoint First joint in the chain of joints influencing 
+     the jacobian.
+     \param inEndJoint Joint where the control frame is located.
+     \param inFrameLocalPosition Position of the control frame in inEndJoint 
+     local frame.
+     \retval outjacobian computed jacobian matrix.
+     \param offset is the rank of first non zero outjacobian column.
+     \param inIncludeStartFreeFlyer Option to include the contribution of a 
+     fictive freeflyer superposed with inStartJoint
   
-  \return false if matrix has inadequate size. Number of columns 
-  in matrix \param outJacobian must be at least numberDof() if inIncludeStartFreeFlyer = true. 
-  It must be at least numberDof()-6 otherwise.
+     \return false if matrix has inadequate size. Number of columns 
+     in matrix outJacobian must be at least numberDof() if 
+     inIncludeStartFreeFlyer = true. 
+     It must be at least numberDof()-6 otherwise.
   */
   virtual bool getJacobian(const CjrlJoint& inStartJoint, 
 			   const CjrlJoint& inEndJoint, 
