@@ -22,7 +22,7 @@
    \li a foot is attached to the kinematic chain of the robot by a joint called \em ankle,
    \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole.
 
-   \image html foot.png "A foot: the local frame is denoted by \f(O, x, y, z)\f. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H.
+   \image html foot.png "A foot: the local frame is denoted by \f$(O, x, y, z)\f$. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H.
 */
 
 class CjrlFoot
@@ -38,7 +38,7 @@ public:
     /**
     \brief Get the wrist joint to which the hand is attached
     */
-    virtual CjrlJoint* associatedAnkle() = 0;
+    virtual CjrlJoint* associatedAnkle() const = 0;
 
     /** 
 	\brief Get size of the rectagular sole
@@ -47,28 +47,68 @@ public:
 	\retval outWidth width of the sole (see Figure)
 
     */
-    virtual void soleSize(double &outLength, double &outWidth)=0;
+    virtual void getSoleSize(double &outLength, double &outWidth) const = 0;
     
+
+    /** 
+	\brief Set size of the rectagular sole
+
+	\param inLength length of the sole (see Figure)
+	\param inWidth width of the sole (see Figure)
+
+    */
+    virtual void 
+      setSoleSize(const double &inLength, const double &inWidth) = 0;
+
     /**
        \brief  Get position of the ankle in the foot local coordinate frame
 
        \retval outCoordinates coordinates of the ankle joint center
     */
-    virtual void anklePositionInLocalFrame(vector3d& outCoordinates)=0;
+    virtual void 
+      getAnklePositionInLocalFrame(vector3d& outCoordinates) const = 0;
+    
+    /**
+       \brief  Set position of the ankle in the foot local coordinate frame
+
+       \param inCoordinates coordinates of the ankle joint center
+    */
+    virtual void 
+      setAnklePositionInLocalFrame(const vector3d& inCoordinates) = 0;
 
     /**
        \brief Get position of the sole center in foot local frame of the foot
 
-       \refval outCoordinates coordinates of the center C of the sole (see Figure) 
+       \retval outCoordinates coordinates of the center C of the sole 
+       (see Figure) 
     */
-    virtual void soleCenterInLocalFrame(vector3d& outCoordinates)=0;
+    virtual void getSoleCenterInLocalFrame(vector3d& outCoordinates) const = 0;
 
     /**
-       \brief Get position of the projection of center of local frame in sole plane
+       \brief Set position of the sole center in foot local frame of the foot
 
-       \refval outCoordinates coordinates of the projection H of the center of the local frame in the sole plane (see Figure) 
+       \param inCoordinates coordinates of the center C of the sole 
+       (see Figure) 
     */
-    virtual void projectionCenterLocalFrameInSole(vector3d& outCoordinates)=0;
+    virtual void setSoleCenterInLocalFrame(const vector3d& inCoordinates) = 0;
+
+    /**
+       \brief Get position of projection of center of local frame in sole plane
+
+       \retval outCoordinates coordinates of the projection H of the center 
+       of the local frame in the sole plane (see Figure) 
+    */
+    virtual void 
+      getProjectionCenterLocalFrameInSole(vector3d& outCoordinates) const = 0;
+
+    /**
+       \brief Set position of projection of center of local frame in sole plane
+
+       \param inCoordinates coordinates of the projection H of the center 
+       of the local frame in the sole plane (see Figure) 
+    */
+    virtual void 
+      setProjectionCenterLocalFrameInSole(const vector3d& inCoordinates) = 0;
 
 };
 
