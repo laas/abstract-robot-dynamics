@@ -140,6 +140,26 @@ public:
     virtual bool setHandClench(CjrlHand* inHand, double inClenchingValue) = 0;
 
     /**
+      \brief Set the pointer to the left ankle joint.
+    */
+    virtual void leftAnkle(CjrlJoint* inLefAnkle) = 0;
+
+    /**
+      \brief Get a pointer to the left ankle.
+    */
+    virtual CjrlJoint* leftAnkle() = 0;
+
+    /**
+      \brief Set the pointer to the right ankle joint.
+    */
+    virtual void rightAnkle(CjrlJoint* inRightAnkle) = 0;
+
+    /**
+      \brief Get a pointer to the right ankle.
+    */
+    virtual CjrlJoint* rightAnkle() = 0;
+
+    /**
        \brief Set the pointer to the left foot joint.
     */
     virtual void leftFoot(CjrlFoot* inLeftFoot) = 0;
