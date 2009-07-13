@@ -55,7 +55,29 @@ public:
   /**
      \brief Construct and return a pointer to a body
   */
-  virtual CjrlBody* createBody()=0;
+  virtual CjrlBody* createBody() = 0;
+
+  /**
+     \brief Construct and return a pointer to a hand.
+
+     \param inWrist The joint the hand is attached to.
+     \param center Center of the hand in the frame of the wrist.
+     \param inThumbAxis axis of the thumb in open position 
+     in the frame of the wrist.
+     \param inForeFingerAxis axis of the forefinger in open position
+     in the frame of the wrist.
+     \param inPalmNormal normal to the palm in the frame of the wrist.
+
+  */
+  CjrlHand* createHand(CjrlJoint* inWristJoint) = 0;
+
+  /**
+     \brief Construct and return a pointer to a foot.
+
+     \param inAnkle The joint the foot is attached to.
+  */
+  CjrlHand* createFoot(CjrlJoint* inAnkle) = 0;
+
 
 };
 
