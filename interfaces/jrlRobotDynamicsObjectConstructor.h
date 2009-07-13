@@ -55,7 +55,23 @@ public:
   /**
      \brief Construct and return a pointer to a body
   */
-  virtual CjrlBody* createBody()=0;
+  virtual CjrlBody* createBody() = 0;
+
+  /**
+     \brief Construct and return a pointer to a hand.
+
+     \param inWristJoint The joint the hand is attached to.
+
+  */
+  virtual CjrlHand* createHand(const CjrlJoint* inWristJoint) = 0;
+
+  /**
+     \brief Construct and return a pointer to a foot.
+
+     \param inAnkle The joint the foot is attached to.
+  */
+  virtual CjrlFoot* createFoot(const CjrlJoint* inAnkle) = 0;
+
 
 };
 
