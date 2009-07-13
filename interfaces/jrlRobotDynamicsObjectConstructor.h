@@ -67,38 +67,38 @@ public:
   /**
      \brief Construct and return a pointer to a dynamic robot.
   */
-  static CjrlDynamicRobot* createDynamicRobot() __attribute__ ((deprecated)) {return new CdynamicRobot;}
+  static DEPRECATED( CjrlDynamicRobot* createDynamicRobot() ) {return new CdynamicRobot;}
 
   /**
      \brief Construct and return a pointer to a humanoid dynamic robot.
   */
-  static CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot() __attribute__ ((deprecated)) {return new ChumanoidDynamicRobot();}
+  static DEPRECATED( CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot() ) {return new ChumanoidDynamicRobot();}
 
   /**
      \brief Construct and return a pointer to a freeflyer joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  static CjrlJoint* createJointFreeflyer(const matrix4d& inInitialPosition) __attribute__ ((deprecated)) {return new CjointFreeflyer(inInitialPosition);}
+  static DEPRECATED( CjrlJoint* createJointFreeflyer(const matrix4d& inInitialPosition) ) {return new CjointFreeflyer(inInitialPosition);}
 
   /**
      \brief Construct and return a pointer to a rotation joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  static CjrlJoint* createJointRotation(const matrix4d& inInitialPosition)  __attribute__ ((deprecated)) {return new CjointRotation(inInitialPosition);}
+  static DEPRECATED( CjrlJoint* createJointRotation(const matrix4d& inInitialPosition) ) {return new CjointRotation(inInitialPosition);}
 
   /**
      \brief Construct and return a pointer to a translation joint.
      \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
      
   */
-  static CjrlJoint* createJointTranslation(const matrix4d& inInitialPosition)  __attribute__ ((deprecated)) {return new CjointTranslation(inInitialPosition);}
+  static DEPRECATED( CjrlJoint* createJointTranslation(const matrix4d& inInitialPosition) ) {return new CjointTranslation(inInitialPosition);}
 
   /**
      \brief Construct and return a pointer to a body
   */
-  static CjrlBody* createBody()  __attribute__ ((deprecated)) {return new Cbody();}
+  static DEPRECATED( CjrlBody* createBody() ) {return new Cbody();}
 
 };
 

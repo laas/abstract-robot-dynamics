@@ -12,6 +12,18 @@
 #ifndef JRL_HUMANOID_DYNAMIC_ROBOT
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
+
+// http://stackoverflow.com/questions/295120/c-mark-as-deprecated/295154
+#ifdef __GNUC__
+#define DEPRECATED(func) func __attribute__ ((deprecated))
+#elif defined(_MSC_VER)
+#define DEPRECATED(func) __declspec(deprecated) func
+#else
+#pragma message("WARNING: You need to implement DEPRECATED for this compiler")
+#define DEPRECATED(func) func
+#endif
+//
+
 #include "jrlDynamicRobot.h"
 #include "jrlHand.h"
 #include "jrlFoot.h"
@@ -203,7 +215,7 @@ public:
 
        \deprecated This piece of information has been moved in class CjrlFoot
     */
-    virtual double footHeight() const  __attribute__ ((deprecated)) = 0;
+    virtual DEPRECATED( double footHeight() const ) = 0;
 
     
     /*! @} */
