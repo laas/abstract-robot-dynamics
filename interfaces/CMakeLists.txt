@@ -5,6 +5,7 @@
 # Copyright CNRS/AIST
 
 SET(${PROJECT_NAME}_HEADERS
+	deprecated.h
 	jrlBody.h 
 	jrlDynamicRobot.h 
 	jrlHumanoidDynamicRobot.h 
