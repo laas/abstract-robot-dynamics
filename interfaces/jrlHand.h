@@ -26,6 +26,11 @@ public:
     */
     virtual const CjrlJoint* associatedWrist() = 0;
 
+    /**
+    \brief Get the wrist joint to which the hand is attached
+    */
+    virtual void setAssociatedWrist(const CjrlJoint * inJoint ) = 0;
+
   /**
      \brief Get the center of the hand
 
