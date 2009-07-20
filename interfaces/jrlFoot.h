@@ -36,9 +36,14 @@ public:
     {};
 
     /**
-    \brief Get the wrist joint to which the hand is attached
+    \brief Get the ankle to which the foot is attached
     */
     virtual const CjrlJoint* associatedAnkle() const = 0;
+
+    /**
+    \brief Set the ankle to which the hand is attached.
+    */
+    virtual void  setAssociatedAnkle(const CjrlJoint* inJoint) const = 0;
 
     /** 
 	\brief Get size of the rectagular sole
