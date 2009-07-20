@@ -43,7 +43,7 @@ public:
     /**
     \brief Set the ankle to which the hand is attached.
     */
-    virtual void  setAssociatedAnkle(const CjrlJoint* inJoint) const = 0;
+    virtual void  setAssociatedAnkle(const CjrlJoint* inJoint)=0;
 
     /** 
 	\brief Get size of the rectagular sole
