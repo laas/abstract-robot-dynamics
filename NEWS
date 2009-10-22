@@ -1,0 +1,14 @@
+Release 1.15
+
+Changes since version 1.14.0
+in CjrlDynamicRobot interface,
+  - methods relative to fixedJoint have been removed,
+  - method getSpecializedInverseKinematics and setActuatedJoints have been 
+    added,
+in CjrlHand interface
+  - handling of the wrist has been modified,
+in CjrlHumanoidDynamicRobot,
+  - a chest joint has been added, it can be equal to the waist joint
+  - accessors to the ankles have been added
+in jrlRobotDynamicsObjectConstructor.h,
+  template object constructor has been replaced by an object factory.
