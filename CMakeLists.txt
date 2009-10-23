@@ -37,7 +37,7 @@ add_subdirectory(interfaces)
 
 # Prepare the documentation
 # -------------------------
-OPTION(GENERATE_DOC 0 "Generate html documentation")
+OPTION(GENERATE_DOC "Generate html documentation" 1)
 IF (GENERATE_DOC)
   INCLUDE(FindDoxygen)
   IF(DOXYGEN_FOUND)
