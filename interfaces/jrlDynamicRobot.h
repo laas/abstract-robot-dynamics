@@ -312,7 +312,7 @@ public:
      \note The returned string needs to be cast into the right type (double, int,...).
   */
   virtual bool getProperty(const std::string &inProperty, 
-			   std::string& outValue) 
+			   std::string& outValue) const
   {return false;}
 
   /**
