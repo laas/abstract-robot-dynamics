@@ -76,48 +76,5 @@ public:
 
 };
 
-template <class CdynamicRobot, class ChumanoidDynamicRobot, class CjointFreeflyer, 
-  class CjointRotation, class CjointTranslation, class Cbody> 
-  class CjrlRobotDynamicsObjectConstructor
-{
-public:
-  /**
-     \brief Construct and return a pointer to a dynamic robot.
-  */
-  static JRLDEPRECATED( CjrlDynamicRobot* createDynamicRobot() ) {return new CdynamicRobot;}
-
-  /**
-     \brief Construct and return a pointer to a humanoid dynamic robot.
-  */
-  static JRLDEPRECATED( CjrlHumanoidDynamicRobot* createhumanoidDynamicRobot() ) {return new ChumanoidDynamicRobot();}
-
-  /**
-     \brief Construct and return a pointer to a freeflyer joint.
-     \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
-     
-  */
-  static JRLDEPRECATED( CjrlJoint* createJointFreeflyer(const matrix4d& inInitialPosition) ) {return new CjointFreeflyer(inInitialPosition);}
-
-  /**
-     \brief Construct and return a pointer to a rotation joint.
-     \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
-     
-  */
-  static JRLDEPRECATED( CjrlJoint* createJointRotation(const matrix4d& inInitialPosition) ) {return new CjointRotation(inInitialPosition);}
-
-  /**
-     \brief Construct and return a pointer to a translation joint.
-     \param inInitialPosition position of the local frame of the joint when the robot is in initial configuration.
-     
-  */
-  static JRLDEPRECATED( CjrlJoint* createJointTranslation(const matrix4d& inInitialPosition) ) {return new CjointTranslation(inInitialPosition);}
-
-  /**
-     \brief Construct and return a pointer to a body
-  */
-  static JRLDEPRECATED( CjrlBody* createBody() ) {return new Cbody();}
-
-};
-
 #endif
 

@@ -214,21 +214,6 @@ public:
     /**
        @}
     */
-
-    /** \name Deprecated methods
-      @{
-    */
-
-    /**
-       \brief Return the distance between the sole of a foot and its joint center
-
-       \deprecated This piece of information has been moved in class CjrlFoot
-    */
-    virtual JRLDEPRECATED( double footHeight() const ) = 0;
-
-    
-    /*! @} */
-    
 };
 
 #endif
