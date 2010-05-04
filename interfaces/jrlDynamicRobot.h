@@ -275,24 +275,6 @@ public:
   */
 
   /**
-     \name Jacobian fonctions
-  */
-
-  /**
-     \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-  */
-  virtual void computeJacobianCenterOfMass() = 0;
-
-  /**
-     \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-  */
-  virtual const matrixNxP& jacobianCenterOfMass() const = 0;
-
-  /**
-     @}
-  */
-
-  /**
      \name Control of the implementation
      @{
   */
@@ -342,7 +324,7 @@ public:
      \param inFrameLocalPosition Position of the control frame in inEndJoint 
      local frame.
      \retval outjacobian computed jacobian matrix.
-     \param offset is the rank of first non zero outjacobian column.
+     \param offset is the rank of the column from where the jacobian is written.
      \param inIncludeStartFreeFlyer Option to include the contribution of a 
      fictive freeflyer superposed with inStartJoint
   
@@ -441,6 +423,63 @@ public:
   }
   
   
+  /**
+     \name Deprecated methods
+     @{
+  */
+
+  virtual
+   /// @cond
+  JRLDEPRECATED(
+   /// @endcond
+  /**
+     \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+     \deprecated Migration instructions:<br>
+      Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
+      \html
+      <code>
+      my_robot->computeJacobianCenterOfMass();<br>
+      output_matrix = my_robot->jacobianCenterOfMass();<br>
+      </code>
+      <br>by:<br><br>
+      <code>
+      my_robot.getJacobianCenterOfMass(my_robot.rootJoint(), output_matrix);
+      </code>
+  */
+  void computeJacobianCenterOfMass()
+  /// @cond
+  )
+  /// @endcond
+  = 0;
+  
+  
+  virtual
+  /// @cond
+  JRLDEPRECATED(
+   /// @endcond
+  /**
+     \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
+     \deprecated Migration instructions:<br>
+      Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
+      \html
+      <code>
+      my_robot->computeJacobianCenterOfMass();<br>
+      output_matrix = my_robot->jacobianCenterOfMass();<br>
+      </code>
+      <br>by:<br><br>
+      <code>
+      my_robot.getJacobianCenterOfMass(my_robot.rootJoint(), output_matrix);
+      </code>
+  */
+  const matrixNxP& jacobianCenterOfMass() const
+  /// @cond
+  )
+  /// @endcond
+  = 0;
+
+  /**
+     @}
+  */
 };
 
 
