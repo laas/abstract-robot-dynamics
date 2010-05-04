@@ -2,7 +2,6 @@
 #define JRL_HAND_H
 
 #include <vector>
-#include "deprecated.h"
 #include "jrlJoint.h"
 
 

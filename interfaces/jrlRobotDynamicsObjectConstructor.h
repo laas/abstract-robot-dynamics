@@ -12,7 +12,6 @@
 #ifndef JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 #define JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 
-#include "deprecated.h"
 #include "jrlHumanoidDynamicRobot.h"
 
 /*! The creation of an object */
