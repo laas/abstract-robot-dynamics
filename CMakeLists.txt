@@ -13,7 +13,7 @@ enable_language(CXX)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Set version
-SET(PROJECT_VERSION 1.16)
+SET(PROJECT_VERSION 1.16.0)
 
 
 # name of the project

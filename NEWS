@@ -1,4 +1,4 @@
-Release 1.16
+Release 1.16.0
 
 Remove deprecated methods:
 CjrlHand::centerInWristFrame()
