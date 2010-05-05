@@ -439,8 +439,8 @@ public:
       Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
       \html
       <code>
-      my_robot->computeJacobianCenterOfMass();<br>
-      output_matrix = my_robot->jacobianCenterOfMass();<br>
+      my_robot.computeJacobianCenterOfMass();<br>
+      output_matrix = my_robot.jacobianCenterOfMass();<br>
       </code>
       <br>by:<br><br>
       <code>
@@ -464,8 +464,8 @@ public:
       Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
       \html
       <code>
-      my_robot->computeJacobianCenterOfMass();<br>
-      output_matrix = my_robot->jacobianCenterOfMass();<br>
+      my_robot.computeJacobianCenterOfMass();<br>
+      output_matrix = my_robot.jacobianCenterOfMass();<br>
       </code>
       <br>by:<br><br>
       <code>
