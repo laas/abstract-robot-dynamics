@@ -65,7 +65,7 @@ SET(install_pkg_datarootdir "\${datarootdir}")
 SET(install_pkg_include_dir "\${includedir}")
 
 # Install the file in the appropriate place.
-SET(install_libdir_pkgconfig ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+SET(install_libdir_pkgconfig lib/pkgconfig)
 
 CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
 		 ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )

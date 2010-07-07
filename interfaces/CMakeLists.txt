@@ -23,6 +23,6 @@ SET(${PROJECT_NAME}_HEADERS
 # Install procedure for the header files
 #----------------------------------------------------
 INSTALL(FILES ${${PROJECT_NAME}_HEADERS}
-	DESTINATION ${CMAKE_INSTALL_PREFIX}/include/robotDynamics
+	DESTINATION include/robotDynamics
         PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
 )
