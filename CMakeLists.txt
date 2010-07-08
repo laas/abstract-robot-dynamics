@@ -74,3 +74,30 @@ INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
 	DESTINATION ${install_libdir_pkgconfig}
         PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
 )
+
+#---------------
+# Package target
+#---------------
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "abstractRobotDynamics - An abstract layer to handle a robot model")
+set(CPACK_PACKAGE_VENDOR "LAAS CNRS")
+set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README)
+set(CPACK_GENERATOR TGZ)
+set(CPACK_GENERATOR DEB)
+set(
+CPACK_SOURCE_PACKAGE_FILE_NAME
+"abstractrobotdynamics-${PROJECT_VERSION}"
+CACHE INTERNAL "tarball basename"
+)
+set(CPACK_SOURCE_GENERATOR TGZ)
+set(CPACK_PACKAGE_CONTACT "Florent Lamiraux")
+
+# The following components are regex's to match anywhere (unless anchored)
+# in absolute path + filename to find files or directories to be excluded
+# from source tarball.
+set(CPACK_SOURCE_IGNORE_FILES
+"~$"
+"^${PROJECT_SOURCE_DIR}/build/"
+"^${PROJECT_SOURCE_DIR}/.git/"
+)
+#message("CPACK_SOURCE_IGNORE_FILES = ${CPACK_SOURCE_IGNORE_FILES}")
+include(CPack)
