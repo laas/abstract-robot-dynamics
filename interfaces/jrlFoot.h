@@ -90,8 +90,8 @@ public:
 
        \deprecated Should be always 0.
     */
-    JRL_DEPRECATED(virtual void getSoleCenterInLocalFrame
-		   (vector3d& outCoordinates) const = 0);
+    JRLDEPRECATED(virtual void getSoleCenterInLocalFrame
+		  (vector3d& outCoordinates) const) = 0;
 
     /**
        \brief Set position of the sole center in foot local frame of the foot
@@ -109,9 +109,9 @@ public:
 
        \deprecated Should be always 0
     */
-    JRL_DEPRECATED(virtual void 
-		   getProjectionCenterLocalFrameInSole
-		   (vector3d& outCoordinates) const = 0);
+    JRLDEPRECATED(virtual void 
+		  getProjectionCenterLocalFrameInSole
+		  (vector3d& outCoordinates) const) = 0;
 
     /**
        \brief Set position of projection of center of local frame in sole plane
