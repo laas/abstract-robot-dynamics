@@ -13,7 +13,7 @@
 #define JRL_FOOT_H
 
 #include "robotDynamics/jrlJoint.h"
-#include "robotDynamics/deprecated"
+#include "robotDynamics/deprecated.h"
 
 
 /**
