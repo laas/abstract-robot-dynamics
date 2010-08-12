@@ -20,7 +20,8 @@
  
    It is assumed that
    \li a foot is attached to the kinematic chain of the robot by a joint called \em ankle,
-   \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole.
+   \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole,
+   \li the local frame of the foot is centered at the center of sole, x-axis pointing frontward, y-axis pointing leftward and z-axis pointing upward.
 
    \image html foot.png "A foot: the local frame is denoted by \f$(O, x, y, z)\f$. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H.
 */
@@ -85,9 +86,11 @@ public:
        \brief Get position of the sole center in foot local frame of the foot
 
        \retval outCoordinates coordinates of the center C of the sole 
-       (see Figure) 
+
+       \deprecated Should be always 0.
     */
-    virtual void getSoleCenterInLocalFrame(vector3d& outCoordinates) const = 0;
+    JRL_DEPRECATED(virtual void getSoleCenterInLocalFrame
+		   (vector3d& outCoordinates) const = 0);
 
     /**
        \brief Set position of the sole center in foot local frame of the foot
@@ -102,9 +105,12 @@ public:
 
        \retval outCoordinates coordinates of the projection H of the center 
        of the local frame in the sole plane (see Figure) 
+
+       \deprecated Should be always 0
     */
-    virtual void 
-      getProjectionCenterLocalFrameInSole(vector3d& outCoordinates) const = 0;
+    JRL_DEPRECATED(virtual void 
+		   getProjectionCenterLocalFrameInSole
+		   (vector3d& outCoordinates) const = 0);
 
     /**
        \brief Set position of projection of center of local frame in sole plane
