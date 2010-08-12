@@ -13,9 +13,9 @@
 #define JRL_JOINT_H
 
 #include <vector>
-#include "jrlRigidAcceleration.h"
-#include "jrlRigidVelocity.h"
-#include "jrlBody.h"
+#include "robotDynamics/jrlRigidAcceleration.h"
+#include "robotDynamics/jrlRigidVelocity.h"
+#include "robotDynamics/jrlBody.h"
 
 
 /**

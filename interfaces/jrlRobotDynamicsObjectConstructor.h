@@ -12,7 +12,7 @@
 #ifndef JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 #define JRL_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR
 
-#include "jrlHumanoidDynamicRobot.h"
+#include "robotDynamics/jrlHumanoidDynamicRobot.h"
 
 /*! The creation of an object */
 class CjrlRobotDynamicsObjectFactory

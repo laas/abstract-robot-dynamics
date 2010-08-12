@@ -12,9 +12,9 @@
 #ifndef JRL_HUMANOID_DYNAMIC_ROBOT
 #define JRL_HUMANOID_DYNAMIC_ROBOT
 
-#include "jrlDynamicRobot.h"
-#include "jrlHand.h"
-#include "jrlFoot.h"
+#include "robotDynamics/jrlDynamicRobot.h"
+#include "robotDynamics/jrlHand.h"
+#include "robotDynamics/jrlFoot.h"
 
 /**
     \brief Abstract class describing a humanoid robot with dynamics.

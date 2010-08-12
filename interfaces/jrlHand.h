@@ -2,7 +2,7 @@
 #define JRL_HAND_H
 
 #include <vector>
-#include "jrlJoint.h"
+#include "robotDynamics/jrlJoint.h"
 
 
 /**
