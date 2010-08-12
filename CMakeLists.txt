@@ -25,8 +25,6 @@ SET(PROJECT_CONTACT openrobots@laas)
 
 project(${PROJECT_NAME})
 
-SET(CMAKE_INSTALL_PREFIX $ENV{ROBOTPKG_PATH})
-
 # Check for required packages
 # -------------------------
 INCLUDE(FindPkgConfig)
