@@ -24,7 +24,7 @@
    \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole,
    \li the local frame of the foot is centered at the center of sole, x-axis pointing frontward, y-axis pointing leftward and z-axis pointing upward.
 
-   \image html foot.png "A foot: the local frame is denoted by \f$(O, x, y, z)\f$. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H.
+   \image html foot.png "A foot: the local frame is denoted by \f$(O, x, y, z)\f$. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H."
 */
 
 class CjrlFoot
