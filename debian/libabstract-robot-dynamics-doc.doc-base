@@ -1,0 +1,9 @@
+Document: abstract-robot-dynamics
+Title: Debian abstract-robot-dynamics Manual
+Author: Thomas Moulard <thomas.moulard@gmail.com>
+Abstract: Doxygen documentation of abstract-robot-dynamics.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/abstractRobotDynamics/html/index.html
+Files: /usr/share/doc/abstractRobotDynamics/html/*.html

@@ -1,0 +1,36 @@
+Source: abstract-robot-dynamics
+Priority: extra
+Maintainer: Thomas Moulard <thomas.moulard@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), cmake (>= 2.6),
+	       doxygen (>= 1.6.3),
+	       pkg-config (>= 0.22),
+	       libjrl-mal-dev (>= 1.9.0.99)
+Standards-Version: 3.8.4
+Vcs-Git: git://github.com/jrl-umi3218/abstract-robot-dynamics.git
+Vcs-browser: http://github.com/jrl-umi3218/abstract-robot-dynamics
+Section: libs
+Homepage: http://github.com/jrl-umi3218/abstract-robot-dynamics
+
+Package: libabstract-robot-dynamics-dev
+Section: libdevel
+Architecture: any
+Depends: libjrl-mathtools-dev, ${misc:Depends}
+Suggests: libabstract-robot-dynamics-doc
+Description: Abstract robot dynamics C++ interface
+ The abstract robot dynamics package defines classes to represent the
+ dynamic of a humanoid robot without making any assumption on the numerical
+ types that will be used.
+ .
+ This package contains development files (headers and pkg-config file).
+
+Package: libabstract-robot-dynamics-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: libjrl-mal-doc
+Description: documentation for the abstract robot dynamics C++ interface
+ The abstract robot dynamics package defines classes to represent the
+ dynamic of a humanoid robot without making any assumption on the numerical
+ types that will be used.
+ .
+ This package contains the Doxygen documentation.
