@@ -1,41 +1,37 @@
-Release 1.16.0
+                                                                -*- outline -*-
 
-Remove deprecated methods:
-CjrlHand::centerInWristFrame()
-CjrlHand::palmAxisInWristFrame()
-CjrlHand::showingAxisInWristFrame()
-CjrlHand::okayAxisInWristFrame()
-CjrlHumanoidDynamicRobot::footHeight()
+New in 1.16.0, 2010-05-05:
+* Remove deprecated methods:
+** CjrlHand::centerInWristFrame()
+** CjrlHand::palmAxisInWristFrame()
+** CjrlHand::showingAxisInWristFrame()
+** CjrlHand::okayAxisInWristFrame()
+** CjrlHumanoidDynamicRobot::footHeight()
+* Put in deprecated list:
+** CjrlDynamicRobot::computeJacobianCenterofMass()
+** CjrlDynamicRobot::jacobianCenterOfMass()
 
-Put in deprecated list:
-CjrlDynamicRobot::computeJacobianCenterofMass()
-CjrlDynamicRobot::jacobianCenterOfMass()
 
+New in 1.15.0, 2010-01-16:
+* In CjrlDynamicRobot interface,
+** methods relative to fixedJoint have been removed,
+** method getSpecializedInverseKinematics and setActuatedJoints have been
+   added.
 
+* In CjrlHand interface
+** handling of the wrist has been modified: some methods have been renamed:
+*** vector3d & centerInWristFrame() -> getCenter(vector3d &outCenter),
+*** vector3d &okayAxisInWristFrame() -> vector3d &okayAxisInWristFrame(),
+*** vector3d &showingAxisInWristFrame() ->
+     void getForeFingerAxis (vector3d &outForeFingerAxis),
+*** vector3d &palmAxisInWristFrame() ->
+     void getPalmNormal(vector3d &outPalmNormal),
+    Old methods have been declared deprecated,
+    setter have been added for each getter above.
 
-Release 1.15
+* In CjrlHumanoidDynamicRobot,
+** a chest joint has been added, it can be equal to the waist joint
+** accessors to the ankles have been added
 
-Changes since version 1.14.0
-
-in CjrlDynamicRobot interface,
-  - methods relative to fixedJoint have been removed,
-  - method getSpecializedInverseKinematics and setActuatedJoints have been 
-    added,
-
-in CjrlHand interface
-  - handling of the wrist has been modified: some methods have been renamed:
-    vector3d & centerInWristFrame() -> getCenter(vector3d &outCenter),
-    vector3d &okayAxisInWristFrame() -> vector3d &okayAxisInWristFrame(),
-    vector3d &showingAxisInWristFrame() -> 
-        void getForeFingerAxis (vector3d &outForeFingerAxis),
-    vector3d &palmAxisInWristFrame() -> 
-        void getPalmNormal(vector3d &outPalmNormal),
-    old methods have been decalred deprecated,
-    setter have been added for each getter above,
-
-in CjrlHumanoidDynamicRobot,
-  - a chest joint has been added, it can be equal to the waist joint
-  - accessors to the ankles have been added
-
-in jrlRobotDynamicsObjectConstructor.h,
+* In jrlRobotDynamicsObjectConstructor.h,
   template object constructor has been replaced by an object factory.
