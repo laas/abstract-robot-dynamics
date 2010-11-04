@@ -94,24 +94,6 @@ public:
       setAnklePositionInLocalFrame(const vector3d& inCoordinates) = 0;
 
     /**
-       \brief Get position of the sole center in foot local frame of the foot
-
-       \retval outCoordinates coordinates of the center C of the sole 
-
-       \deprecated Should be always 0.
-    */
-    JRLDEPRECATED(virtual void getSoleCenterInLocalFrame
-		  (vector3d& outCoordinates) const) = 0;
-
-    /**
-       \brief Set position of the sole center in foot local frame of the foot
-
-       \param inCoordinates coordinates of the center C of the sole 
-       (see Figure) 
-    */
-    virtual void setSoleCenterInLocalFrame(const vector3d& inCoordinates) = 0;
-
-    /**
        \brief Get position of projection of center of local frame in sole plane
 
        \retval outCoordinates coordinates of the projection H of the center 
@@ -119,9 +101,8 @@ public:
 
        \deprecated Should be always 0
     */
-    JRLDEPRECATED(virtual void 
-		  getProjectionCenterLocalFrameInSole
-		  (vector3d& outCoordinates) const) = 0;
+    virtual void  getProjectionCenterLocalFrameInSole
+		  (vector3d& outCoordinates) const = 0;
 
     /**
        \brief Set position of projection of center of local frame in sole plane
