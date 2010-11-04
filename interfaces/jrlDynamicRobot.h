@@ -435,60 +435,6 @@ public:
   
   
   /**
-     \name Deprecated methods
-     @{
-  */
-
-  virtual
-   /// @cond
-  JRLDEPRECATED(
-   /// @endcond
-  /**
-     \brief Compute the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-     \deprecated Migration instructions:<br>
-      Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
-      \html
-      <code>
-      my_robot.computeJacobianCenterOfMass();<br>
-      output_matrix = my_robot.jacobianCenterOfMass();<br>
-      </code>
-      <br>by:<br><br>
-      <code>
-      my_robot.getJacobianCenterOfMass(my_robot.rootJoint(), output_matrix);
-      </code>
-  */
-  void computeJacobianCenterOfMass()
-  /// @cond
-  )
-  /// @endcond
-  = 0;
-  
-  
-  virtual
-  /// @cond
-  JRLDEPRECATED(
-   /// @endcond
-  /**
-     \brief Get the Jacobian matrix of the center of mass wrt \f${\bf q}\f$.
-     \deprecated Migration instructions:<br>
-      Let <code>my_robot</code> be an instance of class CjrlDynamicRobot and <code>output_matrix</code> a matrix container of size <code>3 x my_robot.numberDof()</code>. <br><br>Replace:<br><br>
-      \html
-      <code>
-      my_robot.computeJacobianCenterOfMass();<br>
-      output_matrix = my_robot.jacobianCenterOfMass();<br>
-      </code>
-      <br>by:<br><br>
-      <code>
-      my_robot.getJacobianCenterOfMass(my_robot.rootJoint(), output_matrix);
-      </code>
-  */
-  const matrixNxP& jacobianCenterOfMass() const
-  /// @cond
-  )
-  /// @endcond
-  = 0;
-
-  /**
      @}
   */
 };
