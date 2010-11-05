@@ -1,4 +1,4 @@
-// Copyright 2006, 2007, 2008, 2009, 2010, Florent Lamiraux, CNRS/AIST
+// Copyright 2010, Thomas Moulard, CNRS/AIST
 //
 // This file is part of abstract-robot-dynamics.
 // abstract-robot-dynamics is free software: you can redistribute it
@@ -14,13 +14,7 @@
 // abstract-robot-dynamics.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef ABSTRACT_ROBOT_DYNAMICS_FWD_HH
-# define ABSTRACT_ROBOT_DYNAMICS_FWD_HH
+#ifndef ABSTRACT_ROBOT_DYNAMICS_IO_HH
+# define ABSTRACT_ROBOT_DYNAMICS_IO_HH
 
-class CjrlJoint;
-class CjrlBody;
-class CjrlFoot;
-class CjrlHand;
-class CjrlDynamicRobot;
-
-#endif //! ABSTRACT_ROBOT_DYNAMICS_FWD_HH
+#endif //! ABSTRACT_ROBOT_DYNAMICS_IO_HH

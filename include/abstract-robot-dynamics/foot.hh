@@ -69,7 +69,7 @@ public:
   ///
   /// \param inCoordinates coordinates of the ankle joint center
   virtual void setAnklePositionInLocalFrame(const vector3d& inCoordinates) = 0;
-}
+};
 
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_FOOT_HH

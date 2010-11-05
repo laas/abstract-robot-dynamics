@@ -44,6 +44,6 @@ public:
 
   /// \brief Destructor
   virtual ~CjrlBody() {}
-}
+};
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_BODY_HH

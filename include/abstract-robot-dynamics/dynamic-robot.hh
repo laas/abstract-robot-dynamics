@@ -21,8 +21,8 @@
 
 #ifndef ABSTRACT_ROBOT_DYNAMICS_ROBOT_HH
 # define ABSTRACT_ROBOT_DYNAMICS_ROBOT_HH
-# include <abstract-robot-dynamics/fwd.h>
-# include <abstract-robot-dynamics/joint.h>
+# include <abstract-robot-dynamics/fwd.hh>
+# include <abstract-robot-dynamics/joint.hh>
 
 /**
    \brief Abstract class that instantiates a robot with dynamic properties.
@@ -356,6 +356,6 @@ public:
     return false;
   }
   /// \}
-}
+};
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_ROBOT_HH

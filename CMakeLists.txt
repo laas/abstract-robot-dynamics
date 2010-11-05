@@ -18,6 +18,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 INCLUDE(cmake/base.cmake)
+INCLUDE(cmake/boost.cmake)
 
 SET(PROJECT_NAME abstract-robot-dynamics)
 SET(PROJECT_VERSION 1.16.0.99)
@@ -26,19 +27,27 @@ SET(PROJECT_URL "http://github.com/laas/abstract-robot-dynamics")
 
 SET(CUSTOM_HEADER_DIR "${PROJECT_NAME}")
 
+SET(BOOST_COMPONENTS unit_test_framework)
+SEARCH_FOR_BOOST()
 ADD_REQUIRED_DEPENDENCY("jrl-mal >= 1.7.4")
 
 SET(${PROJECT_NAME}_HEADERS
+  include/abstract-robot-dynamics.hh
   include/abstract-robot-dynamics/body.hh
   include/abstract-robot-dynamics/dynamic-robot.hh
-  include/abstract-robot-dynamics/humanoid-dynamic-robot.hh
-  include/abstract-robot-dynamics/joint.hh
   include/abstract-robot-dynamics/foot.hh
+  include/abstract-robot-dynamics/fwd.hh
   include/abstract-robot-dynamics/hand.hh
+  include/abstract-robot-dynamics/humanoid-dynamic-robot.hh
+  include/abstract-robot-dynamics/io.hh
+  include/abstract-robot-dynamics/joint.hh
   include/abstract-robot-dynamics/rigid-acceleration.hh
   include/abstract-robot-dynamics/rigid-velocity.hh
   include/abstract-robot-dynamics/robot-dynamics-object-constructor.hh
   )
 
 SETUP_PROJECT()
+
+ADD_SUBDIRECTORY(tests)
+
 SETUP_PROJECT_FINALIZE()
