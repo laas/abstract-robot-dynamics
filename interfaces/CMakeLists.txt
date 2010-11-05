@@ -23,6 +23,6 @@ SET(${PROJECT_NAME}_HEADERS
 # Install procedure for the header files
 #----------------------------------------------------
 INSTALL(FILES ${${PROJECT_NAME}_HEADERS}
-	DESTINATION include/robotDynamics
+	DESTINATION include/abstract-robot-dynamics
         PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
 )

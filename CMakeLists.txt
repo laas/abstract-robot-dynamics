@@ -20,7 +20,7 @@ SET(PROJECT_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR
 
 
 # name of the project
-SET(PROJECT_NAME abstractRobotDynamics)
+SET(PROJECT_NAME abstract-robot-dynamics)
 SET(PROJECT_CONTACT openrobots@laas)
 
 project(${PROJECT_NAME})
@@ -28,9 +28,9 @@ project(${PROJECT_NAME})
 # Check for required packages
 # -------------------------
 INCLUDE(FindPkgConfig)
-pkg_check_modules(MALJRL REQUIRED MatrixAbstractLayer>=1.7.4 )
+pkg_check_modules(MALJRL REQUIRED jrl-mal>=1.7.4 )
 
-SET(PROJECT_REQUIREMENTS "MatrixAbstractLayer >= 1.7.4")
+SET(PROJECT_REQUIREMENTS "jrl-mal >= 1.7.4")
 
 # To deal with the headers.
 #--------------------------
@@ -79,15 +79,15 @@ INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
 #---------------
 # Package target
 #---------------
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "abstractRobotDynamics - An abstract layer to handle a robot model")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "abstract-robot-dynamics - An abstract layer to handle a robot model")
 set(CPACK_PACKAGE_VENDOR "LAAS CNRS")
 set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
 set(CPACK_GENERATOR TGZ)
 set(CPACK_GENERATOR DEB)
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "matrixabstractlayer (>=1.7.4)")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "jrl-mal (>=1.7.4)")
 set(
 CPACK_SOURCE_PACKAGE_FILE_NAME
-"abstractrobotdynamics-${PROJECT_VERSION}"
+"abstract-robot-dynamics-${PROJECT_VERSION}"
 CACHE INTERNAL "tarball basename"
 )
 set(CPACK_SOURCE_GENERATOR TGZ)
