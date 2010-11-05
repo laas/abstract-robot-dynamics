@@ -22,8 +22,8 @@
 #ifndef JRL_DYNAMIC_ROBOT
 #define JRL_DYNAMIC_ROBOT
 
-#include "abstract-robot-dynamics/jrlJoint.h"
-#include "abstract-robot-dynamics/deprecated.h"
+#include "abstract-robot-dynamics/jrljoint.hh"
+#include "abstract-robot-dynamics/deprecated.hh"
 
 /**
    \brief Abstract class that instantiates a robot with dynamic properties.

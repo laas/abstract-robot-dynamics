@@ -5,16 +5,16 @@
 # Copyright CNRS/AIST
 
 SET(${PROJECT_NAME}_HEADERS
-	deprecated.h
-	jrlBody.h 
-	jrlDynamicRobot.h 
-	jrlHumanoidDynamicRobot.h 
-	jrlJoint.h 
-	jrlFoot.h
-	jrlHand.h 
-	jrlRigidAcceleration.h 
-	jrlRigidVelocity.h 
-	jrlRobotDynamicsObjectConstructor.h 
+	deprecated.hh
+	jrlbody.hh
+	jrldynamicrobot.hh
+	jrlhumanoiddynamicrobot.hh
+	jrljoint.hh 
+	jrlfoot.hh
+	jrlhand.hh
+	jrlrigidacceleration.hh 
+	jrlrigidvelocity.hh 
+	jrlrobotdynamicsobjectconstructor.hh 
 )
 
 

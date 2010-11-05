@@ -22,8 +22,8 @@
 #ifndef JRL_FOOT_H
 #define JRL_FOOT_H
 
-#include "abstract-robot-dynamics/jrlJoint.h"
-#include "abstract-robot-dynamics/deprecated.h"
+#include "abstract-robot-dynamics/jrljoint.hh"
+#include "abstract-robot-dynamics/deprecated.hh"
 
 
 /**
