@@ -34,7 +34,6 @@
    \li contact between a foot and the ground is realized by a plane rectangular surface called the \em sole,
    \li the local frame of the foot is centered at the center of sole, x-axis pointing frontward, y-axis pointing leftward and z-axis pointing upward.
 
-   \image html foot.png "A foot: the local frame is denoted by \f$(O, x, y, z)\f$. The center of the sole is denoted by C. The projection of O into the plane of the sole is denoted by H."
 */
 
 class CjrlFoot
@@ -92,27 +91,6 @@ public:
     */
     virtual void 
       setAnklePositionInLocalFrame(const vector3d& inCoordinates) = 0;
-
-    /**
-       \brief Get position of projection of center of local frame in sole plane
-
-       \retval outCoordinates coordinates of the projection H of the center 
-       of the local frame in the sole plane (see Figure) 
-
-       \deprecated Should be always 0
-    */
-    virtual void  getProjectionCenterLocalFrameInSole
-		  (vector3d& outCoordinates) const = 0;
-
-    /**
-       \brief Set position of projection of center of local frame in sole plane
-
-       \param inCoordinates coordinates of the projection H of the center 
-       of the local frame in the sole plane (see Figure) 
-    */
-    virtual void 
-      setProjectionCenterLocalFrameInSole(const vector3d& inCoordinates) = 0;
-
 };
 
 
