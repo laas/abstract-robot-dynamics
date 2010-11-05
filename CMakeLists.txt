@@ -1,105 +1,44 @@
-# Olivier Stasse, JRL, CNRS/AIST
-# Creation: 31/10/2008
-# History:
+# Copyright 2008, 2009, 2010, Olivier Stasse, JRL, CNRS/AIST
 #
-# Copyright CNRS/AIST
+# This file is part of abstract-robot-dynamics.
+# abstract-robot-dynamics is free software: you can redistribute it
+# and/or modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation, either version
+# 3 of the License, or (at your option) any later version.
+#
+# abstract-robot-dynamics is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Lesser Public License for more details.  You should have
+# received a copy of the GNU Lesser General Public License along with
+# abstract-robot-dynamics.  If not, see
+# <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 2.6)
+# Requires at least CMake 2.6 to configure the package.
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
-enable_language(CXX)
+INCLUDE(cmake/base.cmake)
 
-
-# Debug mode for cmake.
-SET(CMAKE_VERBOSE_MAKEFILE ON)
-
-# Set version
-set(CPACK_PACKAGE_VERSION_MAJOR 1)
-set(CPACK_PACKAGE_VERSION_MINOR 16)
-set(CPACK_PACKAGE_VERSION_PATCH 0)
-SET(PROJECT_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}.99)
-
-
-# name of the project
 SET(PROJECT_NAME abstract-robot-dynamics)
-SET(PROJECT_CONTACT openrobots@laas)
+SET(PROJECT_VERSION 1.16.0.99)
+SET(PROJECT_DESCRIPTION "JRL mathematical tools")
+SET(PROJECT_URL "http://github.com/laas/abstract-robot-dynamics")
 
-project(${PROJECT_NAME})
+SET(CUSTOM_HEADER_DIR "${PROJECT_NAME}")
 
-# Check for required packages
-# -------------------------
-INCLUDE(FindPkgConfig)
-pkg_check_modules(MALJRL REQUIRED jrl-mal>=1.7.4 )
+ADD_REQUIRED_DEPENDENCY("jrl-mal >= 1.7.4")
 
-SET(PROJECT_REQUIREMENTS "jrl-mal >= 1.7.4")
+SET(${PROJECT_NAME}_HEADERS
+  include/abstract-robot-dynamics/body.hh
+  include/abstract-robot-dynamics/dynamic-robot.hh
+  include/abstract-robot-dynamics/humanoid-dynamic-robot.hh
+  include/abstract-robot-dynamics/joint.hh
+  include/abstract-robot-dynamics/foot.hh
+  include/abstract-robot-dynamics/hand.hh
+  include/abstract-robot-dynamics/rigid-acceleration.hh
+  include/abstract-robot-dynamics/rigid-velocity.hh
+  include/abstract-robot-dynamics/robot-dynamics-object-constructor.hh
+  )
 
-# To deal with the headers.
-#--------------------------
-add_subdirectory(interfaces)
-
-# Prepare the documentation
-# -------------------------
-OPTION(GENERATE_DOC "Generate html documentation" 1)
-IF (GENERATE_DOC)
-  INCLUDE(FindDoxygen)
-  IF(DOXYGEN_FOUND)
-    MESSAGE(STATUS "Doxygen found")
-	ADD_SUBDIRECTORY(documentation)
-  ENDIF(DOXYGEN_FOUND)
-ENDIF (GENERATE_DOC)
-
-# Uninstall target.
-CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-  IMMEDIATE @ONLY)
-
-ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-# Prepare description file for pkg-config.
-#-----------------------------------------
-
-SET(install_pkg_prefix "\${prefix}")
-SET(install_pkg_exec_prefix "\${exec_prefix}")
-SET(install_pkg_libdir "\${libdir}")
-SET(install_pkg_datarootdir "\${datarootdir}")
-SET(install_pkg_include_dir "\${includedir}")
-
-# Install the file in the appropriate place.
-SET(install_libdir_pkgconfig lib/pkgconfig)
-
-CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
-		 ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
-
-INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
-	DESTINATION ${install_libdir_pkgconfig}
-        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
-)
-
-#---------------
-# Package target
-#---------------
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "abstract-robot-dynamics - An abstract layer to handle a robot model")
-set(CPACK_PACKAGE_VENDOR "LAAS CNRS")
-set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
-set(CPACK_GENERATOR TGZ)
-set(CPACK_GENERATOR DEB)
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "jrl-mal (>=1.7.4)")
-set(
-CPACK_SOURCE_PACKAGE_FILE_NAME
-"abstract-robot-dynamics-${PROJECT_VERSION}"
-CACHE INTERNAL "tarball basename"
-)
-set(CPACK_SOURCE_GENERATOR TGZ)
-set(CPACK_PACKAGE_CONTACT "Florent Lamiraux")
-
-# The following components are regex's to match anywhere (unless anchored)
-# in absolute path + filename to find files or directories to be excluded
-# from source tarball.
-set(CPACK_SOURCE_IGNORE_FILES
-"~$"
-"^${PROJECT_SOURCE_DIR}/build/"
-"^${PROJECT_SOURCE_DIR}/.git/"
-)
-#message("CPACK_SOURCE_IGNORE_FILES = ${CPACK_SOURCE_IGNORE_FILES}")
-include(CPack)
+SETUP_PROJECT()
+SETUP_PROJECT_FINALIZE()

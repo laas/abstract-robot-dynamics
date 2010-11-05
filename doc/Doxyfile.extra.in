@@ -1,0 +1,5 @@
+INPUT                  = @CMAKE_SOURCE_DIR@/include \
+		       	 @CMAKE_SOURCE_DIR@/doc/additionalDoc
+IMAGE_PATH             = @CMAKE_SOURCE_DIR@/doc/pictures
+
+TAGFILES               = "@JRL_MAL_DOXYGENDOCDIR@/jrl-mal.doxytag = @JRL_MAL_DOXYGENDOCDIR@"
