@@ -4,7 +4,9 @@
     <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Language" content="en" />
-    <link rel="stylesheet" href="hpp.css"/>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javaScript" src="search/search.js"></script>
+    <link rel="stylesheet" href="doxygen.css"/>
     <title>TreeView</title>
     <script type="text/javascript">
     <!-- // Hide script from old browsers
@@ -60,14 +62,43 @@
     </script>
   </head>
 
-  <body class="ftvtree">
+  <body class="ftvtree" onload='searchBox.OnSelectItem(0);'>
+      <script type="text/javascript"><!--
+      var searchBox = new SearchBox("searchBox", "search", true, 'Search');
+      --></script>
+      <div class="tabsearch">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+          <span class="left">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+            <input type="text" id="MSearchField" value="Search" accesskey="S"
+                   onfocus="searchBox.OnSearchFieldFocus(true)" 
+                   onblur="searchBox.OnSearchFieldFocus(false)" 
+                   onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <img id="MSearchSelect" src="search/mag_sel.png"
+                 onmouseover="return searchBox.OnSearchSelectShow()"
+                 onmouseout="return searchBox.OnSearchSelectHide()"
+                 alt=""/>
+          </span>
+        </div>
+      </div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
     <div class="directory">
-      <h3 class="swap"><span>abstractRobotDynamics library documentation</span></h3>
+      <h3 class="swap"><span>abstract-robot-dynamics</span></h3>
       <div style="display: block;">
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="main.html" target="basefrm">Main Page</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="abstract_robot_dynamics__commands.html" target="basefrm">Recommended commands in implementations</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="abstract_robot_dynamics__developing.html" target="basefrm">Developing an implementation</a></p>
-        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="deprecated.html" target="basefrm">Deprecated List</a></p>
         <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder1', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder1', this)"/><a class="el" href="annotated.html" target="basefrm">Class List</a></p>
         <div id="folder1">
           <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="class_cjrl_body.html" target="basefrm">CjrlBody</a></p>
@@ -96,25 +127,22 @@
         </div>
         <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="functions.html" target="basefrm">Class Members</a></p>
         <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="inherits.html" target="basefrm">Graphical Class Hierarchy</a></p>
-        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="files.html" target="basefrm">File List</a></p>
+        <p><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="files.html" target="basefrm">File List</a></p>
         <div id="folder4">
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="commands_8h.html" target="basefrm">commands.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="deprecated_8h.html" target="basefrm">deprecated.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="developer_8h.html" target="basefrm">developer.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_body_8h.html" target="basefrm">jrlBody.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_dynamic_robot_8h.html" target="basefrm">jrlDynamicRobot.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_foot_8h.html" target="basefrm">jrlFoot.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_hand_8h.html" target="basefrm">jrlHand.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_humanoid_dynamic_robot_8h.html" target="basefrm">jrlHumanoidDynamicRobot.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_joint_8h.html" target="basefrm">jrlJoint.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_rigid_acceleration_8h.html" target="basefrm">jrlRigidAcceleration.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_rigid_velocity_8h.html" target="basefrm">jrlRigidVelocity.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="jrl_robot_dynamics_object_constructor_8h.html" target="basefrm">jrlRobotDynamicsObjectConstructor.h</a></p>
-          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="robot_dynamics_8h.html" target="basefrm">robotDynamics.h</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="abstract-robot-dynamics_8hh.html" target="basefrm">abstract-robot-dynamics.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="body_8hh.html" target="basefrm">body.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="dynamic-robot_8hh.html" target="basefrm">dynamic-robot.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="foot_8hh.html" target="basefrm">foot.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="fwd_8hh.html" target="basefrm">fwd.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="hand_8hh.html" target="basefrm">hand.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="humanoid-dynamic-robot_8hh.html" target="basefrm">humanoid-dynamic-robot.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="io_8hh.html" target="basefrm">io.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="joint_8hh.html" target="basefrm">joint.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="rigid-acceleration_8hh.html" target="basefrm">rigid-acceleration.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="rigid-velocity_8hh.html" target="basefrm">rigid-velocity.hh</a></p>
+          <p><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="robot-dynamics-object-constructor_8hh.html" target="basefrm">robot-dynamics-object-constructor.hh</a></p>
         </div>
-        <p><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="globals.html" target="basefrm">File Members</a></p>
       </div>
     </div>
   </body>
 </html>
-
