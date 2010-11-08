@@ -27,7 +27,10 @@ class CjrlRigidVelocity
 {
 public:
   /// \brief Constructor.
-  CjrlRigidVelocity() {}
+  CjrlRigidVelocity()
+    : attLinearVelocity (),
+      attRotationVelocity ()
+  {}
 
   /// \brief Constructor.
   CjrlRigidVelocity(const vector3d& inLinearVelocity,
