@@ -222,10 +222,7 @@ public:
   /// \{
 
   /// \brief Whether the specified property in implemented.
-  virtual bool isSupported(const std::string &inProperty)
-  {
-    return false;
-  }
+  virtual bool isSupported(const std::string &inProperty);
 
   /// \brief Get property corresponding to command name.
   ///
@@ -235,10 +232,7 @@ public:
   /// \note The returned string needs to be cast into the right type
   /// (double, int,...).
   virtual bool getProperty(const std::string &inProperty,
-			   std::string& outValue) const
-  {
-    return false;
-  }
+			   std::string& outValue) const;
 
   /// \brief Set property corresponding to command name.
   ///
@@ -248,10 +242,7 @@ public:
   /// \note The value string is obtained by writing the
   /// corresponding value in a string (operator<<).
   virtual bool setProperty(std::string &inProperty,
-			   const std::string& inValue)
-  {
-    return false;
-  }
+			   const std::string& inValue);
 
   /// \}
 
@@ -347,15 +338,47 @@ public:
     \param[out] q: Result i.e. the articular values.
   */
   virtual bool
-  getSpecializedInverseKinematics(const CjrlJoint & jointRoot,
-				  const CjrlJoint & jointEnd,
-				  const matrix4d & jointRootPosition,
-				  const matrix4d & jointEndPosition,
-				  vectorN &q)
-  {
-    return false;
-  }
+  getSpecializedInverseKinematics(const CjrlJoint& jointRoot,
+				  const CjrlJoint& jointEnd,
+				  const matrix4d& jointRootPosition,
+				  const matrix4d& jointEndPosition,
+				  vectorN& q);
   /// \}
 };
+
+
+// Separate instantiation is required to avoid warnings with g++.
+// Unused parameters in functions/methods triggers a warning unless
+// they have no name. But in this, Doxygen is not able to document the
+// interface in an efficient way. A good compromise is class
+// declaration with no implementation and parameters with name, then
+// implementation where unused parameters have no name.
+inline bool
+CjrlDynamicRobot::getProperty(const std::string&, std::string&) const
+{
+  return false;
+}
+
+inline bool
+CjrlDynamicRobot::setProperty(std::string&, const std::string&)
+{
+  return false;
+}
+
+inline bool
+CjrlDynamicRobot::isSupported(const std::string&)
+{
+  return false;
+}
+
+inline bool
+CjrlDynamicRobot::getSpecializedInverseKinematics(const CjrlJoint&,
+						  const CjrlJoint&,
+						  const matrix4d&,
+						  const matrix4d&,
+						  vectorN&)
+{
+  return false;
+}
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_ROBOT_HH
