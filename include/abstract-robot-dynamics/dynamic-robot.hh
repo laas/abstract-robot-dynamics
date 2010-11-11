@@ -241,7 +241,7 @@ public:
   ///
   /// \note The value string is obtained by writing the
   /// corresponding value in a string (operator<<).
-  virtual bool setProperty(std::string &inProperty,
+  virtual bool setProperty(std::string &,
 			   const std::string& inValue);
 
   /// \}
