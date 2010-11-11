@@ -222,7 +222,7 @@ public:
   /// \{
 
   /// \brief Whether the specified property in implemented.
-  virtual bool isSupported(const std::string &inProperty);
+  virtual bool isSupported(const std::string &);
 
   /// \brief Get property corresponding to command name.
   ///
@@ -231,8 +231,8 @@ public:
   ///
   /// \note The returned string needs to be cast into the right type
   /// (double, int,...).
-  virtual bool getProperty(const std::string &inProperty,
-			   std::string& outValue) const;
+  virtual bool getProperty(const std::string &,
+			   std::string& ) const;
 
   /// \brief Set property corresponding to command name.
   ///
@@ -242,7 +242,7 @@ public:
   /// \note The value string is obtained by writing the
   /// corresponding value in a string (operator<<).
   virtual bool setProperty(std::string &,
-			   const std::string& inValue);
+			   const std::string& );
 
   /// \}
 
@@ -338,11 +338,11 @@ public:
     \param[out] q: Result i.e. the articular values.
   */
   virtual bool
-  getSpecializedInverseKinematics(const CjrlJoint& jointRoot,
-				  const CjrlJoint& jointEnd,
-				  const matrix4d& jointRootPosition,
-				  const matrix4d& jointEndPosition,
-				  vectorN& q);
+  getSpecializedInverseKinematics(const CjrlJoint & ,
+				  const CjrlJoint & ,
+				  const matrix4d & ,
+				  const matrix4d & ,
+				  vectorN &);
   /// \}
 };
 
