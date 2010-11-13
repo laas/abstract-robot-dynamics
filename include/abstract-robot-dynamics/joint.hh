@@ -112,7 +112,7 @@ public:
   ///
   /// The initial position of the joint is the position of the local
   /// frame of the joint.
-  virtual const matrix4d& initialPosition() = 0;
+  virtual const matrix4d& initialPosition() const = 0;
 
   /// \brief Update this joint's transformation according to degree of
   /// freedom value from argument robot configuration. This does not
@@ -142,14 +142,14 @@ public:
   /// \return the linear velocity \f${\bf v}\f$ of the origin of the
   /// joint frame and the angular velocity \f${\bf \omega}\f$ of the
   /// joint frame.
-  virtual CjrlRigidVelocity jointVelocity()=0;
+  virtual CjrlRigidVelocity jointVelocity() const =0;
 
   /// \brief Get the acceleration of the joint.
   ///
   /// The acceleration is determined by the configuration of the robot
   /// and its first and second time derivative: \f$({\bf q},{\bf
   /// \dot{q}}, {\bf \ddot{q}})\f$.
-  virtual CjrlRigidAcceleration jointAcceleration()=0;
+  virtual CjrlRigidAcceleration jointAcceleration() const=0;
 
   /// \brief Get the number of degrees of freedom of the joint.
   virtual unsigned int numberDof() const=0;
