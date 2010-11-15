@@ -206,6 +206,13 @@ public:
   */
   virtual const matrixNxP& currentTorques() const = 0;
 
+  /**
+       \brief Get the current joint torques of the robot.
+       
+       \return the torque vector \f${\bf \tau }\f$.
+    */
+	virtual const vectorN& currentJointTorques() const = 0;
+
 
   /**
      @}
