@@ -19,6 +19,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
+INCLUDE(cmake/cpack.cmake)
 
 SET(PROJECT_NAME abstract-robot-dynamics)
 SET(PROJECT_VERSION 1.16.0.99)
@@ -47,6 +48,7 @@ SET(${PROJECT_NAME}_HEADERS
   )
 
 SETUP_PROJECT()
+SETUP_PROJECT_CPACK()
 
 ADD_SUBDIRECTORY(tests)
 
