@@ -22,7 +22,6 @@ INCLUDE(cmake/boost.cmake)
 INCLUDE(cmake/cpack.cmake)
 
 SET(PROJECT_NAME abstract-robot-dynamics)
-SET(PROJECT_VERSION 1.16.0.99)
 SET(PROJECT_DESCRIPTION "JRL mathematical tools")
 SET(PROJECT_URL "http://github.com/laas/abstract-robot-dynamics")
 
