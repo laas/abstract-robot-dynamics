@@ -53,7 +53,7 @@ public:
   virtual void waist(CjrlJoint* inWaist) = 0;
 
   /// \brief Get a pointer to the waist.
-  virtual CjrlJoint* waist() = 0;
+  virtual CjrlJoint* waist() const = 0;
 
   /// \brief Set the pointer to the chest.
   ///
@@ -65,31 +65,31 @@ public:
   ///
   ///\note for some humanoid robots, the waist and the chest are the
   ///same joints.
-  virtual CjrlJoint* chest() = 0;
+  virtual CjrlJoint* chest() const = 0;
 
   /// \brief Set the pointer to the left wrist joint.
   virtual void leftWrist(CjrlJoint* inLefWrist) = 0;
 
   /// \brief Get a pointer to the left wrist.
-  virtual CjrlJoint* leftWrist() = 0;
+  virtual CjrlJoint* leftWrist()  const = 0;
 
   /// \brief Set the pointer to the right wrist joint.
   virtual void rightWrist(CjrlJoint* inRightWrist) = 0;
 
   /// \brief Get a pointer to the right wrist.
-  virtual CjrlJoint* rightWrist() = 0;
+  virtual CjrlJoint* rightWrist() const = 0;
 
   /// \brief Set the pointer to the right hand.
   virtual void rightHand(CjrlHand* inRightHand) = 0;
 
   /// \brief Get a pointer to the right hand.
-  virtual CjrlHand* rightHand() = 0;
+  virtual CjrlHand* rightHand() const = 0;
 
   /// \brief Set the pointer to the left hand.
   virtual void leftHand(CjrlHand* inLeftHand) = 0;
 
   /// \brief Get a pointer to the left hand.
-  virtual CjrlHand* leftHand() = 0;
+  virtual CjrlHand* leftHand() const = 0;
 
   /// \brief Get the hand clench value.
   /// This is a scalar value ranging between 0 and 1 which
@@ -106,25 +106,25 @@ public:
   virtual void leftAnkle(CjrlJoint* inLefAnkle) = 0;
 
   /// \brief Get a pointer to the left ankle.
-  virtual CjrlJoint* leftAnkle() = 0;
+  virtual CjrlJoint* leftAnkle() const = 0;
 
   /// \brief Set the pointer to the right ankle joint.
   virtual void rightAnkle(CjrlJoint* inRightAnkle) = 0;
 
   /// \brief Get a pointer to the right ankle.
-  virtual CjrlJoint* rightAnkle() = 0;
+  virtual CjrlJoint* rightAnkle() const = 0;
 
   /// \brief Set the pointer to the left foot joint.
   virtual void leftFoot(CjrlFoot* inLeftFoot) = 0;
 
   /// \brief Get a pointer to the left foot.
-  virtual CjrlFoot* leftFoot() = 0;
+  virtual CjrlFoot* leftFoot() const = 0;
 
   /// \brief Set the pointer to the right foot joint.
   virtual void rightFoot(CjrlFoot* inRightFoot) = 0;
 
   /// \brief Get a pointer to the right foot.
-  virtual CjrlFoot* rightFoot() = 0;
+  virtual CjrlFoot* rightFoot() const = 0;
 
   /// \brief Set gaze joint.
   ///
@@ -132,7 +132,7 @@ public:
   virtual void gazeJoint(CjrlJoint* inGazeJoint) = 0;
 
   /// \brief Get gaze joint.
-  virtual CjrlJoint* gazeJoint() = 0;
+  virtual CjrlJoint* gazeJoint() const = 0;
 
   /// \brief Set the gaze orientation and position in the local frame
   /// of the gaze joint.
