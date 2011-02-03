@@ -177,9 +177,13 @@ public:
 
   /// \brief Get the current joint torques of the robot.
   ///
+  /// The torques are computed by internal calls to the
+  /// direct dynamic computations. Dynamics is computed in free-floating
+  /// mode, supposing no contact with the environments, and knowing
+  /// given position, velocity and acceleration. This accessor only give
+  /// a reference on the already-computed values.
   /// \return the torque vector \f${\bf \tau }\f$.
   virtual const vectorN& currentJointTorques() const = 0;
-
 
   /// \}
 
