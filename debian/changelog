@@ -1,3 +1,15 @@
+abstract-robot-dynamics (1.16.2-2) lucid; urgency=low
+
+  * Change the directory to read for building the binary package.
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Sat, 09 Apr 2011 19:58:58 +0900
+
+abstract-robot-dynamics (1.16.2-1) lucid; urgency=low
+
+  * Documentation fix.
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Sat, 09 Apr 2011 19:40:06 +0900
+
 abstract-robot-dynamics (1.16.0.99-1) lucid; urgency=low
 
   * Initial work.

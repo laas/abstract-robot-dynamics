@@ -1,2 +1,2 @@
-usr/include/*
-usr/lib/pkgconfig/*
+opt/openrobots/include/*
+opt/openrobots/lib/pkgconfig/*
