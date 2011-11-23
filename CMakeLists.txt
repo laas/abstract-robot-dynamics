@@ -20,7 +20,6 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
 INCLUDE(cmake/cpack.cmake)
-INCLUDE(cmake/eigen.cmake)
 
 SET(PROJECT_NAME abstract-robot-dynamics)
 SET(PROJECT_DESCRIPTION "JRL mathematical tools")
@@ -30,7 +29,7 @@ SET(CUSTOM_HEADER_DIR "${PROJECT_NAME}")
 
 SET(BOOST_COMPONENTS unit_test_framework)
 SEARCH_FOR_BOOST()
-SEARCH_FOR_EIGEN()
+ADD_REQUIRED_DEPENDENCY("eigen3 >= 3.0.0")
 ADD_REQUIRED_DEPENDENCY("jrl-mal >= 1.7.4")
 
 SET(${PROJECT_NAME}_HEADERS
