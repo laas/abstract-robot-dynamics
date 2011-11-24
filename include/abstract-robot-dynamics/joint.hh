@@ -17,6 +17,7 @@
 #ifndef ABSTRACT_ROBOT_DYNAMICS_JOINT_HH
 # define ABSTRACT_ROBOT_DYNAMICS_JOINT_HH
 # include <vector>
+# include <string>
 
 # include <abstract-robot-dynamics/fwd.hh>
 # include <abstract-robot-dynamics/rigid-acceleration.hh>
@@ -77,6 +78,16 @@ public:
   /// \brief Destructor.
   virtual ~CjrlJoint() {}
 
+  /// \name Joint name
+  /// \{
+
+  /// \brief Get joint name
+  virtual const std::string& getName() const = 0;
+  /// \brief Set joint name
+  virtual void setName(const std::string & name) = 0;
+
+  /// \}
+  ///
   /// \name Joint hierarchy.
   /// \{
 
