@@ -1,4 +1,56 @@
                                                                 -*- outline -*-
+New in 1.17.1, 2011-11-25:
+*Add methods to set and get names from joints.
+
+New in 1.16.3, 2011-05-11:
+*Changes to get a compilable Ubuntu 10.04 LTS binary package.
+
+New in 1.16.2, 2011-02-23:
+*Fix documentation generation.
+*Added an accessor virtual on the robot joint torques.
+
+New in 1.16.1, 2010-12-30:
+*Modify convention for the feet.
+*Prefix headers by robotDynamics sub-directory.
+*Remove reference to ROBOTPKG_PATH environment variable.
+*Update documentation.
+*Make getter to specific joints const.
+*Add uninstall target.
+*Remove unnecessary CMAKE_INSTALL_PREFIX.
+*Add package target.
+*Add dependencies to abstractRobotDynamics package.
+*Fix proper dependencies and version name.
+*Remove deprecated methods for DynamicRobot.
+*Removed deprecated data from foot.
+*Remove ProjectionCenter and SoleCenter related method.
+*Rename package (abstract-robot-dynamics) and change install directory.
+*Abstract Robot Dynamics headers change to standard naming convention.
+*Remove parameter name unused in inline method.
+*Fix warnings.
+*Put to const some getter, to allow access with constants.
+*Creates debian package from cpack for Ubuntu 8.04 LTS.
+*Fix cmake bugs for generating debian package for ubuntu 8.04.
+*Getting rid of obsolete autogen.sh file.
+*Rename README into README.md
+*Remove INSTALL file.
+*Enhance README file using the Markdown syntax.
+*Enhance README file using the Markdown syntax.
+*Reformat NEWS file.
+*Update license to LGPL-3.
+*Fix package description file in CMakeLists.txt.
+*Update AUTHORS file.
+*Add mailmap file.
+*Add LGPL-3 license.
+*Fix typo in CMakeLists.txt
+*Debianize the package.
+*Fix Debian changelog file.
+*Fix index.html.
+*Switch to submodule and uniformize.
+*Normalize package, add simple test case.
+*Synchronize.
+*Fix warning.
+*Fix warnings.
+*Synchronize.
 
 New in 1.16.0, 2010-05-05:
 * Remove deprecated methods:
