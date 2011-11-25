@@ -1,0 +1,24 @@
+\form#0:${\bf q}$
+\form#1:$n_{dof}$
+\form#2:${\bf \dot{q}}$
+\form#3:${\bf \ddot{q}}$
+\form#4:${\bf f}$
+\form#5:${\bf \tau }$
+\form#6:${\bf {q}}$
+\form#7:$M_{init} \in SE(3)$
+\form#8:$M_{cur}({\bf q}) \in SE(3)$
+\form#9:${\bf p} \in {\bf R}^3$
+\form#10:\[ M_{cur}({\bf q}).M_{init}^{-1}.{\bf p} \]
+\form#11:$({\bf v}, {\bf \omega})$
+\form#12:$({\bf q},{\bf \dot{q}})$
+\form#13:${\bf v}$
+\form#14:${\bf \omega}$
+\form#15:$({\bf q},{\bf /// \dot{q}}, {\bf \ddot{q}})$
+\form#16:$J \in {\bf R}^{6\times n_{dof}}$
+\form#17:\[ J = \left(\begin{array}{llll} {\bf v_1} & {\bf v_2} & \cdots & {\bf v_{n_{dof}}} \\ {\bf \omega_1} & {\bf \omega_2} & \cdots & {\bf \omega_{n_{dof}}} \end{array}\right) \]
+\form#18:${\bf v_i}$
+\form#19:${\bf \omega_i}$
+\form#20:$q_i$
+\form#21:\[ \left(\begin{array}{l} {\bf v} \\ {\bf \omega}\end{array}\right) = J {\bf \dot{q}} \]
+\form#22:${\bf \dot{v}}$
+\form#23:${\bf \dot{\omega}}$
