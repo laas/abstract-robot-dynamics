@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$fwd_8hh.html" title="abstract&#45;robot&#45;dynamics/fwd.hh" alt="" coords="161,237,361,267"/>
-<area shape="rect" href="$joint_8hh.html" title="abstract&#45;robot&#45;dynamics/joint.hh" alt="" coords="75,83,280,112"/>
-<area shape="rect" href="$rigid-acceleration_8hh.html" title="abstract&#45;robot&#45;dynamics/rigid&#45;acceleration.hh" alt="" coords="123,160,400,189"/>
-<area shape="rect" href="$rigid-velocity_8hh.html" title="abstract&#45;robot&#45;dynamics/rigid&#45;velocity.hh" alt="" coords="424,160,677,189"/>
-<area shape="rect" href="$body_8hh.html" title="abstract&#45;robot&#45;dynamics/body.hh" alt="" coords="701,160,909,189"/>
-</map>
