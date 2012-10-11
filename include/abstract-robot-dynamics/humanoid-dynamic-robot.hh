@@ -50,89 +50,90 @@ public:
   /// \{
 
   /// \brief Set the pointer to the waist.
-  virtual void waist(CjrlJoint* inWaist) = 0;
+  virtual void waist(to_pointer<CjrlJoint>::type inWaist) = 0;
 
   /// \brief Get a pointer to the waist.
-  virtual CjrlJoint* waist() const = 0;
+  virtual to_pointer<CjrlJoint>::type waist() const = 0;
 
   /// \brief Set the pointer to the chest.
   ///
   /// \note for some humanoid robots, the waist and the chest are the
   /// same joints.
-  virtual void chest(CjrlJoint* inChest) = 0;
+  virtual void chest(to_pointer<CjrlJoint>::type inChest) = 0;
 
   /// \brief Get a pointer to the chest.
   ///
   ///\note for some humanoid robots, the waist and the chest are the
   ///same joints.
-  virtual CjrlJoint* chest() const = 0;
+  virtual to_pointer<CjrlJoint>::type chest() const = 0;
 
   /// \brief Set the pointer to the left wrist joint.
-  virtual void leftWrist(CjrlJoint* inLefWrist) = 0;
+  virtual void leftWrist(to_pointer<CjrlJoint>::type inLefWrist) = 0;
 
   /// \brief Get a pointer to the left wrist.
-  virtual CjrlJoint* leftWrist()  const = 0;
+  virtual to_pointer<CjrlJoint>::type leftWrist()  const = 0;
 
   /// \brief Set the pointer to the right wrist joint.
-  virtual void rightWrist(CjrlJoint* inRightWrist) = 0;
+  virtual void rightWrist(to_pointer<CjrlJoint>::type inRightWrist) = 0;
 
   /// \brief Get a pointer to the right wrist.
-  virtual CjrlJoint* rightWrist() const = 0;
+  virtual to_pointer<CjrlJoint>::type rightWrist() const = 0;
 
   /// \brief Set the pointer to the right hand.
-  virtual void rightHand(CjrlHand* inRightHand) = 0;
+  virtual void rightHand(to_pointer<CjrlHand>::type inRightHand) = 0;
 
   /// \brief Get a pointer to the right hand.
-  virtual CjrlHand* rightHand() const = 0;
+  virtual to_pointer<CjrlHand>::type rightHand() const = 0;
 
   /// \brief Set the pointer to the left hand.
-  virtual void leftHand(CjrlHand* inLeftHand) = 0;
+  virtual void leftHand(to_pointer<CjrlHand>::type inLeftHand) = 0;
 
   /// \brief Get a pointer to the left hand.
-  virtual CjrlHand* leftHand() const = 0;
+  virtual to_pointer<CjrlHand>::type leftHand() const = 0;
 
   /// \brief Get the hand clench value.
   /// This is a scalar value ranging between 0 and 1 which
   /// describes the hand clench (0 for open and 1 for closed hand)
-  virtual double getHandClench(CjrlHand* inHand) = 0;
+  virtual double getHandClench(to_pointer<CjrlHand>::type inHand) = 0;
 
   /// \brief Set the hand clench value. This is a scalar value
   /// ranging between 0 and 1 which describes the hand clench
   /// (0 for open and 1 for closed hand)
   /// \return false if parameter 2 is out of range
-  virtual bool setHandClench(CjrlHand* inHand, double inClenchingValue) = 0;
+  virtual bool
+  setHandClench(to_pointer<CjrlHand>::type inHand, double inClenchingValue) = 0;
 
   /// \brief Set the pointer to the left ankle joint.
-  virtual void leftAnkle(CjrlJoint* inLefAnkle) = 0;
+  virtual void leftAnkle(to_pointer<CjrlJoint>::type inLefAnkle) = 0;
 
   /// \brief Get a pointer to the left ankle.
-  virtual CjrlJoint* leftAnkle() const = 0;
+  virtual to_pointer<CjrlJoint>::type leftAnkle() const = 0;
 
   /// \brief Set the pointer to the right ankle joint.
-  virtual void rightAnkle(CjrlJoint* inRightAnkle) = 0;
+  virtual void rightAnkle(to_pointer<CjrlJoint>::type inRightAnkle) = 0;
 
   /// \brief Get a pointer to the right ankle.
-  virtual CjrlJoint* rightAnkle() const = 0;
+  virtual to_pointer<CjrlJoint>::type rightAnkle() const = 0;
 
   /// \brief Set the pointer to the left foot joint.
-  virtual void leftFoot(CjrlFoot* inLeftFoot) = 0;
+  virtual void leftFoot(to_pointer<CjrlFoot>::type inLeftFoot) = 0;
 
   /// \brief Get a pointer to the left foot.
-  virtual CjrlFoot* leftFoot() const = 0;
+  virtual to_pointer<CjrlFoot>::type leftFoot() const = 0;
 
   /// \brief Set the pointer to the right foot joint.
-  virtual void rightFoot(CjrlFoot* inRightFoot) = 0;
+  virtual void rightFoot(to_pointer<CjrlFoot>::type inRightFoot) = 0;
 
   /// \brief Get a pointer to the right foot.
-  virtual CjrlFoot* rightFoot() const = 0;
+  virtual to_pointer<CjrlFoot>::type rightFoot() const = 0;
 
   /// \brief Set gaze joint.
   ///
   /// \note  For most humanoid robots, the gaze joint is the head.
-  virtual void gazeJoint(CjrlJoint* inGazeJoint) = 0;
+  virtual void gazeJoint(to_pointer<CjrlJoint>::type inGazeJoint) = 0;
 
   /// \brief Get gaze joint.
-  virtual CjrlJoint* gazeJoint() const = 0;
+  virtual to_pointer<CjrlJoint>::type gazeJoint() const = 0;
 
   /// \brief Set the gaze orientation and position in the local frame
   /// of the gaze joint.

@@ -43,10 +43,10 @@ public:
   virtual ~CjrlFoot() {}
 
   /// \brief Get the ankle to which the foot is attached
-  virtual CjrlJoint* associatedAnkle() const = 0;
+  virtual to_pointer<CjrlJoint>::type associatedAnkle() const = 0;
 
   /// \brief Set the ankle to which the hand is attached.
-  virtual void  setAssociatedAnkle(CjrlJoint* inJoint) = 0;
+  virtual void  setAssociatedAnkle(to_pointer<CjrlJoint>::type inJoint) = 0;
 
   /// \brief Get size of the rectagular sole
   ///

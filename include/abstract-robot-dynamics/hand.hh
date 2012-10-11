@@ -33,10 +33,10 @@ public:
   virtual ~CjrlHand() {}
 
   /// \brief Get the wrist joint to which the hand is attached.
-  virtual CjrlJoint* associatedWrist() const = 0;
+  virtual to_pointer<CjrlJoint>::type associatedWrist() const = 0;
 
   /// \brief Get the wrist joint to which the hand is attached
-  virtual void setAssociatedWrist(CjrlJoint* inJoint ) = 0;
+  virtual void setAssociatedWrist(to_pointer<CjrlJoint>::type inJoint ) = 0;
 
   /// \brief Get the center of the hand
   ///

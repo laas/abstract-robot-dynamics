@@ -80,15 +80,15 @@ public:
   virtual void rootJoint(CjrlJoint& inJoint) = 0;
 
   /// \brief Get the root joint of the robot.
-  virtual CjrlJoint* rootJoint() const = 0;
+  virtual to_pointer<CjrlJoint>::type rootJoint() const = 0;
 
   /// \brief Get a vector containing all the joints.
-  virtual std::vector<CjrlJoint*> jointVector() = 0;
+  virtual std::vector<to_pointer<CjrlJoint>::type > jointVector() = 0;
 
   /// \brief Get the chain of joints between two joints
   /// \param inStartJoint First joint.
   /// \param inEndJoint Second joint.
-  virtual std::vector<CjrlJoint*>
+  virtual std::vector<to_pointer<CjrlJoint>::type >
   jointsBetween(const CjrlJoint& inStartJoint,
 		const CjrlJoint& inEndJoint) const = 0;
 
@@ -117,7 +117,9 @@ public:
   ///
   /// Specifies the order of the joints in the configuration vector.
   /// The vector should contain all the joints of the current robot.
-  virtual void setJointOrderInConfig(std::vector<CjrlJoint*> inJointVector) = 0;
+  virtual void
+  setJointOrderInConfig
+  (std::vector<to_pointer<CjrlJoint>::type > inJointVector) = 0;
 
   /// \}
 
@@ -314,10 +316,13 @@ public:
   /// \{
 
   /// \brief Returns the list of actuated joints.
-  virtual const std::vector<CjrlJoint*>& getActuatedJoints() const = 0;
+  virtual const std::vector<to_pointer<CjrlJoint>::type >&
+  getActuatedJoints() const = 0;
 
   /// \brief Specifies the list of actuated joints.
-  virtual void setActuatedJoints(std::vector<CjrlJoint*>& lActuatedJoints) = 0;
+  virtual void
+  setActuatedJoints
+  (std::vector<to_pointer<CjrlJoint>::type >& lActuatedJoints) = 0;
 
   /// \}
 
