@@ -46,6 +46,15 @@ SET(${PROJECT_NAME}_HEADERS
   include/abstract-robot-dynamics/robot-dynamics-object-constructor.hh
   )
 
+SET(${PROJECT_NAME}_TRAITS_HEADERS
+  include/abstract-robot-dynamics/traits/default-pointer.hh
+  include/abstract-robot-dynamics/traits/shared-pointer.hh
+  )
+
+INSTALL(FILES ${${PROJECT_NAME}_TRAITS_HEADERS}
+  DESTINATION include/abstract-robot-dynamics/traits
+  )
+
 SETUP_PROJECT()
 
 ADD_SUBDIRECTORY(tests)
