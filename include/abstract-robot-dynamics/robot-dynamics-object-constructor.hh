@@ -27,47 +27,47 @@ public:
   virtual ~CjrlRobotDynamicsObjectFactory() {}
 
   /// \brief Construct and return a pointer to a dynamic robot.
-  virtual to_pointer<CjrlDynamicRobot>::type createDynamicRobot() = 0;
+  virtual JrlDynamicRobotPtr createDynamicRobot() = 0;
 
   /// \brief Construct and return a pointer to a humanoid dynamic robot.
-  virtual to_pointer<CjrlHumanoidDynamicRobot>::type
+  virtual JrlHumanoidDynamicRobotPtr
   createHumanoidDynamicRobot() = 0;
 
   /// \brief Construct and return a pointer to a freeflyer joint.
 
   /// \param inInitialPosition position of the local frame of the
   /// joint when the robot is in initial configuration.
-  virtual to_pointer<CjrlJoint>::type
+  virtual JrlJointPtr
   createJointFreeflyer(const matrix4d& inInitialPosition) = 0;
 
   /// \brief Construct and return a pointer to a rotation joint.
   ///
   /// \param inInitialPosition position of the local frame of the
   /// joint when the robot is in initial configuration.
-  virtual to_pointer<CjrlJoint>::type
+  virtual JrlJointPtr
   createJointRotation(const matrix4d& inInitialPosition) = 0;
 
   /// \brief Construct and return a pointer to a translation joint.
   ///
   /// \param inInitialPosition position of the local frame of the
   /// joint when the robot is in initial configuration.
-  virtual to_pointer<CjrlJoint>::type
+  virtual JrlJointPtr
   createJointTranslation(const matrix4d& inInitialPosition) = 0;
 
   /// \brief Construct and return a pointer to a body
-  virtual to_pointer<CjrlBody>::type createBody() = 0;
+  virtual JrlBodyPtr createBody() = 0;
 
   /// \brief Construct and return a pointer to a hand.
   ///
   /// \param inWristJoint The joint the hand is attached to.
-  virtual to_pointer<CjrlHand>::type
-  createHand(to_pointer<CjrlJoint>::type inWristJoint) = 0;
+  virtual JrlHandPtr
+  createHand(JrlJointPtr inWristJoint) = 0;
 
   /// \brief Construct and return a pointer to a foot.
   ///
   /// \param inAnkle The joint the foot is attached to.
-  virtual to_pointer<CjrlFoot>::type
-  createFoot(to_pointer<CjrlJoint>::type inAnkle) = 0;
+  virtual JrlFootPtr
+  createFoot(JrlJointPtr inAnkle) = 0;
 };
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_ROBOT_DYNAMICS_OBJECT_CONSTRUCTOR

@@ -47,6 +47,7 @@ SET(${PROJECT_NAME}_HEADERS
   )
 
 SET(${PROJECT_NAME}_TRAITS_HEADERS
+  include/abstract-robot-dynamics/traits/fwd.hh
   include/abstract-robot-dynamics/traits/default-pointer.hh
   include/abstract-robot-dynamics/traits/shared-pointer.hh
   )

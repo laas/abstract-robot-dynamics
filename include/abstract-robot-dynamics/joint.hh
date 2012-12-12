@@ -92,7 +92,7 @@ public:
   /// \{
 
   /// \brief Get a pointer to the parent joint (if any).
-  virtual to_pointer<CjrlJoint>::type parentJoint() const = 0;
+  virtual JrlJointPtr parentJoint() const = 0;
 
   /// \brief Add a child joint.
   virtual bool addChildJoint (CjrlJoint& inJoint) = 0;
@@ -101,13 +101,13 @@ public:
   virtual unsigned int countChildJoints() const = 0;
 
   /// \brief Returns the child joint at the given rank.
-  virtual to_pointer<CjrlJoint>::type
+  virtual JrlJointPtr
   childJoint(unsigned int inJointRank) const = 0;
 
   /// \brief Get a vector containing references of the joints between
   /// the rootJoint and this joint. The root Joint and this Joint are
   /// included in the vector.
-  virtual std::vector<to_pointer<CjrlJoint>::type >
+  virtual std::vector<JrlJointPtr >
   jointsFromRootToThis() const = 0;
 
   /// \brief Get the rank of this joint in the robot configuration vector.
@@ -303,7 +303,7 @@ public:
   /// \{
 
   /// \brief Get a pointer to the linked body (if any).
-  virtual to_pointer<CjrlBody>::type linkedBody() const = 0;
+  virtual JrlBodyPtr linkedBody() const = 0;
 
   /// \brief Link a body to the joint.
   virtual void setLinkedBody (CjrlBody& inBody) = 0;

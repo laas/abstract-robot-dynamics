@@ -22,6 +22,8 @@
 #endif // ABSTRACT_ROBOT_DYNAMICS_POINTER_TRAIT
 #define ABSTRACT_ROBOT_DYNAMICS_POINTER_TRAIT
 
+# include <abstract-robot-dynamics/traits/fwd.hh>
+
 template<typename T>
 struct to_pointer;
 
@@ -36,5 +38,12 @@ struct to_pointer
 {
   typedef T* type;
 };
+
+ARD_DEFINE_TYPES(CjrlJoint, JrlJoint);
+ARD_DEFINE_TYPES(CjrlBody, JrlBody);
+ARD_DEFINE_TYPES(CjrlHand, JrlHand);
+ARD_DEFINE_TYPES(CjrlFoot, JrlFoot);
+ARD_DEFINE_TYPES(CjrlDynamicRobot, JrlDynamicRobot);
+ARD_DEFINE_TYPES(CjrlHumanoidDynamicRobot, JrlHumanoidDynamicRobot);
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_TRAITS_DEFAULT_POINTER_HH
