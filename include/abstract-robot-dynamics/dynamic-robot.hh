@@ -108,6 +108,19 @@ public:
   virtual double lowerBoundDof(unsigned int inRankInConfiguration,
 			       const vectorN& inConfig) = 0;
 
+  /// \brief Get the upper velocity bound for ith dof.
+  virtual double upperVelocityBoundDof(unsigned int inRankInConfiguration) = 0;
+
+  /// \brief Get the lower velocity bound for ith dof.
+  virtual double lowerVelocityBoundDof(unsigned int inRankInConfiguration) = 0;
+
+  /// \brief Get the upper torque bound for ith dof.
+  virtual double upperTorqueBoundDof(unsigned int inRankInConfiguration) = 0;
+
+  /// \brief Get the lower torque bound for ith dof.
+  virtual double lowerTorqueBoundDof(unsigned int inRankInConfiguration) = 0;
+
+
   /// \brief Get the number of degrees of freedom of the robot.
   virtual unsigned int numberDof() const = 0;
 
