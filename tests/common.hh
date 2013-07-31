@@ -18,6 +18,6 @@
 # define ABSTRACT_ROBOT_DYNAMICS_COMMON_HH
 
 # include <jrl/mal/matrixabstractlayer.hh>
-# include <abstract-robot-dynamics.hh>
+# include <abstract-robot-dynamics/abstract-robot-dynamics.hh>
 
 #endif //! ABSTRACT_ROBOT_DYNAMICS_COMMON_HH

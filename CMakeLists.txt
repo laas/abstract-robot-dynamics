@@ -32,7 +32,7 @@ SEARCH_FOR_BOOST()
 ADD_REQUIRED_DEPENDENCY("jrl-mal >= 1.7.4")
 
 SET(${PROJECT_NAME}_HEADERS
-  include/abstract-robot-dynamics.hh
+  include/abstract-robot-dynamics/abstract-robot-dynamics.hh
   include/abstract-robot-dynamics/body.hh
   include/abstract-robot-dynamics/dynamic-robot.hh
   include/abstract-robot-dynamics/foot.hh
