@@ -1,6 +1,9 @@
 abstract-robot-dynamics
 =======================
 
+[![Build Status](https://travis-ci.org/laas/abstract-robot-dynamics.png)](https://travis-ci.org/laas/abstract-robot-dynamics)
+[![Coverage Status](https://coveralls.io/repos/laas/abstract-robot-dynamics/badge.png?branch=master)](https://coveralls.io/r/laas/abstract-robot-dynamics?branch=master)
+
 This software provides interfaces which allow a generic representation
 of the dynamic of a humanoid robot.
 
