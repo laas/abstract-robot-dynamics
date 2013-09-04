@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$a00022.html" title="joint.hh" alt="" coords="249,83,313,112"/>
-<area shape="rect" href="$a00012.html" title="abstract&#45;robot&#45;dynamics.hh" alt="" coords="288,237,464,267"/>
-<area shape="rect" href="$a00017.html" title="foot.hh" alt="" coords="92,160,153,189"/>
-<area shape="rect" href="$a00019.html" title="hand.hh" alt="" coords="177,160,244,189"/>
-<area shape="rect" href="$a00020.html" title="humanoid&#45;dynamic&#45;robot.hh" alt="" coords="319,160,497,189"/>
-<area shape="rect" href="$a00025.html" title="robot&#45;dynamics&#45;object&#45;constructor.hh" alt="" coords="5,237,240,267"/>
-</map>
