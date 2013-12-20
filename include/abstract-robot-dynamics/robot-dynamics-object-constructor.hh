@@ -32,6 +32,15 @@ public:
   /// \brief Construct and return a pointer to a humanoid dynamic robot.
   virtual CjrlHumanoidDynamicRobot* createHumanoidDynamicRobot() = 0;
 
+  /// \brief Construct and return a pointer to an anchor joint.
+  ///
+  /// \param inInitialPosition position of the local frame of the
+  /// joint when the robot is in initial configuration.
+  ///
+  /// An anchor joint is a joint with 0 degree of freedom. Useful as a root
+  /// joint to model several robots in one kinematic tree.
+  virtual CjrlJoint* createJointAnchor(const matrix4d& inInitialPosition) = 0;
+
   /// \brief Construct and return a pointer to a freeflyer joint.
 
   /// \param inInitialPosition position of the local frame of the
